@@ -1,0 +1,25 @@
+ServiceType has_many VehicleServices
+Name:string
+MileageInterval:integer
+MonthInterval:integer
+
+Vehicle has_one ServiceRecord; has_many Vehicle_Services :through => Service_Record
+Number:string
+CurrentMileage:integer
+
+ServiceRecord belongs_to Vehicle; has_many VehicleServices
+VehicleID:integer
+
+VehicleService belongs_to ServiceRecord; belongs_to ServiceType
+ServiceRecordID:integer
+ServiceTypeID:integer
+DateOfService:date
+MileageAtService:integer 
+
+
+
+rails g scaffold Vehicle number:string current_mileage:integer
+rails g scaffold ServiceType name:string mileage_interval:integer month_interval:integer
+rails g model ServiceRecord
+rails g scaffold VehicleService date_of_service:date mileage_at_service:integer
+

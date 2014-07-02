@@ -1,0 +1,27 @@
+<h1>Listing vehicle_services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date of service</th>
+      <th>Mileage at service</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_services.each do |vehicle_service| %>
+      <tr>
+        <td><%= vehicle_service.date_of_service %></td>
+        <td><%= vehicle_service.mileage_at_service %></td>
+        <td><%= link_to 'Show', vehicle_service %></td>
+        <td><%= link_to 'Edit', edit_vehicle_service_path(vehicle_service) %></td>
+        <td><%= link_to 'Destroy', vehicle_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle service', new_vehicle_service_path %>
