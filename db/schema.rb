@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702224749) do
+ActiveRecord::Schema.define(version: 20140703140155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20140702224749) do
   create_table "service_records", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vehicle_id"
   end
+
+  add_index "service_records", ["vehicle_id"], name: "index_service_records_on_vehicle_id", using: :btree
 
   create_table "service_types", force: true do |t|
     t.string   "name"
@@ -34,7 +37,12 @@ ActiveRecord::Schema.define(version: 20140702224749) do
     t.integer  "mileage_at_service"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "service_record_id"
+    t.integer  "service_type_id"
   end
+
+  add_index "vehicle_services", ["service_record_id"], name: "index_vehicle_services_on_service_record_id", using: :btree
+  add_index "vehicle_services", ["service_type_id"], name: "index_vehicle_services_on_service_type_id", using: :btree
 
   create_table "vehicles", force: true do |t|
     t.string   "number"
