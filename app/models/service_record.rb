@@ -11,11 +11,10 @@ class ServiceRecord < ActiveRecord::Base
 	protected
 
 	def make_vehicle_services
-		vehicle_services = ServiceType.all
-		if vehicle_services
-			vehicle_services.each do |vs|
-				service = build_vehicle_service(attributes = { :service_record_id => self.id, :service_type_id => vs.id, :date_of_service => "1900-01-01 00:00:01", :mileage_at_service => 0 })
-				service.save
+		service_types = ServiceType.all
+		unless service_types.empty?
+			service_types.each do |st|
+				vehicle_services.create(attributes = { :service_record_id => self.id, :service_type_id => st.id, :date_of_service => "1900-01-01 00:00:01", :mileage_at_service => 0 })
 			end
 		else
 		end

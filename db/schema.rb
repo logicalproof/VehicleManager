@@ -41,9 +41,6 @@ ActiveRecord::Schema.define(version: 20140703140155) do
     t.integer  "service_type_id"
   end
 
-  add_index "vehicle_services", ["service_record_id"], name: "index_vehicle_services_on_service_record_id", using: :btree
-  add_index "vehicle_services", ["service_type_id"], name: "index_vehicle_services_on_service_type_id", using: :btree
-
   create_table "vehicles", force: true do |t|
     t.string   "number"
     t.integer  "current_mileage"

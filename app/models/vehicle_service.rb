@@ -4,6 +4,6 @@ class VehicleService < ActiveRecord::Base
 
 	validates :date_of_service, presence: true
 	validates :mileage_at_service, presence: true
-	validates :service_record_id, presence: true, uniqueness: true
-	validates :service_type_id, presence: true, uniqueness: true
+	validates :service_record_id, presence: true
+	validates :service_type_id, presence: true
 end
