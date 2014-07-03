@@ -24,26 +24,26 @@ rails g model ServiceRecord
 rails g scaffold VehicleService date_of_service:date mileage_at_service:integer
 
 Validations:
-Vehicle:
-  Number (unique, exists)
-  Current(mileage, exists or default)
-ServiceRecord:
-  VehicleID (unique, exists)
-VehicleService
-  date_of_service (exists)
-  mileage_at_service (exists)
-  service_record_id (exists, unique)
-  service_type_id (exists, unique)
-ServiceType
-  name (unique, exists)
-  mileage_interval (exists)
-  month_interval (exists)
+	Vehicle:
+	  Number (unique, exists)
+	  Current(mileage, exists or default)
+	ServiceRecord:
+	  VehicleID (unique, exists)
+	VehicleService
+	  date_of_service (exists)
+	  mileage_at_service (exists)
+	  service_record_id (exists, unique)
+	  service_type_id (exists, unique)
+	ServiceType
+	  name (unique, exists)
+	  mileage_interval (exists)
+	  month_interval (exists)
 
 Callbacks:
-Vehicle:
-  On creation create a ServiceRecord
-ServiceRecord:
-  On Creation create VehicleService's for each VehicleServiceType
-VehicleService:
-ServiceType:
-  On creation create a VehicleService for each ServiceRecord
+	Vehicle:
+	  On creation create a ServiceRecord
+	ServiceRecord:
+	  On Creation create VehicleService's for each VehicleServiceType
+	VehicleService:
+	ServiceType:
+	  On creation create a VehicleService for each ServiceRecord
