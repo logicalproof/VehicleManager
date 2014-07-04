@@ -10,8 +10,16 @@
 		<% @vehicle.vehicle_services.each do |x| %>
 		  <tr>
 			  <td><%= x.service_type.name %></td>
-			  <td><%= link_to x.check_for_default_date, edit_vehicle_service_path(x.id) %></td>
-			  <td><%= link_to x.check_for_default_mileage, edit_vehicle_service_path(x.id) %></td>
+        <% unless x.check_for_default_date == "Add a date" %>
+			    <td><%= x.check_for_default_date %></td>
+        <% else %>
+          <td><%= link_to x.check_for_default_date, edit_vehicle_service_path(x.id) %></td>
+        <% end %>
+        <% unless x.check_for_default_mileage == "Add mileage of service" %>
+          <td><%= x.check_for_default_mileage %></td>
+        <% else %>
+          <td><%= link_to x.check_for_default_mileage, edit_vehicle_service_path(x.id) %></td>
+        <% end %>
 			  <td><%= x.mileage_at_service + x.service_type.mileage_interval %></td>
 			  <td><%= x.date_of_service + x.service_type.month_interval.months %></td>
 		</tr>
