@@ -10,23 +10,7 @@
   <%= @vehicle.current_mileage %>
 </p>
 <p>
-<strong>Services:</strong>
-<table class="table table-bordered">
-  <tr>
-  	<th>Type</th>
-  	<th>Service Date</th>
-  	<th>Service Mileage</th>
-  	<th>Service Due Mileage</th>
-  	<th>Due Date</th>
-  </tr>
-	<% @vehicle.vehicle_services.each do |x| %>
-	  <tr><td><%= x.service_type.name %></td>
-	  <td><%= x.check_for_default_date %></td>
-	  <td><%= x.check_for_default_mileage %></td>
-	  <td><%= x.mileage_at_service + x.service_type.mileage_interval %></td>
-	  <td><%= x.date_of_service + x.service_type.month_interval.months %></td></tr>
-	<% end %>
-</table>
+	<%= render partial: 'current_services', locals: { items: @vehicle} %>
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |

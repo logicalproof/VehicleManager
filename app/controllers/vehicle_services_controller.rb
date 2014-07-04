@@ -25,7 +25,7 @@ class VehicleServicesController < ApplicationController
   # POST /vehicle_services.json
   def create
     @vehicle_service = VehicleService.new(vehicle_service_params)
-
+   
     respond_to do |format|
       if @vehicle_service.save
         format.html { redirect_to @vehicle_service, notice: 'Vehicle service was successfully created.' }
@@ -40,9 +40,10 @@ class VehicleServicesController < ApplicationController
   # PATCH/PUT /vehicle_services/1
   # PATCH/PUT /vehicle_services/1.json
   def update
+    vehicle = Vehicle.find(ServiceRecord.find(@vehicle_service.service_record_id).vehicle_id)
     respond_to do |format|
       if @vehicle_service.update(vehicle_service_params)
-        format.html { redirect_to @vehicle_service, notice: 'Vehicle service was successfully updated.' }
+        format.html { redirect_to vehicle, notice: 'Vehicle service was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_service }
       else
         format.html { render :edit }
