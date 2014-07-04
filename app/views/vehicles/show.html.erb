@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="container"><p>
   <strong>Number:</strong>
   <%= @vehicle.number %>
 </p>
@@ -11,7 +11,7 @@
 </p>
 <p>
 <strong>Services:</strong>
-<table>
+<table class="table table-bordered">
   <tr>
   	<th>Type</th>
   	<th>Service Date</th>
@@ -21,8 +21,8 @@
   </tr>
 	<% @vehicle.vehicle_services.each do |x| %>
 	  <tr><td><%= x.service_type.name %></td>
-	  <td><%= x.date_of_service %></td>
-	  <td><%= x.mileage_at_service %></td>
+	  <td><%= x.check_for_default_date %></td>
+	  <td><%= x.check_for_default_mileage %></td>
 	  <td><%= x.mileage_at_service + x.service_type.mileage_interval %></td>
 	  <td><%= x.date_of_service + x.service_type.month_interval.months %></td></tr>
 	<% end %>
@@ -31,3 +31,4 @@
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>
+</div>

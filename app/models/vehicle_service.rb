@@ -6,4 +6,20 @@ class VehicleService < ActiveRecord::Base
 	validates :mileage_at_service, presence: true
 	validates :service_record_id, presence: true
 	validates :service_type_id, presence: true
+
+	def check_for_default_date
+		if self.date_of_service.to_s == "1900-01-01"
+			return "No Date Set"
+		else
+			return self.date_of_service
+		end
+	end
+
+	def check_for_default_mileage
+		if self.mileage_at_service == 0
+			return "No Mileage Set"
+		else
+			return self.mileage_at_service
+		end
+	end
 end
