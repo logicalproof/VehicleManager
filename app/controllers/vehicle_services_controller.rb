@@ -25,10 +25,10 @@ class VehicleServicesController < ApplicationController
   # POST /vehicle_services.json
   def create
     @vehicle_service = VehicleService.new(vehicle_service_params)
-   
+    vehicle = Vehicle.find(ServiceRecord.find(@vehicle_service.service_record_id).vehicle_id)
     respond_to do |format|
       if @vehicle_service.save
-        format.html { redirect_to @vehicle_service, notice: 'Vehicle service was successfully created.' }
+        format.html { redirect_to vehicle, notice: 'Vehicle service was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_service }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class VehicleServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_service_params
-      params.require(:vehicle_service).permit(:date_of_service, :mileage_at_service)
+      params.require(:vehicle_service).permit(:date_of_service, :mileage_at_service, :service_type_id, :service_record_id)
     end
 end

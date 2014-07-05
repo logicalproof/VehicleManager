@@ -6,6 +6,7 @@
 	  	<th>Service Mileage</th>
 	  	<th>Service Due Mileage</th>
 	  	<th>Due Date</th>
+      <th></th>
 	  </tr>
 		<% @vehicle.vehicle_services.each do |x| %>
 		  <tr>
@@ -13,15 +14,18 @@
         <% unless x.check_for_default_date == "Add a date" %>
 			    <td><%= x.check_for_default_date %></td>
         <% else %>
-          <td><%= link_to x.check_for_default_date, edit_vehicle_service_path(x.id) %></td>
+          <td><%= link_to x.check_for_default_date, edit_vehicle_service_path(:service_type_id => x.service_type.id, :service_record_id => @vehicle.service_record.id) %></td>
         <% end %>
         <% unless x.check_for_default_mileage == "Add mileage of service" %>
           <td><%= x.check_for_default_mileage %></td>
         <% else %>
-          <td><%= link_to x.check_for_default_mileage, edit_vehicle_service_path(x.id) %></td>
+          <td><%= link_to x.check_for_default_mileage, edit_vehicle_service_path(:service_type_id => x.service_type.id, :service_record_id => @vehicle.service_record.id) %></td>
         <% end %>
 			  <td><%= x.mileage_at_service + x.service_type.mileage_interval %></td>
 			  <td><%= x.date_of_service + x.service_type.month_interval.months %></td>
+        <td>
+          <%= link_to ("Add a new " + x.service_type.name), new_vehicle_service_path(:service_type_id => x.service_type.id, :service_record_id => @vehicle.service_record.id) %>
+        </td>
 		</tr>
 		<% end %>
 	</table>
