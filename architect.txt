@@ -1,3 +1,16 @@
+"Are you sure you haven't seen this vehicle in over 10,000 miles?"
+"Are you sure that there are less miles on the vehicle than the last time you saw it?"
+validations for current mileage changes
+ability to update current mileage
+
+
+
+
+
+
+
+
+
 ServiceType has_many VehicleServices
 Name:string
 MileageInterval:integer
