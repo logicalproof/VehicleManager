@@ -8,6 +8,7 @@
 <p>
   <strong>Current mileage:</strong>
   <%= @vehicle.current_mileage %>
+  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
 </p>
 <p>
 	<%= render partial: 'current_services', locals: { items: @vehicle} %>
