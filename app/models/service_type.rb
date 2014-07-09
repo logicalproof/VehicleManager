@@ -7,6 +7,17 @@ class ServiceType < ActiveRecord::Base
 
 	after_create :make_vehicle_services
 
+	def service_list
+		services = ServiceType.all
+		service_list = []
+		if services.empty?
+		else
+			services.each do |service|
+				service_list << service.name
+			end
+		end
+		return service_list
+	end
 
 
 	protected
