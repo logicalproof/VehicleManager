@@ -6,7 +6,7 @@ module ApplicationHelper
 		if services.empty?
 		else
 			services.each do |service|
-				service_list << service.name
+				service_list << service.id
 			end
 		end
 		return service_list

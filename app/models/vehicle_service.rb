@@ -23,7 +23,5 @@ class VehicleService < ActiveRecord::Base
 		end
 	end
 
-	# def recent_services(service_types)
- #    service_types.each do |type|
-	# end
+
 end
