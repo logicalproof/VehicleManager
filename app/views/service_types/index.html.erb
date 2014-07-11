@@ -14,7 +14,7 @@
     <% @service_types.each do |service_type| %>
       <tr>
         <td><%= service_type.name %></td>
-        <td><%= service_type.mileage_interval %></td>
+        <td><%= number_with_delimiter(service_type.mileage_interval) %></td>
         <td><%= service_type.month_interval %></td>
         <td><%= link_to 'Show', service_type %></td>
         <td><%= link_to 'Edit', edit_service_type_path(service_type) %></td>
