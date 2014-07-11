@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :date_of_service %><br>
-    <%= f.date_select :date_of_service %>
+    <%= f.date_select :date_of_service, :start_year => Time.now.year %>
   </div>
   <div class="field">
     <%= f.label :mileage_at_service %><br>
