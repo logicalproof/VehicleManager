@@ -12,10 +12,10 @@
 	  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
 	</p>
 	</p>
-	  <%= current_services(@vehicle, service_list, "Current") %>
+	  <%= current_services(@vehicle, service_list) %>
 	</p>
 	<p>
-		<%= full_service_history(@vehicle, "Full History of") %>
+		<%= full_service_history(@vehicle) %>
 	</p>
 	<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 	<%= link_to 'Back', vehicles_path %>

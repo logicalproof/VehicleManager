@@ -1,7 +1,6 @@
-== README
+== Vehicle Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple fleet management application for tracking vehicle services.
 
 Things you may want to cover:
 

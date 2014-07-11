@@ -1,11 +1,16 @@
 "Are you sure you haven't seen this vehicle in over 10,000 miles?"
+
 "Are you sure that there are less miles on the vehicle than the last time you saw it?"
+
 validations for current mileage changes
+
 ability to update current mileage with ajax
+
+If a new service is more than the current mileage shall I update the current mileage?
 
 Current Services highlight in red when the current mileage or date exceeds the next date interval.
 
-sort services give me the most recent x 
+
 
 
 
