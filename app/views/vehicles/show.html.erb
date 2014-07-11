@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container"><p>
-  <strong>Number:</strong>
-  <%= @vehicle.number %>
-</p>
+<div class="container">
+	<p>
+    <strong>Number:</strong>
+    <%= @vehicle.number %>
+  </p>
 
-<p>
-  <strong>Current mileage:</strong>
-  <%= @vehicle.current_mileage %>
-  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
-</p>
-  <%= current_services(@vehicle, service_list) %>
-</p>
-
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+	<p>
+	  <strong>Current mileage:</strong>
+	  <%= @vehicle.current_mileage %>
+	  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
+	</p>
+	</p>
+	  <%= current_services(@vehicle, service_list, "Current") %>
+	</p>
+	<p>
+		<%= full_service_history(@vehicle, "Full History of") %>
+	</p>
+	<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+	<%= link_to 'Back', vehicles_path %>
 </div>
