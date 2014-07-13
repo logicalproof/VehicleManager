@@ -16,8 +16,11 @@
 	<p>
 	  <%= current_services(@vehicle, service_list) %>
 	</p>
-	<p id="toggle" class="btn btn-warning">
+	<p class="btn btn-warning toggle">
 		Show full service history
+	</p>
+	<p class="btn btn-warning toggle" style="display: none;">
+		Hide full service history
 	</p>
 	<div id="service-history">
 	  <p>

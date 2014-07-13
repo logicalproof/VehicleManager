@@ -3,8 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $("#toggle").click ->
+  $(".toggle").click ->
     $("#service-history").toggle()
+    $(".toggle").toggle()
     return
 
   return
