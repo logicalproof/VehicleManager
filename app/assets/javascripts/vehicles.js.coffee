@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $(".toggle").click ->
+  $(".btn.toggle").click ->
     $("#service-history").toggle()
     $(".toggle").toggle()
     return
