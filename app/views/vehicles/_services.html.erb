@@ -6,7 +6,6 @@
 	  	<th>Service Mileage</th>
 	  	<th>Service Due Mileage</th>
 	  	<th>Due Date</th>
-      <th></th>
 	  </tr>
 		<% services.each do |x| %>
       <% if x %>
@@ -32,9 +31,6 @@
           <% else %>
             <td>N/A</td>
           <% end %>
-          <td>
-            <%= link_to ("Add a new " + x.service_type.name), new_vehicle_service_path(:service_type_id => x.service_type.id, :service_record_id => @vehicle.service_record.id) %>
-          </td>
           
   		  </tr>
       <% end %>

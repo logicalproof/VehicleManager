@@ -5,18 +5,25 @@
     <strong>Number:</strong>
     <%= @vehicle.number %>
   </p>
-
 	<p>
 	  <strong>Current mileage:</strong>
 	  <%= number_with_delimiter(@vehicle.current_mileage) %>
 	  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
 	</p>
-	</p>
+	<p>
+  	<%=  show_service_buttons %>
+  </p>
+	<p>
 	  <%= current_services(@vehicle, service_list) %>
 	</p>
-	<p>
-		<%= full_service_history(@vehicle) %>
+	<p id="toggle" class="btn btn-warning">
+		Show full service history
 	</p>
+	<div id="service-history">
+	  <p>
+	  	<%= full_service_history(@vehicle) %>
+	  </p>
+  </div>
 	<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 	<%= link_to 'Back', vehicles_path %>
 </div>

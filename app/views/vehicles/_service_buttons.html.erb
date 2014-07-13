@@ -1,0 +1,4 @@
+<% service_types.each do |service_type| %>
+  <%= link_to ("Add a new " + service_type.name), new_vehicle_service_path(:service_type_id => service_type.id, :service_record_id => @vehicle.service_record.id), class: "btn btn-default" %>
+<% end %>
+
