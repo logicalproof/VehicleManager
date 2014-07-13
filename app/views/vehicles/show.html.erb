@@ -13,20 +13,22 @@
 	<p>
   	<%=  show_service_buttons %>
   </p>
-	<p>
-	  <%= current_services(@vehicle, service_list) %>
-	</p>
-	<p class="btn btn-warning toggle">
+  <p class="btn btn-warning toggle">
 		Show full service history
 	</p>
 	<p class="btn btn-warning toggle" style="display: none;">
-		Hide full service history
+		Show current service history
 	</p>
-	<div id="service-history">
+  <div class="toggle">
+	  <p>
+	    <%= current_services(@vehicle, service_list) %>
+	  </p>
+	</div>
+	<div class="toggle" style="display: none;">
 	  <p>
 	  	<%= full_service_history(@vehicle) %>
 	  </p>
   </div>
-	<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-	<%= link_to 'Back', vehicles_path %>
+
+
 </div>
