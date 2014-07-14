@@ -7,10 +7,4 @@ $(document).ready ->
     $("#service-history").toggle()
     $(".toggle").toggle()
     return
-  $(".hoverable").hover (->
-    $(this).find(".popup").show()
-    return
-  ), ->
-    $(this).find(".popup").hide()
-    return
   return

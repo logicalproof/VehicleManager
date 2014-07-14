@@ -2,8 +2,8 @@
 
 <div class="container">
 	<p>
-    <strong>Number:</strong>
-    <%= @vehicle.number %>
+    <h1>Vehicle <%= @vehicle.number %></h1>
+    
     </p>
 	<p>
 	  <strong>Current mileage:</strong>
@@ -14,11 +14,11 @@
   	  <%= show_service_buttons %>
     </div>
     <br />
-    <p class="btn btn-warning toggle">
+    <p class="btn btn-info toggle">
 		Show full service history
 	</p>
 	<p class="btn btn-warning toggle" style="display: none;">
-		Show current service history
+		Show current service's
 	</p>
   <div class="toggle">
 	  <p>

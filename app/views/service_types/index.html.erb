@@ -1,7 +1,10 @@
 <div>
   <h1>
-    Service Types
-    <%= link_to 'New Service type', new_service_type_path, :class => 'btn btn-default' %>
+    Tracked Services
+    <%= link_to new_service_type_path, :class => "btn btn-default hoverable" do %>
+      <%= 'New Trackable Service' %>
+      <div class='popup'>Add a new trackable service to the database!</div>
+    <% end %>
   </h1>
 </div>
 
