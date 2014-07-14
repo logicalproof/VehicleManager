@@ -24,3 +24,16 @@
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 body { padding-top: 70px; }
+
+.popup {
+    display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

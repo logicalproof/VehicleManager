@@ -1,27 +1,29 @@
-<h1>Vehicles</h1>
+<div>
+  <h1>
+    Vehicles
+    <%= link_to new_vehicle_path, :class => "btn btn-default hoverable" do %>
+      <%= 'New Vehicle' %>
+      <div class='popup'>Add a new vehicle to the database!</div>
+    <% end %>
+  </h1>
+</div>
 
 <table class="table table-bordered">
   <thead>
     <tr>
       <th>Number</th>
       <th>Current mileage</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @vehicles.each do |vehicle| %>
       <tr>
-        <td><%= vehicle.number %></td>
+        <td><%= link_to vehicle.number, vehicle %></td>
         <td><%= number_with_delimiter(vehicle.current_mileage) %></td>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Vehicle', new_vehicle_path %>

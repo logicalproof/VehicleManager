@@ -16,3 +16,12 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	$('.hoverable').hover(function() {
+	    $(this).find('div').show();
+	}, function() {
+	    $(this).find('div').hide();
+	});
+});
+

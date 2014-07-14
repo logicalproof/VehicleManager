@@ -1,4 +1,9 @@
-<h1>Service Types</h1>
+<div>
+  <h1>
+    Service Types
+    <%= link_to 'New Service type', new_service_type_path, :class => 'btn btn-default' %>
+  </h1>
+</div>
 
 <table class="table table-bordered">
   <thead>
@@ -6,19 +11,15 @@
       <th>Name</th>
       <th>Mileage interval</th>
       <th>Month interval</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @service_types.each do |service_type| %>
       <tr>
-        <td><%= service_type.name %></td>
+        <td><%= link_to service_type.name, service_type %></td>
         <td><%= number_with_delimiter(service_type.mileage_interval) %></td>
         <td><%= service_type.month_interval %></td>
-        <td><%= link_to 'Show', service_type %></td>
-        <td><%= link_to 'Edit', edit_service_type_path(service_type) %></td>
-        <td><%= link_to 'Destroy', service_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Service type', new_service_type_path %>
+
