@@ -1,22 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-	<p>
-    <h1>Vehicle <%= @vehicle.number %></h1>
-    
-    </p>
-	<p>
-	  <strong>Current mileage:</strong>
-	  <%= number_with_delimiter(@vehicle.current_mileage) %>
-	  <%= link_to "\(Update\)", edit_vehicle_path(@vehicle) %>
-	</p>
+  <div class="row">
+    <h1 class="col-md-3">Vehicle <%= @vehicle.number %></h1>   
+  </div>
+  <div class="btn btn-info toggle hoverable">
+		Current Service History
+    <div class='popup'>Click to view the full service history</div>
+	</div>
+	<div class="btn btn-warning toggle hoverable" style="display: none;">
+		Full Service History
+    <div class='popup'>Click to view the current service history</div>
+	</div>
+  <div class="col-md-4" style="float: right;">
+    <div class="well">
+      <ul>
+        <li>
+          <strong>Current Mileage: </strong><%= link_to number_with_delimiter(@vehicle.current_mileage), edit_vehicle_path(@vehicle) %>
+        </li>
+        <li>
+          <strong>Make: </strong><%= @vehicle.make %>
+        </li>
+        <li>
+          <strong>Model: </strong><%= @vehicle.model %>
+        </li>
+        <li>
+          <strong>Year: </strong><%= @vehicle.year %>
+        </li>
+        <li>
+          <strong>Purchase Date: </strong><%= @vehicle.purchase_date %>
+        </li>
+      </ul>
+    </div>
+    <div>
+    <%= show_service_buttons %>
+    </div>
+  </div>
 
-    <p class="btn btn-info toggle">
-		Show full service history
-	</p>
-	<p class="btn btn-warning toggle" style="display: none;">
-		Show current service's
-	</p>
   <div class="toggle">
 	  <p>
 	    <%= current_services(@vehicle, service_list) %>
@@ -27,7 +47,7 @@
 	   <%= full_service_history(@vehicle) %>
 	 </p>
   </div>
-	<div>
-	  <%= show_service_buttons %>
-	</div>
+
+
+
 </div>
