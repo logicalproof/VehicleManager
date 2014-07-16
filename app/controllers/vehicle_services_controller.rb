@@ -1,5 +1,6 @@
 class VehicleServicesController < ApplicationController
   before_action :set_vehicle_service, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /vehicle_services
   # GET /vehicle_services.json

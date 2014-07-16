@@ -44,3 +44,5 @@ gem 'rails_12factor', group: :production
 
 # specify for Heroku
 ruby "2.1.1"
+
+gem 'devise'
