@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
 
-  devise_for :users
+  devise_for :users 
+  resources :users, only: [:index]
   resources :service_types
 
   resources :vehicles
   
   resources :vehicle_services
+
+  resources :vehicle_assignments
  
 
   # The priority is based upon order of creation: first created -> highest priority.

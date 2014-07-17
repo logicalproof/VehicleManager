@@ -1,0 +1,2 @@
+module VehicleAssignmentHelper
+end
