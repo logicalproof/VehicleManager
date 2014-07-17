@@ -16,6 +16,14 @@ module VehiclesHelper
     service_types = ServiceType.all
     render partial: 'service_buttons', locals: {service_types: service_types}
   end
+
+  def assigned_driver(vehicle)
+    if vehicle.user
+      return vehicle.user.email
+    else
+      return "None Assigned"
+    end
+  end
     
 end
 

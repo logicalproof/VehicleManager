@@ -1,12 +1,14 @@
 <table>
 	<tr>
 		<th>Email</th>
+		<th>Assigned Vehicles</th>
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
 		<td>
 		    <%= user.email %>
 		</td>
+		<td><%= assigned_vehicles(user) %></td>
 	</tr>
 	<% end %>
   

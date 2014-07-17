@@ -1,8 +1,8 @@
 class Vehicle < ActiveRecord::Base
 	has_one :service_record, dependent: :destroy
 	has_many :vehicle_services, :through => :service_record
-	has_many :vehicle_assignments
-	has_many :users, :through => :assignments
+	has_one :vehicle_assignment
+	has_one :user, :through => :vehicle_assignment
 
 	validates :number, presence: true, uniqueness: true
 	validates :current_mileage, presence: true
