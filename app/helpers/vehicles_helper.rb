@@ -19,9 +19,9 @@ module VehiclesHelper
 
   def assigned_driver(vehicle)
     if vehicle.user
-      return vehicle.user.email
+      return link_to vehicle.user.email, vehicle.vehicle_assignment, method: :delete, data: { confirm: 'Are you sure you want to remove this driver?' }
     else
-      return "None Assigned"
+      return link_to "None Assigned", new_vehicle_assignment_path(:vehicle_id => vehicle.id)
     end
   end
     

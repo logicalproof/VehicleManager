@@ -13,6 +13,7 @@
     <tr>
       <th>Number</th>
       <th>Current mileage</th>
+      <th>Assigned Driver</th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
       <tr>
         <td><%= link_to vehicle.number, vehicle %></td>
         <td><%= number_with_delimiter(vehicle.current_mileage) %></td>
+        <td><%= assigned_driver(vehicle) %></td>
       </tr>
     <% end %>
   </tbody>

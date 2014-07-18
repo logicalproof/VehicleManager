@@ -1,13 +1,14 @@
 module UsersHelper
 	def assigned_vehicles(user)
     if user.vehicles.first
-    	v = ""
+    	v = "|"
     	user.vehicles.each do |vehicle|
-    		v += vehicle.number + " "
+    		v += link_to vehicle.number, vehicle_path(vehicle)
+        v += "|"
     	end
-      	return v
+      	return v.html_safe
     else
-      return "None Assigned"
+      return link_to "None Assigned", new_vehicle_assignment_path(:user_id => user.id)
     end
   end
 end

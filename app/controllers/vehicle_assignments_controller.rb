@@ -15,7 +15,13 @@ class VehicleAssignmentsController < ApplicationController
 
   # GET /vehicle_assignments/new
   def new
-    @vehicle_assignment = VehicleAssignment.new
+    if params[:vehicle_id]
+      @vehicle_assignment = VehicleAssignment.new(:vehicle_id => params[:vehicle_id])
+    elsif params[:user_id]
+      @vehicle_assignment = VehicleAssignment.new(:user_id => params[:user_id])
+    else
+      @vehicle_assignment = VehicleAssignment.new
+    end
   end
 
   # GET /vehicle_assignments/1/edit
@@ -29,7 +35,7 @@ class VehicleAssignmentsController < ApplicationController
 
     respond_to do |format|
       if @vehicle_assignment.save
-        format.html { redirect_to @vehicle_assignment, notice: 'Service type was successfully created.' }
+        format.html { redirect_to vehicle_url(@vehicle_assignment.vehicle), notice: 'Vehicle assignment was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_assignment }
       else
         format.html { render :new }
@@ -43,7 +49,7 @@ class VehicleAssignmentsController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle_assignment.update(vehicle_assignment_params)
-        format.html { redirect_to @vehicle_assignment, notice: 'Service type was successfully updated.' }
+        format.html { redirect_to vehicle_url(@vehicle_assignment.vehicle), notice: 'Vehicle assignment was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_assignment }
       else
         format.html { render :edit }
@@ -57,7 +63,7 @@ class VehicleAssignmentsController < ApplicationController
   def destroy
     @vehicle_assignment.destroy
     respond_to do |format|
-      format.html { redirect_to vehicle_assignments_url, notice: 'Service type was successfully destroyed.' }
+      format.html { redirect_to vehicle_url(@vehicle_assignment.vehicle), notice: 'Vehicle assignment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
