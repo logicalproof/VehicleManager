@@ -6,6 +6,7 @@ class Vehicle < ActiveRecord::Base
 
 	validates :number, presence: true, uniqueness: true
 	validates :current_mileage, presence: true
+	validates :purchase_date, presence: true
 
 	after_create :make_service_record
 

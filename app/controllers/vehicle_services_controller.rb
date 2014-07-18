@@ -71,6 +71,6 @@ class VehicleServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_service_params
-      params.require(:vehicle_service).permit(:date_of_service, :mileage_at_service, :service_type_id, :service_record_id)
+      params.require(:vehicle_service).permit(:date_of_service, :mileage_at_service, :service_type_id, :service_record_id, :notes)
     end
 end

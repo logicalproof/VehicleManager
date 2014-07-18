@@ -7,6 +7,10 @@
   <strong>Mileage at service:</strong>
   <%= @vehicle_service.mileage_at_service %>
 </p>
+</p>
+	<strong>Notes:</strong>
+  <%= @vehicle_service.notes %>
+</p>
 
 <%= link_to 'Edit', edit_vehicle_service_path(@vehicle_service) %> |
 <%= link_to 'Back', vehicle_services_path %>

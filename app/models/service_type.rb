@@ -17,7 +17,10 @@ class ServiceType < ActiveRecord::Base
 		vehicles = Vehicle.all
 		unless vehicles.empty?
 			vehicles.each do |v|
-				vehicle_services.create(attributes = { :service_record_id => v.service_record.id, :service_type_id => self.id, :date_of_service => v.purchase_date, :mileage_at_service => v.current_mileage })
+				vehicle_services.create(attributes = { :service_record_id => v.service_record.id, 
+													:service_type_id => self.id, 
+													:date_of_service => v.purchase_date, 
+													:mileage_at_service => v.current_mileage })
 			end
 		else
 		end

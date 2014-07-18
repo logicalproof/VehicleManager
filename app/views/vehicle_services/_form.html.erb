@@ -16,6 +16,10 @@
     <%= f.date_select :date_of_service, :start_year => Time.now.year %>
   </div>
   <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="field">
     <%= f.label :mileage_at_service %><br>
     <%= f.number_field :mileage_at_service %>
     <%= f.hidden_field :service_type_id, :value => params[:service_type_id] %>
