@@ -7,6 +7,8 @@ class VehicleService < ActiveRecord::Base
 	validates :service_record_id, presence: true
 	validates :service_type_id, presence: true
 
+	after_create :update_mileage_from_service
+
 	def check_for_default_date
 		if self.date_of_service.to_s == "1900-01-01"
 			return "Add a date"
@@ -16,6 +18,7 @@ class VehicleService < ActiveRecord::Base
 	end
 
 	def check_for_default_mileage
+
 		if self.mileage_at_service == 0
 			return "Add mileage of service"
 		else
@@ -23,5 +26,12 @@ class VehicleService < ActiveRecord::Base
 		end
 	end
 
+	def update_mileage_from_service
+		vehicle = Vehicle.find(ServiceRecord.find(service_record_id).vehicle_id)
+		if vehicle.current_mileage < self.mileage_at_service
+			vehicle.current_mileage = self.mileage_at_service	
+			vehicle.save
+		end
+	end
 
 end
