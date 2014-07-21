@@ -9,6 +9,7 @@ validations for current mileage changes
 Current Services highlight in red when the current mileage or date exceeds the next date interval.
 
 
+When a user logs in I want them to be able to see their assigned vehicles
 
 
 
@@ -18,8 +19,9 @@ Current Services highlight in red when the current mileage or date exceeds the n
 
 
 
-ServiceType has_many VehicleServices
-Name:string
+
+
+
 MileageInterval:integer
 MonthInterval:integer
 
