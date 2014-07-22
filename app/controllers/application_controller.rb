@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to static_pages_access_denied_url, :alert => exception.message
+    render :file => "public/401.html", :status => :unauthorized, :layout => false
+  end
+
+  # sends user to their profile after sign_in
+  def after_sign_in_path_for(resource_or_scope)
+    user_path(current_user.id)
   end
 
   protected

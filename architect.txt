@@ -9,7 +9,12 @@ validations for current mileage changes
 Current Services highlight in red when the current mileage or date exceeds the next date interval.
 
 
-When a user logs in I want them to be able to see their assigned vehicles
+#When a user logs in I want them to be able to see their assigned vehicles#
+
+Drivers should be able to edit their assigned vehicles mileage
+Drivers should be able to fill out a weekly PM for their assigned vehicles
+
+Users should only be able to see links that they have access too.
 
 
 
