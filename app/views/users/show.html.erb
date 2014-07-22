@@ -1,4 +1,12 @@
-<% @vehicles.each do |x| %>
-<%= link_to x.number, vehicle_path(x) %>
+<h2>User Profile</h2>
+<%= link_to "Change your password", edit_user_registration_path %>
+<% if @vehicles %>
+<div>
+	<strong>Vehicle Assignments</strong>
+	<ul>
+	<% @vehicles.each do |x| %>
+		<li><%= link_to x.number, vehicle_path(x) %></li>
+	<% end %>
+	</ul>
+</div>
 <% end %>
-<%= link_to current_user.email, edit_user_registration_path %>
