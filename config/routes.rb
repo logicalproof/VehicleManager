@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'static_pages/access_denied'
+
+  get 'static_pages/home'
+
   devise_for :users 
   resources :users, only: [:index, :show]
   resources :service_types

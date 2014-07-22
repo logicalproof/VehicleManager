@@ -1,3 +1,4 @@
 <% @vehicles.each do |x| %>
 <%= link_to x.number, vehicle_path(x) %>
 <% end %>
+<%= link_to current_user.email, edit_user_registration_path %>

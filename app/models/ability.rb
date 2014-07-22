@@ -9,9 +9,12 @@ class Ability
         can :manage, :all
       elsif user.supervisor?
         can :manage, [Vehicle, VehicleAssignment, VehicleService]
-        can :manage, User, :user_id => user.id
+        can :manage, User, :id => user.id
+        can :read, User
       elsif user.driver?
-        can :manage, User, :user_id => user.id
+        can :manage, User, :id => user.id
+        can :read, User, :id => user.id
+        cannot :index, User
       end
     #
     # The first argument to `can` is the action you are giving the user
