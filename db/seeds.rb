@@ -10,7 +10,7 @@ def user_creation(email_suffix, password, user_names)
   suffix = email_suffix
   pword = password
   user_names.each do |u|
-	User.create(email: (u+suffix), password: pword, password_confirmation: pword)
+	  User.create(email: (u+suffix), password: pword, password_confirmation: pword, role: 'driver')
   end
 end
 

@@ -1,6 +1,7 @@
 class VehicleAssignmentsController < ApplicationController
   before_action :set_vehicle_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
   
   # GET /vehicle_assignments
   # GET /vehicle_assignments.json
