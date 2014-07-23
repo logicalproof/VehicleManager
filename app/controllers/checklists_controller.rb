@@ -14,7 +14,7 @@ class ChecklistsController < ApplicationController
 
   # GET /checklists/new
   def new
-    @checklist = Checklist.new(checked_item_type_id: params[:checked_item_type_id], name: current_user.email)
+    @checklist = Checklist.new(checklist_type_id: params[:checklist_type_id], name: current_user.email)
   end
 
   # GET /checklists/1/edit
@@ -70,11 +70,11 @@ class ChecklistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checklist_params
-      # params.require(:checklist).permit(:name, :comments, :checked_item_type_id, :properties)
-      # params.require(:checklist).permit(:name, :comments, :checked_item_type_id).tap do |whitelisted|
-      #   whitelisted[:checked_item_type] = params[:checked_item_type][:properties]
+      # params.require(:checklist).permit(:name, :comments, :checklist_type_id, :properties)
+      # params.require(:checklist).permit(:name, :comments, :checklist_type_id).tap do |whitelisted|
+      #   whitelisted[:checklist_type] = params[:checklist_type][:properties]
       # end
-      params.require(:checklist).permit(:name, :comments, :checked_item_type_id).tap do |whitelisted|
+      params.require(:checklist).permit(:name, :comments, :checklist_type_id).tap do |whitelisted|
         whitelisted[:properties] = params[:checklist][:properties]
       end
     end

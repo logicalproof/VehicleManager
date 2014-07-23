@@ -25,6 +25,6 @@
 <br>
 
 <%= form_tag new_checklist_path, method: :get do %>
-  <%= select_tag :checked_item_type_id, options_from_collection_for_select(CheckedItemType.all, :id, :name) %>
+  <%= select_tag :checklist_type_id, options_from_collection_for_select(ChecklistType.all, :id, :name) %>
   <%= submit_tag "New Checklist", name: nil %>
 <% end %>

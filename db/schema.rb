@@ -16,18 +16,18 @@ ActiveRecord::Schema.define(version: 20140723141702) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "checked_item_fields", force: true do |t|
+  create_table "checklist_fields", force: true do |t|
     t.string   "name"
     t.string   "field_type"
     t.boolean  "required"
-    t.integer  "checked_item_type_id"
+    t.integer  "checklist_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "checked_item_fields", ["checked_item_type_id"], name: "index_checked_item_fields_on_checked_item_type_id", using: :btree
+  add_index "checklist_fields", ["checklist_type_id"], name: "index_checklist_fields_on_checklist_type_id", using: :btree
 
-  create_table "checked_item_types", force: true do |t|
+  create_table "checklist_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140723141702) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "checked_item_type_id"
+    t.integer  "checklist_type_id"
     t.text     "properties"
   end
 

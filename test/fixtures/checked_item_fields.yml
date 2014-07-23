@@ -4,10 +4,10 @@ one:
   name: MyString
   field_type: MyString
   required: false
-  checked_item_type_id: 
+  checklist_type_id: 
 
 two:
   name: MyString
   field_type: MyString
   required: false
-  checked_item_type_id: 
+  checklist_type_id: 

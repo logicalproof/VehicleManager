@@ -1,0 +1,28 @@
+<%= form_for(@checklist_type) do |f| %>
+  <% if @checklist_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checklist_type.errors.count, "error") %> prohibited this checklist_type from being saved:</h2>
+
+      <ul>
+      <% @checklist_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.fields_for :fields do |builder| %>
+      <%= render 'field_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Field", f, :fields %>
+  </div>
+  <div class="actions">
+
+    <%= f.submit %>
+  </div>
+<% end %>

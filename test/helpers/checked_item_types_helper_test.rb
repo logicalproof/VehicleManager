@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class CheckedItemTypesHelperTest < ActionView::TestCase
+class ChecklistTypesHelperTest < ActionView::TestCase
 end
