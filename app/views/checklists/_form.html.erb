@@ -1,0 +1,34 @@
+<%= form_for(@checklist) do |f| %>
+  <% if @checklist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checklist.errors.count, "error") %> prohibited this checklist from being saved:</h2>
+
+      <ul>
+      <% @checklist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+    <%= f.hidden_field :checked_item_type_id %>
+
+  <%= f.fields_for :properties, OpenStruct.new(@checklist.properties) do |builder| %>
+    <% @checklist.checked_item_type.fields.each do |field| %>
+      <%= render "checklists/fields/#{field.field_type}", field: field, f: builder %>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>

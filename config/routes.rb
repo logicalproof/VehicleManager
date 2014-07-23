@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :checklists
+
   resources :checked_item_types
 
   get 'static_pages/access_denied'
