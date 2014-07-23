@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722033529) do
+ActiveRecord::Schema.define(version: 20140722214441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checked_item_fields", force: true do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "checked_item_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "checked_item_fields", ["checked_item_type_id"], name: "index_checked_item_fields_on_checked_item_type_id", using: :btree
+
+  create_table "checked_item_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "checklists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "service_records", force: true do |t|
     t.datetime "created_at"
