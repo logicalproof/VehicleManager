@@ -14,7 +14,7 @@ class ChecklistsController < ApplicationController
 
   # GET /checklists/new
   def new
-    @checklist = Checklist.new(checked_item_type_id: params[:checked_item_type_id])
+    @checklist = Checklist.new(checked_item_type_id: params[:checked_item_type_id], name: current_user.email)
   end
 
   # GET /checklists/1/edit
