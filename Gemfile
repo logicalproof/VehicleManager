@@ -47,3 +47,4 @@ ruby "2.1.1"
 
 gem 'devise'
 gem 'cancancan', '~> 1.9' 
+gem 'annotate', '~> 2.6.5'

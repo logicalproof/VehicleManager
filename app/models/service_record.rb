@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: service_records
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  vehicle_id :integer
+#
+
 class ServiceRecord < ActiveRecord::Base
 	belongs_to :vehicle
 	has_many :vehicle_services
