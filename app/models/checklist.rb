@@ -9,6 +9,8 @@
 #  updated_at        :datetime
 #  checklist_type_id :integer
 #  properties        :text
+#  user_id           :integer
+#  vehicle_id        :integer
 #
 
 class Checklist < ActiveRecord::Base
