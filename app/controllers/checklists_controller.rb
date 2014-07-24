@@ -14,7 +14,7 @@ class ChecklistsController < ApplicationController
 
   # GET /checklists/new
   def new
-    @checklist = Checklist.new(checklist_type_id: params[:checklist_type_id], name: current_user.email)
+    @checklist = Checklist.new(checklist_type_id: params[:checklist_type_id], user_id: current_user.id)
   end
 
   # GET /checklists/1/edit
@@ -74,7 +74,7 @@ class ChecklistsController < ApplicationController
       # params.require(:checklist).permit(:name, :comments, :checklist_type_id).tap do |whitelisted|
       #   whitelisted[:checklist_type] = params[:checklist_type][:properties]
       # end
-      params.require(:checklist).permit(:name, :comments, :checklist_type_id).tap do |whitelisted|
+      params.require(:checklist).permit(:name, :comments, :user_id, :vehicle_id, :checklist_type_id).tap do |whitelisted|
         whitelisted[:properties] = params[:checklist][:properties]
       end
     end
