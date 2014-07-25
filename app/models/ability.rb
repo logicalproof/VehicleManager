@@ -15,6 +15,12 @@ class Ability
         can :manage, User, :id => user.id
         can :read, User, :id => user.id
         cannot :index, User
+        vehicle_assignment = VehicleAssignment.where("user_id = ?", user.id)
+
+          vehicle_assignment.each do |va|
+            can [:read, :update], Vehicle, :id => va.vehicle_id
+            cannot :index, Vehicle
+          end
       end
     #
     # The first argument to `can` is the action you are giving the user

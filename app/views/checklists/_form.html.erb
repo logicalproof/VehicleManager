@@ -22,12 +22,13 @@
     <%= f.text_area :comments %>
   </div>
     <%= f.hidden_field :checklist_type_id %>
-
+  <div class="field">    
   <%= f.fields_for :properties, OpenStruct.new(@checklist.properties) do |builder| %>
     <% @checklist.checklist_type.fields.each do |field| %>
       <%= render "checklists/fields/forms/#{field.field_type}", field: field, f: builder %>
     <% end %>
   <% end %>
+  <div>
   <div class="actions">
     <%= f.submit %>
   </div>
