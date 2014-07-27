@@ -1,6 +1,6 @@
 class ChecklistTypesController < ApplicationController
   before_action :set_checklist_type, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /checklist_types
   # GET /checklist_types.json
   def index

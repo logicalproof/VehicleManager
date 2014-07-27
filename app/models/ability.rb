@@ -8,19 +8,25 @@ class Ability
       if user.admin?
         can :manage, :all
       elsif user.supervisor?
-        can :manage, [Vehicle, VehicleAssignment, VehicleService]
+        can :manage, [Vehicle, VehicleAssignment, VehicleService, Checklist, ChecklistType, ChecklistField]
         can :manage, User, :id => user.id
         can :read, User
+        cannot :destroy, ChecklistType
+        cannot :destroy, ChecklistField
       elsif user.driver?
         can :manage, User, :id => user.id
         can :read, User, :id => user.id
         cannot :index, User
+        
         vehicle_assignment = VehicleAssignment.where("user_id = ?", user.id)
-
-          vehicle_assignment.each do |va|
-            can [:read, :update], Vehicle, :id => va.vehicle_id
-            cannot :index, Vehicle
-          end
+        vehicle_assignment.each do |va|
+          can [:read, :update], Vehicle, :id => va.vehicle_id
+          cannot :index, Vehicle
+        end
+        can :create, Checklist
+        can [:read, :update], Checklist, :user_id => user.id
+        cannot :index, Checklist
+        cannot :destroy, Checklist
       end
     #
     # The first argument to `can` is the action you are giving the user
