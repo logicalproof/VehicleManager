@@ -4,9 +4,18 @@
 <div>
 	<strong>Vehicle Assignments</strong>
 	<ul>
-	<% @vehicles.each do |x| %>
-		<li><%= link_to x.number, vehicle_path(x) %></li>
-	<% end %>
+  	<% @vehicles.each do |x| %>
+  		<li>
+        <div class="vehicle_with_report">
+          <%= link_to x.number, vehicle_path(x) %>
+          <%= form_tag new_checklist_path, method: :get, :class => "form-inline" do %>
+          <%= select_tag :checklist_type_id, options_from_collection_for_select(ChecklistType.all, :id, :name) %>
+          <%= hidden_field_tag :vehicle_id, x.id %>
+          <%= submit_tag "New Report", name: nil, :class => "btn btn-primary" %>
+          <% end %>
+        </div>
+  		</li>
+  	<% end %>
 	</ul>
 </div>
 <% end %>

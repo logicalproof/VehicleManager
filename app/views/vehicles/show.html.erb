@@ -10,6 +10,7 @@
 		Full Service History
     <div class='popup'>Click to view the current service history</div>
 	</div>
+
   <div class="col-md-4" style="float: right;">
     <div class="well">
       <ul>
@@ -32,11 +33,7 @@
           <strong>Driver: </strong><%= assigned_driver(@vehicle) %>
         </li>
       </ul>
-      <%= form_tag new_checklist_path, method: :get do %>
-        <%= select_tag :checklist_type_id, options_from_collection_for_select(ChecklistType.all, :id, :name) %>
-        <%= hidden_field_tag :vehicle_id, @vehicle.id %>
-        <%= submit_tag "New Checklist", name: nil %>
-      <% end %>
+
     </div>
     <div>
     <%= show_service_buttons %>
@@ -54,9 +51,3 @@
 	 </p>
   </div>
 </div>
-
-<%= form_tag new_checklist_path, method: :get do %>
-  <%= select_tag :checklist_type_id, options_from_collection_for_select(ChecklistType.all, :id, :name) %>
-  <%= hidden_field_tag :vehicle_id, @vehicle.id %>
-  <%= submit_tag "New Checklist", name: nil %>
-<% end %>
