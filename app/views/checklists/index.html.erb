@@ -1,10 +1,12 @@
 <h1>Listing Reports</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Comments</th>
+      <th>Report</th>
+      <th>User</th>
+      <th>Vehicle</th>
+      <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,8 +14,10 @@
   <tbody>
     <% @checklists.each do |checklist| %>
       <tr>
-        <td><%= checklist.name %></td>
-        <td><%= checklist.comments %></td>
+        <td><%= return_if_exists(checklist.checklist_type, :name) %></td>
+        <td><%= return_if_exists(checklist.user, :email) %></td>
+        <td><%= return_if_exists(checklist.vehicle, :number) %></td>
+        <td><%= checklist.created_at.strftime("%a %b #{checklist.created_at.day.ordinalize}") %></td>
         <td><%= link_to 'Show', checklist %></td>
         <td><%= link_to 'Edit', edit_checklist_path(checklist) %></td>
         <td><%= link_to 'Destroy', checklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>

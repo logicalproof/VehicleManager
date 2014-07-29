@@ -28,4 +28,12 @@ module ApplicationHelper
     tr("-", "_").
     downcase
   end
+
+  def return_if_exists(obj, method)
+    if obj
+      return obj.send(method)
+    else
+      "No #{method.to_s}"
+    end
+  end
 end
