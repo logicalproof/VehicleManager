@@ -21,16 +21,31 @@ class Checklist < ActiveRecord::Base
 
   validate :validate_properties
 
+  after_save :update_current_mileage
+
   def validate_properties
     checklist_type.fields.each do |field|
       if field.required? && properties[field.name].blank?
         errors.add field.name, "must not be blank"
       end
     end
+    if self.properties["Current Mileage"].to_i < Vehicle.find(self.vehicle_id).current_mileage
+      errors.add :current_mileage, "inputed cannot be less than previous mileage. \(#{Vehicle.find(self.vehicle_id).current_mileage} miles\)"
+    end
   end
 
+  private 
+
   def update_current_mileage
-    if self
+    miles = self.properties["Current Mileage"].to_i
+    if miles > 1
+      vehicle = Vehicle.find(self.vehicle_id)
+      if vehicle.current_mileage < miles
+        vehicle.current_mileage = miles
+        vehicle.save
+      else
+        errors.add :current_mileage, "inputed cannot be less than previous mileage."
+      end
     end
   end
 end
