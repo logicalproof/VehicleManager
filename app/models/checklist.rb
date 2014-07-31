@@ -28,4 +28,9 @@ class Checklist < ActiveRecord::Base
       end
     end
   end
+
+  def update_current_mileage
+    if self
+    end
+  end
 end

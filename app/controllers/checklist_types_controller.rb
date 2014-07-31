@@ -70,7 +70,7 @@ class ChecklistTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def checklist_type_params
       # params.require(:checklist_type).permit(:name, :fields_attributes)
-      params.require(:checklist_type).permit(:name, :checklist_type_id).tap do |whitelisted|
+      params.require(:checklist_type).permit(:name, :vehicle_report, :checklist_type_id).tap do |whitelisted|
         whitelisted[:fields_attributes] = params[:checklist_type][:fields_attributes]
       end
     end
