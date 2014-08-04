@@ -21,6 +21,7 @@ class Vehicle < ActiveRecord::Base
 	has_one :vehicle_assignment
 	has_one :user, :through => :vehicle_assignment
 	has_many :checklists
+	has_many :mileage_entries, class_name: "Mileage"
 
 	validates :number, presence: true, uniqueness: true
 	validates :current_mileage, presence: true

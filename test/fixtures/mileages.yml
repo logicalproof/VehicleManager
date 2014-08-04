@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  miles: 
+  vehicle_id: 
+  user_id: 
+
+two:
+  miles: 
+  vehicle_id: 
+  user_id: 

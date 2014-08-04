@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731175605) do
+ActiveRecord::Schema.define(version: 20140804153003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20140731175605) do
 
   add_index "checklists", ["user_id"], name: "index_checklists_on_user_id", using: :btree
   add_index "checklists", ["vehicle_id"], name: "index_checklists_on_vehicle_id", using: :btree
+
+  create_table "mileages", force: true do |t|
+    t.integer  "miles"
+    t.integer  "vehicle_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mileages", ["user_id"], name: "index_mileages_on_user_id", using: :btree
+  add_index "mileages", ["vehicle_id"], name: "index_mileages_on_vehicle_id", using: :btree
 
   create_table "service_records", force: true do |t|
     t.datetime "created_at"

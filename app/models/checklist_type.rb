@@ -2,10 +2,11 @@
 #
 # Table name: checklist_types
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  vehicle_report :boolean
 #
 
 class ChecklistType < ActiveRecord::Base
