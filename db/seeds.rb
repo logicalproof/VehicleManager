@@ -30,7 +30,7 @@ user_creation("@americanfire.com", "afe12345", user_names)
 
 
 def vehicle_creation(vehicle)
-  v = Vehicle.create(number: vehicle[0], current_mileage: 1, make: "Chevy", model: vehicle[1], year: vehicle[2], purchase_date: "#{vehicle[2]}-01-01 00:00:01")
+  v = Vehicle.create(number: vehicle[0], current_mileage: 0, make: "Chevy", model: vehicle[1], year: vehicle[2], purchase_date: "#{vehicle[2]}-01-01 00:00:01")
 end
 
 

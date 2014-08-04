@@ -13,6 +13,7 @@
 #
 
 class VehicleService < ActiveRecord::Base
+  attr_accessor :user_id
 	belongs_to :service_record
 	belongs_to :service_type
 
@@ -42,10 +43,13 @@ class VehicleService < ActiveRecord::Base
 
 	def update_mileage_from_service
 		vehicle = Vehicle.find(ServiceRecord.find(service_record_id).vehicle_id)
-		if vehicle.current_mileage < self.mileage_at_service
-			vehicle.current_mileage = self.mileage_at_service	
-			vehicle.save
-		end
+    if vehicle.current_mileage < self.mileage_at_service
+      vehicle.current_mileage = self.mileage_at_service
+      vehicle.user_id = self.user_id
+      vehicle.save
+    else
+      errors.add :current_mileage, "inputed cannot be less than previous mileage."
+    end
 	end
 
 end

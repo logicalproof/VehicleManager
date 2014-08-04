@@ -27,6 +27,7 @@ class VehicleServicesController < ApplicationController
   # POST /vehicle_services.json
   def create
     @vehicle_service = VehicleService.new(vehicle_service_params)
+    @vehicle_service.user_id = current_user.id
     vehicle = Vehicle.find(ServiceRecord.find(@vehicle_service.service_record_id).vehicle_id)
     respond_to do |format|
       if @vehicle_service.save
@@ -68,6 +69,7 @@ class VehicleServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle_service
       @vehicle_service = VehicleService.find(params[:id])
+      @vehicle_service.user_id = current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

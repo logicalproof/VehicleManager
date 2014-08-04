@@ -42,6 +42,7 @@ class Checklist < ActiveRecord::Base
       vehicle = Vehicle.find(self.vehicle_id)
       if vehicle.current_mileage < miles
         vehicle.current_mileage = miles
+        vehicle.user_id = self.user_id
         vehicle.save
       else
         errors.add :current_mileage, "inputed cannot be less than previous mileage."

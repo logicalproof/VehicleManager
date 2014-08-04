@@ -27,7 +27,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles.json
   def create
     @vehicle = Vehicle.new(vehicle_params)
-
+    @vehicle.user_id = current_user.id
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
@@ -67,6 +67,7 @@ class VehiclesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])
+      @vehicle.user_id = current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

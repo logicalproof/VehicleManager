@@ -21,13 +21,19 @@ class Vehicle < ActiveRecord::Base
 	has_one :vehicle_assignment
 	has_one :user, :through => :vehicle_assignment
 	has_many :checklists
-	has_many :mileage_entries, class_name: "Mileage"
+	has_many :mileages
+  attr_accessor :user_id #to pass the current user into make_mileage_record
 
 	validates :number, presence: true, uniqueness: true
 	validates :current_mileage, presence: true
 	validates :purchase_date, presence: true
 
 	after_create :make_service_record
+	after_create :make_mileage_record
+	after_update :make_mileage_record
+
+
+  
 
 
 	protected
@@ -35,4 +41,15 @@ class Vehicle < ActiveRecord::Base
 	def make_service_record
 		create_service_record(attributes = { :vehicle_id => self.id })
 	end
+
+	def make_mileage_record
+		if self.mileages.count == 0
+		  self.mileages.create(attributes = { :vehicle_id => self.id, :user_id => self.user_id, :miles => self.current_mileage })
+    elsif self.mileages.last.miles < current_mileage
+      self.mileages.create(attributes = { :vehicle_id => self.id, :user_id => self.user_id, :miles => self.current_mileage })
+    end
+	end
+
+
+
 end
