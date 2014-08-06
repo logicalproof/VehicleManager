@@ -1,7 +1,6 @@
 
 
-!!!TODO - Current Services highlight in red when the current mileage or date exceeds the next date interval.!!!
-	Mileage extraced into a service object
+
 
 TODO - validations for current mileage changes
   "Are you sure you haven't seen this vehicle in over 10,000 miles?"
@@ -14,7 +13,8 @@ TODO - Users should only be able to see links that they have access too.
 
 
 
-
+!!!TODO - Current Services highlight in red when the current mileage or date exceeds the next date interval.!!!
+	Complete - Mileage extraced into a service object
 
 
 
