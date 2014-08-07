@@ -63,6 +63,14 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def overdue_services
+    @overdue_services = []
+    Vehicle.all.each do |vehicle|
+      @overdue_services << vehicle.mileages.last.check_for_upcoming_service
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle

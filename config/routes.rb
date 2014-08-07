@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/home'
 
+  get 'vehicles/overdue_services'
+
   devise_for :users 
   resources :users, only: [:index, :show]
   resources :service_types

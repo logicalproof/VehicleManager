@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Service Type</th>
+    <th>Vehicle</th>
+    <th>Current Mileage</th>
+    <th>Due Mileage</th>
+    <th>Due Date</th>
+    <th>Driver</th>
+  </tr>
+    <% @overdue_services.each do |service_list| %>
+      <% service_list.each do |service| %>
+        <%= render partial: "overdue_services", locals: { overdue_service: service } %>
+      <% end %>
+    <% end %>
+</table>

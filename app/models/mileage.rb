@@ -17,19 +17,25 @@ class Mileage < ActiveRecord::Base
   after_create :check_for_upcoming_service
 
   def check_for_upcoming_service
-    mileage_due = service.mileage_at_service + service.service_type.mileage_interval
-    due_date = service.updated_at + service.service_type.month_interval.months
+    due_service = []
     current_services.each do |service|
+      mileage_due = service.mileage_at_service + service.service_type.mileage_interval
+      due_date = service.updated_at + service.service_type.month_interval.months
       if miles > (mileage_due)
         logger.info "#{service.service_type.name} is due on Vehicle #{self.vehicle.number} for driver #{self.user.email}"
-      elsif Time.now > (due_date)
+        due_service << service
+      elsif Time.now < (due_date)
         logger.info "#{service.service_type.name} is due on Vehicle #{self.vehicle.number} for driver #{self.user.email}"
+        due_service << service
       elsif miles > (mileage_due - 200)
         logger.info "#{service.service_type.name} is due in #{mileage_due - miles} miles for Vehicle #{self.vehicle.number} for driver #{self.user.email}"
-      elsif Time.now > (due_date - 10.days)
+        due_service << service
+      elsif Time.now < (due_date - 10.days)
         logger.info "#{service.service_type.name} is due in 10 days for Vehicle #{self.vehicle.number} for driver #{self.user.email}"
+        due_service << service
       end
     end
+    due_service
   end
 
   private
