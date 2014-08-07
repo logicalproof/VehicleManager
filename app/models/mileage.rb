@@ -20,14 +20,14 @@ class Mileage < ActiveRecord::Base
     due_service = []
     current_services.each do |service|
       mileage_due = service.mileage_at_service + service.service_type.mileage_interval
-      due_date = service.updated_at + service.service_type.month_interval.months
+      due_date = service.date_of_service + service.service_type.month_interval.months
       if miles > (mileage_due)
         due_service << service
-      elsif Time.now < (due_date)
+      elsif 15.minutes.ago > (due_date)
         due_service << service
       elsif miles > (mileage_due - 200)
         due_service << service
-      elsif Time.now < (due_date - 10.days)
+      elsif 15.minutes.ago > (due_date - 10.days)
         due_service << service
       end
     end
