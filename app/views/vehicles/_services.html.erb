@@ -10,7 +10,7 @@
       <% if due_service?(x) %>
   		  <tr class="overdue">
       <% else %>
-        <tr>
+        <tr class="early">
       <% end %>
 
   			  <td><%= x.service_type.name %></td>

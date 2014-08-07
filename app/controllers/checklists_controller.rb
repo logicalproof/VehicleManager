@@ -26,7 +26,7 @@ class ChecklistsController < ApplicationController
   # POST /checklists.json
   def create
     @checklist = Checklist.new(checklist_params)
-
+    @checklist.name = @checklist.checklist_type.name
     respond_to do |format|
       if @checklist.save
         format.html { redirect_to @checklist, notice: 'Checklist was successfully created.' }
