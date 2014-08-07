@@ -7,8 +7,12 @@
 	  	<th>Due Date</th>
 	  </tr>
 		<% services.each do |x| %>
-      <% if x %>
-  		  <tr>
+      <% if due_service?(x) %>
+  		  <tr class="overdue">
+      <% else %>
+        <tr>
+      <% end %>
+
   			  <td><%= x.service_type.name %></td>
           <% unless x.check_for_default_date == "Add a date" %>
   			    <td><%= x.check_for_default_date %></td>
@@ -32,6 +36,5 @@
           <% end %>
           
   		  </tr>
-      <% end %>
 		<% end %>
 	</table>

@@ -12,6 +12,23 @@ module VehiclesHelper
     render partial: 'services', locals: { services: vehicle.vehicle_services.all.order('date_of_service DESC'), title: "Full Service History" }
   end
 
+  def due_service?(service)
+    mileage_due = service.mileage_at_service + service.service_type.mileage_interval
+    due_date = service.date_of_service + service.service_type.month_interval.months
+    miles = @vehicle.current_mileage
+    if miles > (mileage_due)
+      return true
+    elsif 15.minutes.ago > (due_date)
+      return true
+    elsif miles > (mileage_due - 200)
+      return true
+    elsif 15.minutes.ago > (due_date - 10.days)
+      return true
+    else
+      return false
+    end
+  end
+
   def show_service_buttons
     service_types = ServiceType.all
     render partial: 'service_buttons', locals: {service_types: service_types}
