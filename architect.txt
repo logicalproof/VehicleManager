@@ -1,6 +1,6 @@
 TODO - Email
-  Scheduling Email
-  Overdue Service Email
+  complete - Upcoming Email
+  complete - Overdue Service Email
   Overdue Report Email
 
 TODO - User Signup
