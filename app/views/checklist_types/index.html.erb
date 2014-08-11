@@ -1,6 +1,12 @@
-<h1>Listing Report Types</h1>
+<h1>
+  Listing Report Types
+  <%= link_to new_checklist_type_path, :class => "btn btn-default hoverable" do %>
+    <%= 'New Report Type' %>
+    <div class='popup'>Add a new report type to the database!</div>
+  <% end %>
+</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,5 +27,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Checked item type', new_checklist_type_path %>

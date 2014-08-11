@@ -32,6 +32,9 @@ class Checklist < ActiveRecord::Base
     if self.properties["Current Mileage"].to_i < Vehicle.find(self.vehicle_id).current_mileage
       errors.add :current_mileage, "inputed cannot be less than previous mileage. \(#{Vehicle.find(self.vehicle_id).current_mileage} miles\)"
     end
+    if self.properties["Current Mileage"].to_i > (Vehicle.find(self.vehicle_id).current_mileage + 3000)
+      errors.add :current_mileage, "inputed cannot be 3000 miles more than previous mileage. \(#{Vehicle.find(self.vehicle_id).current_mileage} miles\)"
+    end
   end
 
   private 
