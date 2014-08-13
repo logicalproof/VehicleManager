@@ -1,5 +1,11 @@
-<h1>Overdue Service</h1>
-
-<p>
-  Vehicle <%= @vehicle.number %> assigned to <%= @user.email %> is overdue for <%= @service.service_type.name %>
-</p>
+<h1>Vehicle <%= @vehicle.number %> assigned to <%= @user.email %> has the folloing actions</h1>
+<% if @overdue_service.count > 0 %>
+  <% @overdue_service.each do |service| %>
+    <p>Vehicle <%= @vehicle.number %> overdue for <%= service.service_type.name %></p>
+  <% end %>
+<% end %>
+<% if @upcoming_service.count > 0 %>
+  <% @upcoming_service.each do |service| %>
+    <p>Vehicle <%= @vehicle.number %> approaching required <%= service.service_type.name %></p>
+  <% end %>
+<% end %>

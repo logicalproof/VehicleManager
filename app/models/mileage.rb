@@ -53,25 +53,28 @@ class Mileage < ActiveRecord::Base
     end
 
     def send_notification
+      services = {:overdue => [], :upcoming => []}
+      if self.vehicle.vehicle_assignment
+        assigned_driver = self.vehicle.vehicle_assignment.user 
+      else
+        assigned_driver = User.find(1)
+      end
       current_services.each do |service|
         mileage_due = service.mileage_at_service + service.service_type.mileage_interval
         due_date = service.date_of_service + service.service_type.month_interval.months
         
-        if self.vehicle.vehicle_assignment
-          assigned_driver = self.vehicle.vehicle_assignment.user 
-        else
-          assigned_driver = User.find(1)
-        end
-
         if miles > (mileage_due)
-          ServiceMailer.overdue_service(assigned_driver, self.vehicle, service).deliver
+          services[:overdue] << service
         elsif 15.minutes.ago > (due_date)
-          ServiceMailer.overdue_service(assigned_driver, self.vehicle, service).deliver
+          services[:overdue] << service
         elsif miles > (mileage_due - 200)
-          ServiceMailer.upcoming_service(assigned_driver, self.vehicle, service).deliver
+          services[:upcoming] << service
         elsif 15.minutes.ago > (due_date - 10.days)
-          ServiceMailer.upcoming_service(assigned_driver, self.vehicle, service).deliver
+          services[:upcoming] << service
         end
+      end
+      if services[:overdue].count > 1 || services[:upcoming].count > 1
+        ServiceMailer.overdue_service(assigned_driver, self.vehicle, services).deliver
       end
     end
 end
