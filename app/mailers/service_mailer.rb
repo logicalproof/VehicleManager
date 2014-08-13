@@ -20,7 +20,7 @@ class ServiceMailer < ActionMailer::Base
   #
   #   en.service_mailer.overdue_service.subject
   #
-  def overdue_service(user, vehicle, services)
+  def notify_driver(user, vehicle, services)
     @overdue_service = services[:overdue]
     @upcoming_service = services[:upcoming]
     @vehicle = vehicle
