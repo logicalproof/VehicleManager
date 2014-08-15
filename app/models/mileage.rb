@@ -73,7 +73,7 @@ class Mileage < ActiveRecord::Base
           services[:upcoming] << service
         end
       end
-      if services[:overdue].count > 1 || services[:upcoming].count > 1
+      if services[:overdue].count > 0 || services[:upcoming].count > 0
         ServiceMailer.notify_driver(assigned_driver, self.vehicle, services).deliver
       end
     end

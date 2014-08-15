@@ -46,6 +46,7 @@ Rails.application.configure do
     :user_name => ENV["MANDRILL_USER"],
     :password  => ENV["MANDRILL_API_KEY"]
   }
+  ActionMailer::Base.default :from => ENV["VEHICLE_USER"]
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "americanfire.com"}
