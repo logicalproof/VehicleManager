@@ -1,5 +1,5 @@
 class ServiceMailer < ActionMailer::Base
-  default from: "americanfire@example.com"
+  default from: "fleetmanagement@americanfire.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

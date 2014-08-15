@@ -37,38 +37,15 @@ Rails.application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-
-  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.active_support.deprecation = :notify
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "americanfire.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USER"],
-    password: ENV["GMAIL_PASS"]
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :user_name => ENV["MANDRILL_USER"],
+    :password  => ENV["MANDRILL_API_KEY"]
   }
-  # config.action_mailer.smtp_settings = {
-  #   address: "webmail.americanfire.com",
-  #   port: 80,
-  #   domain: "americanfire.com",
-  #   authentication: "login",
-  #   enable_starttls_auto: true,
-  #   user_name: ENV["VEHICLE_USER"],
-  #   password: ENV["VEHICLE_PASSWORD"]
-  # }
-
-  # config.active_support.deprecation = :notify
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :address => 'webmail.americanfire.com',          # mail.example.com
-  #   :domain => 'americanfire.com',                 # example.com
-  #   :user_name => ENV["VEHICLE_USER"],            # user.name
-  #   :password => ENV["VEHICLE_PASSWORD"], # p@ssw0rd
-  #   :port => 80,
-  #   :authentication => :ntlm
-  # }
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "americanfire.com"}
