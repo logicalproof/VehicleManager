@@ -3,10 +3,6 @@ TODO - Email
   complete - Overdue Service Email
   Overdue Report Email
 
-TODO - User Signup
-  User cannot cancel their account
-  User cannot create new account
-
 TODO - Formating
   Format of checklists
   Format of checklist fields
@@ -31,6 +27,10 @@ bandaided - validations for current mileage changes
 
 Completed - Current Services highlight in red when the current mileage or date exceeds the next date interval.!!!
 	Complete - Mileage extraced into a service object
+
+Completed - User Signup
+  User cannot cancel their account
+  User cannot create new account
 
 Completed - Users should only be able to see links that they have access too.
 	Achieved by creating seperate partials for each role type

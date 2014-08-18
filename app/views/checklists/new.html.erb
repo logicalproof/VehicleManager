@@ -1,4 +1,9 @@
-<h1>New Report</h1>
+<% if @checklist.checklist_type.vehicle_report %>
+  <h1><%= @checklist.checklist_type.name %> for vehicle <%= @checklist.vehicle.number %></h1>
+<% else %>
+  <h1><%= @checklist.checklist_type.name %></h1>
+<% end %>
+
 
 <%= render 'form' %>
 

@@ -1,5 +1,5 @@
 <fieldset>
-  <%= f.select :field_type, %w{text_field number_field check_box radio_button} %>
+  <%= f.select :field_type, %w{text_field number_field check_box radio_button}, {}, {class: 'btn btn-default dropdown-toggle'} %>
   <%= f.text_field :name, placeholder: 'field_name' %>
   <%= f.check_box :required %><%= f.label :required %>
   <%= f.hidden_field :_destroy %>

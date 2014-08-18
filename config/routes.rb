@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'vehicles/overdue_services'
 
+  devise_scope :user do
+    get "/users/sign_up",  :to => "devise/sessions#new"
+  end
+
   devise_for :users 
   resources :users, only: [:index, :show]
   resources :service_types
