@@ -63,6 +63,21 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  # Don't care if the mailer can't send
+  config.action_mailer.perform_deliveries = true
+  config.active_support.deprecation = :notify
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :user_name => ENV["MANDRILL_USER"],
+    :password  => ENV["MANDRILL_API_KEY"]
+  }
+  ActionMailer::Base.default :from => ENV["VEHICLE_USER"]
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "americanfire.com"}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
