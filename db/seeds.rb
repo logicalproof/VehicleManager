@@ -138,5 +138,5 @@ vehicles_array = [[19, "C2500", "1998"],
 
 
   services.each do |x|
-	service_type_creation(x)
+	  service_type_creation(x)
   end

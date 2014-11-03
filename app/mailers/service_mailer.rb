@@ -1,5 +1,7 @@
 class ServiceMailer < ActionMailer::Base
 
+  default from: "fleetmanagement@americanfire.com"
+
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -12,6 +14,13 @@ class ServiceMailer < ActionMailer::Base
     @greeting = "Hi"
 
     mail to: user.email
+  end
+
+  def notify_mechanic(user, vehicle, properties)
+    @user = user
+    @vehicle = vehicle
+    @properties = properties
+    mail to: "nicks@americanfire.com"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

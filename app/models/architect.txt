@@ -1,0 +1,11 @@
+Employee - first_name, last_name, email, phone_number, truck_number, has_many :assignments
+Tool - name, description, barcode, tool_number, has_one assignment
+Assignment - belongs_to :employee, belongs_to :tool
+
+
+rails g scaffold Employee first_name:string last_name:string email:string phone_number:string vehicle_number:string 
+
+
+rails g scaffold Tool name:string description:string barcode:string tool_number:string
+
+rails g model Assignment employee:index tool:index

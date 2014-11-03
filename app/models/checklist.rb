@@ -22,6 +22,7 @@ class Checklist < ActiveRecord::Base
   validate :validate_properties
 
   after_save :update_current_mileage
+  after_save :check_for_failures
 
   def validate_properties
     checklist_type.fields.each do |field|
@@ -50,6 +51,18 @@ class Checklist < ActiveRecord::Base
       else
         errors.add :current_mileage, "inputed cannot be less than previous mileage."
       end
+    end
+  end
+
+  def check_for_failures
+    failures = []
+    self.properties.each do |property|
+      if property[1] == "fail"
+        failures << property[0]
+      end
+    end
+    if failures.length > 0
+      ServiceMailer.notify_mechanic(user, self.vehicle, failures).deliver
     end
   end
 end

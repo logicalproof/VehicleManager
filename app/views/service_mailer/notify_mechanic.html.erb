@@ -1,0 +1,7 @@
+<p>Vehicle <%= @vehicle.number %> assigned to <%= @user.email %> has the following failed weekly checklist items</p>
+
+<ul>
+<% @properties.each do |x| %>
+  <li><%= x %></li>
+<% end %>
+</ul>
