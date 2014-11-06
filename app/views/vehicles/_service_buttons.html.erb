@@ -5,4 +5,8 @@
 	    <div class='popup'><%= "Add a new #{service_type.name}" %></div>
 	  <% end %>
 	<% end %>
+  <%= link_to new_vehicle_inspection_report_path(:vehicle_id => @vehicle.id), :class => "btn btn-primary hoverable" do %>
+      <%= ("+Vehicle Inspection Report") %>
+      <div class='popup'><%= "Add a new Vehicle Inspection Report" %></div>
+    <% end %>
 <% end %>

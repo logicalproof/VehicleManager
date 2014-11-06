@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :vehicle_inspection_reports
+
   resources :checklists
 
   resources :checklist_types

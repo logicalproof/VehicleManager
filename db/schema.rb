@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804153003) do
+ActiveRecord::Schema.define(version: 20141105203237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,63 @@ ActiveRecord::Schema.define(version: 20140804153003) do
 
   add_index "vehicle_assignments", ["user_id"], name: "index_vehicle_assignments_on_user_id", using: :btree
   add_index "vehicle_assignments", ["vehicle_id"], name: "index_vehicle_assignments_on_vehicle_id", using: :btree
+
+  create_table "vehicle_inspection_reports", force: true do |t|
+    t.boolean  "tire_wear"
+    t.string   "tire_wear_comment"
+    t.boolean  "exhaust"
+    t.boolean  "drive_belts"
+    t.boolean  "radiator_coolant"
+    t.boolean  "radiator_hoses"
+    t.boolean  "heater_hoses"
+    t.boolean  "battery_cables"
+    t.boolean  "spark_plug_wires"
+    t.boolean  "oil_filter"
+    t.boolean  "air_filter"
+    t.boolean  "fuel_filter"
+    t.boolean  "wiper_blades"
+    t.boolean  "headlights"
+    t.boolean  "tail_lights"
+    t.boolean  "turn_signals"
+    t.boolean  "air_conditioner"
+    t.boolean  "seatbelts"
+    t.boolean  "mirrors"
+    t.boolean  "windshield"
+    t.boolean  "rear_window"
+    t.boolean  "side_windows"
+    t.string   "exhaust_comment"
+    t.string   "drive_belts_comment"
+    t.string   "radiator_coolant_comment"
+    t.string   "radiator_hoses_comment"
+    t.string   "heater_hoses_comment"
+    t.string   "battery_cables_comment"
+    t.string   "spark_plug_wires_comment"
+    t.string   "oil_filter_comment"
+    t.string   "air_filter_comment"
+    t.string   "fuel_filter_comment"
+    t.string   "wiper_blades_comment"
+    t.string   "headlights_comment"
+    t.string   "tail_lights_comment"
+    t.string   "turn_signals_comment"
+    t.string   "air_conditioner_comment"
+    t.string   "seatbelts_comment"
+    t.string   "mirrors_comment"
+    t.string   "windshield_comment"
+    t.string   "rear_window_comment"
+    t.string   "side_windows_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "brake_lights"
+    t.string   "brake_lights_comment"
+    t.boolean  "emergency_brake_adjustment"
+    t.string   "emergency_brake_adjustment_comment"
+    t.string   "vehicle_id"
+    t.string   "user_id"
+    t.integer  "mileage"
+  end
+
+  add_index "vehicle_inspection_reports", ["user_id"], name: "index_vehicle_inspection_reports_on_user_id", using: :btree
+  add_index "vehicle_inspection_reports", ["vehicle_id"], name: "index_vehicle_inspection_reports_on_vehicle_id", using: :btree
 
   create_table "vehicle_services", force: true do |t|
     t.date     "date_of_service"

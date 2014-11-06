@@ -1,0 +1,29 @@
+<h1>Vehicle Inspection Reports</h1>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Driver</th>
+      <th>Date</th>
+      <th>Mechanic</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_inspection_reports.each do |vehicle_inspection_report| %>
+      <tr>
+        <td><%=  vehicle_inspection_report.vehicle.number if vehicle_inspection_report.vehicle %></td>
+        <td><%= vehicle_inspection_report.vehicle.driver if vehicle_inspection_report.vehicle %></td>
+        <td><%= vehicle_inspection_report.created_at %></td>
+        <td><%= vehicle_inspection_report.user.email if vehicle_inspection_report.user%></td>
+        
+        <td><%= link_to 'Show', vehicle_inspection_report %></td>
+        <td><%= link_to 'Edit', edit_vehicle_inspection_report_path(vehicle_inspection_report) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

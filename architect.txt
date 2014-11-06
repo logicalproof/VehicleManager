@@ -36,6 +36,7 @@ Completed - Users should only be able to see links that they have access too.
 	Achieved by creating seperate partials for each role type
 
 
+rails g scaffold VehicleInspectionReport tire_wear:boolean tire_wear_comment:string emergency_brake_adjustment:boolean emergency_brake_adjustment_comment:string exhaust:boolean drive_belts:boolean radiator_coolant:boolean radiator_hoses:boolean heater_hoses:boolean battery_cables:boolean spark_plug_wires:boolean oil_filter:boolean air_filter:boolean fuel_filter:boolean wiper_blades:boolean headlights:boolean brake_lights:boolean tail_lights:boolean turn_signals:boolean air_conditioner:boolean seatbelts:boolean mirrors:boolean windshield:boolean rear_window:boolean side_windows:boolean exhaust_comment:string drive_belts_comment:string radiator_coolant_comment:string radiator_hoses_comment:string heater_hoses_comment:string battery_cables_comment:string spark_plug_wires_comment:string oil_filter_comment:string air_filter_comment:string fuel_filter_comment:string wiper_blades_comment:string headlights_comment:string brake_lights_comment:string tail_lights_comment:string turn_signals_comment:string air_conditioner_comment:string seatbelts_comment:string mirrors_comment:string windshield_comment:string rear_window_comment:string side_windows_comment:string
 
 
 

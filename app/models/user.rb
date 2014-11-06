@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :vehicles, :through => :vehicle_assignments
   has_many :checklists
   has_many :mileage_entries, class_name: "Mileage"
+  has_many :vehicle_inspection_reports
 
   ROLES = %i[admin supervisor driver]
 

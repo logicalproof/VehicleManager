@@ -22,6 +22,7 @@ class Vehicle < ActiveRecord::Base
 	has_one :user, :through => :vehicle_assignment
 	has_many :checklists
 	has_many :mileages
+	has_many :vehicle_inspection_reports
   attr_accessor :user_id #to pass the current user into make_mileage_record
 
 	validates :number, presence: true, uniqueness: true
@@ -33,7 +34,9 @@ class Vehicle < ActiveRecord::Base
 	after_update :make_mileage_record
 
 
-  
+  def driver
+  	self.vehicle_assignment.user.email
+  end
 
 
 	protected
