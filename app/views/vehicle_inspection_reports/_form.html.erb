@@ -24,6 +24,20 @@
       <th class="comments_header">Comments</th>
     </tr>
     <tr>
+      <td><%= f.label :engine_oil %></td>
+      <td><%= f.check_box :engine_oil %></td>
+      <td class="comments"><%= f.text_field :engine_oil_comments %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :transmission_fluid %></td>
+      <td><%= f.check_box :transmission_fluid %></td>
+      <td class="comments"><%= f.text_field :transmission_fluid_comments %></td>
+    </tr><tr>
+      <td><%= f.label :brake_hydraulic_system %></td>
+      <td><%= f.check_box :brake_hydraulic_system %></td>
+      <td class="comments"><%= f.text_field :brake_hydraulic_system_comments %></td>
+    </tr>
+    <tr>
       <td><%= f.label :tire_wear %></td>
       <td><%= f.check_box :tire_wear %></td>
       <td class="comments"><%= f.text_field :tire_wear_comment %></td>

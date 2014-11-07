@@ -1,12 +1,6 @@
 <% if can? :manage, Vehicle %>
-	<% service_types.each do |service_type| %>
-	  <%= link_to new_vehicle_service_path(:service_type_id => service_type.id, :service_record_id => @vehicle.service_record.id), :class => "btn btn-primary hoverable" do %>
-	    <%= ("+#{service_type.name}") %>
-	    <div class='popup'><%= "Add a new #{service_type.name}" %></div>
-	  <% end %>
-	<% end %>
   <%= link_to new_vehicle_inspection_report_path(:vehicle_id => @vehicle.id), :class => "btn btn-primary hoverable" do %>
-      <%= ("+Vehicle Inspection Report") %>
+      <%= ("Perform Vehicle Inspection") %>
       <div class='popup'><%= "Add a new Vehicle Inspection Report" %></div>
     <% end %>
 <% end %>
