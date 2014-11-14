@@ -1,4 +1,4 @@
-<p>Vehicle <%= @vehicle.number %> assigned to <%= @user.email %> has the following actions</p>
+<p>Vehicle <%= @vehicle.number %> assigned to <%= @user %> has the following actions</p>
 <% if @overdue_service.count > 0 %>
   <% @overdue_service.each do |service| %>
     <p>Vehicle <%= @vehicle.number %> overdue for <%= service.service_type.name %></p>

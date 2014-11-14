@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Vehicle:</strong>
-  <%= @vehicle_inspection_report.vehicle.number %>
+  <%= @vehicle_inspection_report.vehicle_service_record.vehicle.number %>
 </p>
 <p>
   <strong>Technician:</strong>
@@ -19,30 +19,30 @@
 
 <p>
   <strong>Engine Oil:</strong>
-  <%= @vehicle_inspection_report.engine_oil %>
+  <%= @vehicle_inspection_report.oil_change %>
 </p>
 
 <p>
   <strong>Engine Oil comment:</strong>
-  <%= @vehicle_inspection_report.engine_oil_comments %>
+  <%= @vehicle_inspection_report.oil_change_comments %>
 </p>
 <p>
   <strong>Transmission Fluid:</strong>
-  <%= @vehicle_inspection_report.transmission_fluid %>
+  <%= @vehicle_inspection_report.transmission_service %>
 </p>
 
 <p>
   <strong>Transmission Fluid comment:</strong>
-  <%= @vehicle_inspection_report.transmission_fluid_comments %>
+  <%= @vehicle_inspection_report.transmission_service_comments %>
 </p>
 <p>
   <strong>Brake Hydraulic System:</strong>
-  <%= @vehicle_inspection_report.brake_hydraulic_system %>
+  <%= @vehicle_inspection_report.brake_service %>
 </p>
 
 <p>
   <strong>Brake Hydraulic System comment:</strong>
-  <%= @vehicle_inspection_report.brake_hydraulic_system_comments %>
+  <%= @vehicle_inspection_report.brake_service_comments %>
 </p>
 
 

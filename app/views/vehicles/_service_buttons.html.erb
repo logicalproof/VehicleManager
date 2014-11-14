@@ -1,5 +1,5 @@
 <% if can? :manage, Vehicle %>
-  <%= link_to new_vehicle_inspection_report_path(:vehicle_id => @vehicle.id), :class => "btn btn-primary hoverable" do %>
+  <%= link_to new_vehicle_inspection_report_path(:vehicle_service_record_id => @vehicle.vehicle_service_record.id), :class => "btn btn-primary hoverable" do %>
       <%= ("Perform Vehicle Inspection") %>
       <div class='popup'><%= "Add a new Vehicle Inspection Report" %></div>
     <% end %>

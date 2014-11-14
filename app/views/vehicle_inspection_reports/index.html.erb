@@ -15,8 +15,8 @@
   <tbody>
     <% @vehicle_inspection_reports.each do |vehicle_inspection_report| %>
       <tr>
-        <td><%=  vehicle_inspection_report.vehicle.number if vehicle_inspection_report.vehicle %></td>
-        <td><%= vehicle_inspection_report.vehicle.driver if vehicle_inspection_report.vehicle %></td>
+        <td><%=  vehicle_inspection_report.vehicle_service_record.vehicle.number if vehicle_inspection_report.vehicle_service_record.vehicle %></td>
+        <td><%= vehicle_inspection_report.vehicle_service_record.vehicle.driver if vehicle_inspection_report.vehicle_service_record.vehicle %></td>
         <td><%= vehicle_inspection_report.created_at %></td>
         <td><%= vehicle_inspection_report.user.email if vehicle_inspection_report.user%></td>
         

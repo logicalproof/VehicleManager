@@ -55,9 +55,9 @@ class Mileage < ActiveRecord::Base
     def send_notification
       services = {:overdue => [], :upcoming => []}
       if self.vehicle.vehicle_assignment
-        assigned_driver = self.vehicle.vehicle_assignment.user 
+        assigned_driver = self.vehicle.vehicle_assignment.user.email
       else
-        assigned_driver = User.find(1)
+        assigned_driver = "fleetmanagement@americanfire.com"
       end
       current_services.each do |service|
         mileage_due = service.mileage_at_service + service.service_type.mileage_interval

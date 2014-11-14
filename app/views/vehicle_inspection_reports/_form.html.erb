@@ -14,7 +14,7 @@
       <%= f.label :mileage %>
       <%= f.number_field :mileage %>
   </div>
-  <%= f.hidden_field :vehicle_id, :value => params[:vehicle_id] %>
+  <%= f.hidden_field :vehicle_service_record_id, :value => params[:vehicle_service_record_id] %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <table class="table table-bordered">
@@ -24,18 +24,18 @@
       <th class="comments_header">Comments</th>
     </tr>
     <tr>
-      <td><%= f.label :engine_oil %></td>
-      <td><%= f.check_box :engine_oil %></td>
-      <td class="comments"><%= f.text_field :engine_oil_comments %></td>
+      <td><%= f.label :oil_change %></td>
+      <td><%= f.check_box :oil_change %></td>
+      <td class="comments"><%= f.text_field :oil_change_comments %></td>
     </tr>
     <tr>
-      <td><%= f.label :transmission_fluid %></td>
-      <td><%= f.check_box :transmission_fluid %></td>
-      <td class="comments"><%= f.text_field :transmission_fluid_comments %></td>
+      <td><%= f.label :transmission_service %></td>
+      <td><%= f.check_box :transmission_service %></td>
+      <td class="comments"><%= f.text_field :transmission_service_comments %></td>
     </tr><tr>
-      <td><%= f.label :brake_hydraulic_system %></td>
-      <td><%= f.check_box :brake_hydraulic_system %></td>
-      <td class="comments"><%= f.text_field :brake_hydraulic_system_comments %></td>
+      <td><%= f.label :brake_service %></td>
+      <td><%= f.check_box :brake_service %></td>
+      <td class="comments"><%= f.text_field :brake_service_comments %></td>
     </tr>
     <tr>
       <td><%= f.label :tire_wear %></td>

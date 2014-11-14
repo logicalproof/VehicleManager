@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106195223) do
+ActiveRecord::Schema.define(version: 20141113203639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,19 +153,42 @@ ActiveRecord::Schema.define(version: 20141106195223) do
     t.string   "brake_lights_comment"
     t.boolean  "emergency_brake_adjustment"
     t.string   "emergency_brake_adjustment_comment"
-    t.string   "vehicle_id"
     t.string   "user_id"
     t.integer  "mileage"
-    t.boolean  "engine_oil"
-    t.string   "engine_oil_comments"
-    t.boolean  "transmission_fluid"
-    t.string   "transmission_fluid_comments"
-    t.boolean  "brake_hydraulic_system"
-    t.string   "brake_hydraulic_system_comments"
+    t.integer  "vehicle_service_record_id"
+    t.boolean  "oil_change"
+    t.string   "oil_change_comments"
+    t.boolean  "transmission_service"
+    t.boolean  "brake_service"
+    t.string   "brake_service_comments"
+    t.string   "transmission_service_comments"
   end
 
   add_index "vehicle_inspection_reports", ["user_id"], name: "index_vehicle_inspection_reports_on_user_id", using: :btree
-  add_index "vehicle_inspection_reports", ["vehicle_id"], name: "index_vehicle_inspection_reports_on_vehicle_id", using: :btree
+  add_index "vehicle_inspection_reports", ["vehicle_service_record_id"], name: "index_vehicle_inspection_reports_on_vehicle_service_record_id", using: :btree
+
+  create_table "vehicle_service_records", force: true do |t|
+    t.integer  "oil_change_mileage"
+    t.integer  "brake_service_mileage"
+    t.integer  "transmission_service_mileage"
+    t.integer  "oil_filter_mileage"
+    t.integer  "air_filter_mileage"
+    t.integer  "battery_mileage"
+    t.integer  "tires_rotated_mileage"
+    t.date     "oil_change"
+    t.date     "brake_service"
+    t.date     "transmission_service"
+    t.date     "oil_filter"
+    t.date     "air_filter"
+    t.date     "battery"
+    t.date     "tires_rotated"
+    t.date     "last_inspection_date"
+    t.integer  "vehicle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicle_service_records", ["vehicle_id"], name: "index_vehicle_service_records_on_vehicle_id", using: :btree
 
   create_table "vehicle_services", force: true do |t|
     t.date     "date_of_service"

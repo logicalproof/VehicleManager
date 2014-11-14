@@ -13,7 +13,7 @@ class ServiceMailer < ActionMailer::Base
     @user = user
     @greeting = "Hi"
 
-    mail to: user.email
+    mail to: user
   end
 
   def notify_mechanic(user, vehicle, properties)
@@ -35,6 +35,6 @@ class ServiceMailer < ActionMailer::Base
     @user = user
     @greeting = "Hi"
 
-    mail to: user.email
+    mail to: user
   end
 end
