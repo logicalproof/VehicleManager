@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113203639) do
+ActiveRecord::Schema.define(version: 20141114172355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,10 @@ ActiveRecord::Schema.define(version: 20141113203639) do
     t.boolean  "brake_service"
     t.string   "brake_service_comments"
     t.string   "transmission_service_comments"
+    t.boolean  "battery"
+    t.string   "battery_comment"
+    t.boolean  "tires_rotated"
+    t.string   "tires_rotated_comment"
   end
 
   add_index "vehicle_inspection_reports", ["user_id"], name: "index_vehicle_inspection_reports_on_user_id", using: :btree

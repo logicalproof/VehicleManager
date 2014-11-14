@@ -38,6 +38,26 @@
       <td class="comments"><%= f.text_field :brake_service_comments %></td>
     </tr>
     <tr>
+      <td><%= f.label :tires_rotated %></td>
+      <td><%= f.check_box :tires_rotated %></td>
+      <td class="comments"><%= f.text_field :tires_rotated_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :battery %></td>
+      <td><%= f.check_box :battery %></td>
+      <td class="comments"><%= f.text_field :battery_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :air_filter %></td>
+      <td><%= f.check_box :air_filter %></td>
+      <td class="comments"><%= f.text_field :air_filter_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :fuel_filter %></td>
+      <td><%= f.check_box :fuel_filter %></td>
+      <td class="comments"><%= f.text_field :fuel_filter_comment %></td>
+    </tr>
+    <tr>
       <td><%= f.label :tire_wear %></td>
       <td><%= f.check_box :tire_wear %></td>
       <td class="comments"><%= f.text_field :tire_wear_comment %></td>
@@ -86,16 +106,6 @@
       <td><%= f.label :oil_filter %></td>
       <td><%= f.check_box :oil_filter %></td>
       <td class="comments"><%= f.text_field :oil_filter_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :air_filter %></td>
-      <td><%= f.check_box :air_filter %></td>
-      <td class="comments"><%= f.text_field :air_filter_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :fuel_filter %></td>
-      <td><%= f.check_box :fuel_filter %></td>
-      <td class="comments"><%= f.text_field :fuel_filter_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :wiper_blades %></td>

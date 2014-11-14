@@ -26,12 +26,11 @@
 class VehicleServiceRecord < ActiveRecord::Base
   belongs_to :vehicle
   has_many :vehicle_inspection_reports
+  SERVICES = [:oil_change, :transmission_service, :brake_service, :tires_rotated, :oil_filter, :air_filter, :battery]
 
-
-  def check_for_inspection_data
-    report = self.vehicle_inspection_reports.last
-    [:oil_change, :transmission_service, :brake_service].each do |check|
-      p report[check]
+  def check_for_inspection_data(report)
+    SERVICES.each do |check|
+      puts check.to_s + ": " + "#{report[check]}"
       if report[check] == true
         if self.method(check).call != nil
           p report.created_at
@@ -51,6 +50,45 @@ class VehicleServiceRecord < ActiveRecord::Base
       end
     end
     self.save
+  end
+
+  def service_parameters(type)
+    case type
+    when :oil_change
+      return {:interval => 3, :mileage => 3000}
+    when :oil_filter
+      return {:interval => 12, :mileage => 6000}
+    when :transmission_service
+      return {:interval => 12, :mileage => 25000}
+    when :air_filter
+      return {:interval => 12, :mileage => 12000}
+    when :brake_service
+      return {:interval => 12, :mileage => 12000}
+    when :battery
+      return {:interval => 24, :mileage => 36000}
+    when :tires_rotated
+      return {:interval => 6, :mileage => 6000}
+    else
+      puts "You just making it up!"
+    end
+  end
+
+  def check_for_upcoming_service
+    upcoming_service = []
+    SERVICES.each do |check|
+      if self.method("#{check.to_s}_mileage".to_sym).call > (service_parameters(check)[:mileage] + self.vehicle.current_mileage)
+         upcoming_service << {:due_mileage => (self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]), :date => (self.method(check).call), :service => (check)}
+      end
+    end
+    return upcoming_service
+  end
+
+  def service_stats
+    stats = []
+    SERVICES.each do |check|
+       stats << {:due_mileage => (self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]), :date => (self.method(check).call), :service => (check)}
+    end
+    return stats
   end
 end
 

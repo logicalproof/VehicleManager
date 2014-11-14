@@ -80,7 +80,7 @@ class VehicleInspectionReport < ActiveRecord::Base
   end
 
   def update_service_record
-    self.vehicle_service_record.check_for_inspection_data
+    self.vehicle_service_record.check_for_inspection_data(self)
   end
 
 
