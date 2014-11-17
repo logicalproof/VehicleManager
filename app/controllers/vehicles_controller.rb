@@ -68,6 +68,7 @@ class VehiclesController < ApplicationController
     Vehicle.all.each do |vehicle|
       @overdue_services << vehicle.mileages.last.check_for_upcoming_service
     end
+    p @overdue_services
   end
 
 

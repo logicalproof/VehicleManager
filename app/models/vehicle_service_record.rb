@@ -76,11 +76,19 @@ class VehicleServiceRecord < ActiveRecord::Base
   def check_for_upcoming_service
     upcoming_service = {}
     SERVICES.each do |check|
-      if self.method("#{check.to_s}_mileage".to_sym).call > (service_parameters(check)[:mileage] + self.vehicle.current_mileage)
-         upcoming_service[check] = {:due_mileage => (self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]), :due_date => (self.method(check).call + service_parameters(check)[:interval].months)}
+      if self.method("#{check.to_s}_mileage".to_sym).call
+        mileage = self.method("#{check.to_s}_mileage".to_sym).call
+      else
+        mileage = 0
+      end
+      puts "Vehicle #{vehicle.number} mileage: #{mileage}"
+      if vehicle.current_mileage > (service_parameters(check)[:mileage] + mileage)
+         upcoming_service[check] = {:due_mileage => (mileage + service_parameters(check)[:mileage]), :due_date => (self.method(check).call + service_parameters(check)[:interval].months), :vehicle => vehicle}
       end
     end
+    puts "Vehicle #{vehicle.number} current mileage: #{vehicle.current_mileage}"
     return upcoming_service
+
   end
 
   def service_stats

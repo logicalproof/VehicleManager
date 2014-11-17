@@ -1,14 +1,14 @@
 <% @overdue_services.each do |service_list| %>
-  <% service_list.each do |overdue_service| %>
+  <% service_list.each_key do |overdue_service| %>
     <tr>
-      <% if overdue_service.mileage_at_service > 0 %>
-        <td><%= overdue_service.service_type.name %></td>
-        <td><%= link_to overdue_service.service_record.vehicle.number, vehicle_path(overdue_service.service_record.vehicle) %></td>
-        <td><%= overdue_service.service_record.vehicle.current_mileage %></td>
-        <td><%= overdue_service.mileage_at_service + overdue_service.service_type.mileage_interval %></td>
-        <td><%= overdue_service.date_of_service + overdue_service.service_type.month_interval.months %></td>
-        <% if overdue_service.service_record.vehicle.vehicle_assignment %>
-          <td><%= overdue_service.service_record.vehicle.vehicle_assignment.user.email %></td>
+      <% if service_list[overdue_service][:due_mileage] > 0 %>
+        <td><%= overdue_service.to_s %></td>
+        <td><%= link_to service_list[overdue_service][:vehicle].number, vehicle_path(service_list[overdue_service][:vehicle]) %></td>
+        <td><%= service_list[overdue_service][:vehicle].current_mileage %></td>
+        <td><%= service_list[overdue_service][:due_mileage] %></td>
+        <td><%= service_list[overdue_service][:due_date] %></td>
+        <% if service_list[overdue_service][:vehicle].vehicle_assignment %>
+          <td><%= service_list[overdue_service][:vehicle].vehicle_assignment.user.email %></td>
         <% else %>
           <td>None assigned</td>
         <% end %>
