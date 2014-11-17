@@ -11,49 +11,49 @@
     <th>Engine Oil</th>
     <th><%= vsr.oil_change || "N/A" %></th>
     <th><%= vsr.oil_change_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:oil_change][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:oil_change][:due_date] %></th>
   </tr>
   <tr>
     <th>Brake Hydraulic System</th>
     <th><%= vsr.brake_service || "N/A" %></th>
     <th><%= vsr.brake_service_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:brake_service][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:brake_service][:due_date] %></th>
   </tr>
   <tr>
     <th>Transmission Fluid</th>
     <th><%= vsr.transmission_service || "N/A" %></th>
     <th><%= vsr.transmission_service_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:transmission_service][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:transmission_service][:due_date] %></th>
   </tr>
   <tr>
     <th>Oil Filter</th>
     <th><%= vsr.oil_filter || "N/A" %></th>
     <th><%= vsr.oil_filter_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:oil_filter][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:oil_filter][:due_date] %></th>
   </tr>
   <tr>
     <th>Air Filter</th>
     <th><%= vsr.air_filter || "N/A" %></th>
     <th><%= vsr.air_filter_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:air_filter][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:air_filter][:due_date] %></th>
   </tr>
   <tr>
     <th>Battery</th>
     <th><%= vsr.battery || "N/A" %></th>
     <th><%= vsr.battery_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:battery][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:battery][:due_date] %></th>
   </tr>
   <tr>
     <th>Tires Rotated</th>
     <th><%= vsr.tires_rotated || "N/A" %></th>
     <th><%= vsr.tires_rotated_mileage || "N/A" %></th>
-    <th></th>
-    <th></th>
+    <th><%= @vehicle_stats[:tires_rotated][:due_mileage] %></th>
+    <th><%= @vehicle_stats[:tires_rotated][:due_date] %></th>
   </tr>
 </table>

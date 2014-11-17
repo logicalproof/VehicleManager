@@ -76,6 +76,7 @@ class VehiclesController < ApplicationController
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])
       @vehicle.user_id = current_user.id
+      @vehicle_stats = @vehicle.vehicle_service_record.service_stats
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
