@@ -78,13 +78,15 @@ class VehicleServiceRecord < ActiveRecord::Base
     upcoming_service = {}
     SERVICES.each do |check|
       if self.method("#{check.to_s}_mileage".to_sym).call
-        mileage = self.method("#{check.to_s}_mileage".to_sym).call
+        mileage = self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]
+        date = (self.method(check).call + service_parameters(check)[:interval].months)
       else
-        mileage = 0
+        mileage = 0 + service_parameters(check)[:mileage]
+        date = self.created_at
       end
       puts "Vehicle #{vehicle.number} mileage: #{mileage}"
-      if vehicle.current_mileage > (service_parameters(check)[:mileage] + mileage)
-         upcoming_service[check] = {:due_mileage => (mileage + service_parameters(check)[:mileage]), :due_date => (self.method(check).call + service_parameters(check)[:interval].months), :vehicle => vehicle}
+      if vehicle.current_mileage > mileage
+         upcoming_service[check] = {:due_mileage => mileage, :due_date => date, :vehicle => vehicle}
       end
     end
     puts "Vehicle #{vehicle.number} current mileage: #{vehicle.current_mileage}"
@@ -99,8 +101,8 @@ class VehicleServiceRecord < ActiveRecord::Base
         mileage = self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]
         date = self.method(check).call + service_parameters(check)[:interval].months
       else
-        mileage = "N/A"
-        date = "N/A"
+        mileage = 0 + service_parameters(check)[:mileage]
+        date = self.created_at.strftime("%B %d, %Y")
       end
       stats[check] = {:due_mileage => mileage, :due_date => date}
     end

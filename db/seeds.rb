@@ -12,19 +12,13 @@ def user_creation(email_suffix, password, user_names)
   user_names.each do |u|
 	  User.create(email: (u+suffix), password: pword, password_confirmation: pword, role: 'driver')
   end
+  User.create(email: "nicks@americanfire.com", password: pword, password_confirmation: pword, role: 'admin')
 end
 
-def service_type_creation(service_type)
-	ServiceType.create(name: service_type[0], mileage_interval: service_type[1], month_interval: service_type[2])
-end
-services = [["Oil Change", 3000, 3], 
-      ["Tire Rotation", 6000, 6], 
-      ["Coolant Service", 150000, 60],
-      ["Transmission Service", 40000, 24],
-      ["Brake Pads", 30000, 12]]
 
 
-user_names = ["nicks", "damons", "tonyb", "ericf", "joef"]
+
+user_names = ["damons", "tonyb", "ericf", "joef"]
 user_creation("@americanfire.com", "afe12345", user_names)
 
 
@@ -136,7 +130,3 @@ vehicles_array = [[19, "C2500", "1998"],
   	vehicles << vehicle_creation(vehicle)
   end
 
-
-  services.each do |x|
-	  service_type_creation(x)
-  end
