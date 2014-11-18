@@ -26,6 +26,7 @@
 class VehicleServiceRecord < ActiveRecord::Base
   belongs_to :vehicle
   has_many :vehicle_inspection_reports
+  
   SERVICES = [:oil_change, :transmission_service, :brake_service, :tires_rotated, :oil_filter, :air_filter, :battery]
 
   def check_for_inspection_data(report)
@@ -94,9 +95,18 @@ class VehicleServiceRecord < ActiveRecord::Base
   def service_stats
     stats = {}
     SERVICES.each do |check|
-      stats[check] = {:due_mileage => (self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]), :due_date => (self.method(check).call + service_parameters(check)[:interval].months)}
+      if self.method("#{check.to_s}_mileage".to_sym).call
+        mileage = self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]
+        date = self.method(check).call + service_parameters(check)[:interval].months
+      else
+        mileage = "N/A"
+        date = "N/A"
+      end
+      stats[check] = {:due_mileage => mileage, :due_date => date}
     end
     return stats
   end
+
+
 end
 

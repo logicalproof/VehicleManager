@@ -2,11 +2,11 @@
 Vehicle <%= @vehicle.number %> assigned to <%= @user %> is has the following actions
 <% if @overdue_service.count > 0 %>
   <% @overdue_service.each do |service| %>
-    Vehicle <%= @vehicle.number %> overdue for <%= service.service_type.name %>
+    Vehicle <%= @vehicle.number %> overdue for <%= service[0] %>
   <% end %>
 <% end %>
 <% if @upcoming_service.count > 0 %>
   <% @upcoming_service.each do |service| %>
-    Vehicle <%= @vehicle.number %> approaching required <%= service.service_type.name %>
+    Vehicle <%= @vehicle.number %> approaching required <%= service[0] %>
   <% end %>
 <% end %>

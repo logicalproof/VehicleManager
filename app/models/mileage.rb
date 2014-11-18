@@ -36,8 +36,9 @@ class Mileage < ActiveRecord::Base
       end
       
       check_for_upcoming_service.each do |service|
-        mileage_due = service.mileage_at_service + vsr
-        due_date = service.date_of_service + service.service_type.month_interval.months
+        p service
+        mileage_due = service[1][:due_mileage]
+        due_date = service[1][:due_date]
         
         if miles > (mileage_due)
           services[:overdue] << service
