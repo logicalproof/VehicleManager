@@ -14,10 +14,18 @@ class ApplicationController < ActionController::Base
     user_path(current_user.id)
   end
 
+  def iphone?
+    request.user_agent =~ /Mobile/
+  end
+  helper_method :iphone?
   protected
   # adds the role parameter to the User model through devise
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :role
     devise_parameter_sanitizer.for(:account_update) << :role
   end
+
+
+
+  
 end

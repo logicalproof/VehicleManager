@@ -3,8 +3,13 @@
 <head>
   <title>VehicleManager</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'iphone', media: 'all', 'data-turbolinks-track' => true if iphone? %>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if iphone? %>
+    <meta name="viewport" content="width=320">
+  <% end %>
 </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
