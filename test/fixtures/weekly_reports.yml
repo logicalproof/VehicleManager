@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: weekly_reports
+#
+#  id           :integer          not null, primary key
+#  appearance   :boolean
+#  tires        :boolean
+#  lights       :boolean
+#  mechanical   :boolean
+#  electrical   :boolean
+#  fluid_levels :boolean
+#  mileage      :integer
+#  comments     :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#  vehicle_id   :integer
+#  user_id      :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appearance: false
+  tires: false
+  lights: false
+  mechanical: false
+  electrical: false
+  fluid_levels: false
+  mileage: 1
+  user_id_id: 
+  vehicle_id_id: 
+  comments: MyText
+
+two:
+  appearance: false
+  tires: false
+  lights: false
+  mechanical: false
+  electrical: false
+  fluid_levels: false
+  mileage: 1
+  user_id_id: 
+  vehicle_id_id: 
+  comments: MyText

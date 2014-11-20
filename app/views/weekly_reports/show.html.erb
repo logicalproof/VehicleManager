@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appearance:</strong>
+  <%= @weekly_report.appearance %>
+</p>
+
+<p>
+  <strong>Tires:</strong>
+  <%= @weekly_report.tires %>
+</p>
+
+<p>
+  <strong>Lights:</strong>
+  <%= @weekly_report.lights %>
+</p>
+
+<p>
+  <strong>Mechanical:</strong>
+  <%= @weekly_report.mechanical %>
+</p>
+
+<p>
+  <strong>Electrical:</strong>
+  <%= @weekly_report.electrical %>
+</p>
+
+<p>
+  <strong>Fluid levels:</strong>
+  <%= @weekly_report.fluid_levels %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @weekly_report.mileage %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @weekly_report.user_id %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @weekly_report.vehicle_id %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @weekly_report.comments %>
+</p>
+
+<%= link_to 'Edit', edit_weekly_report_path(@weekly_report) %> |
+<%= link_to 'Back', weekly_reports_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114172355) do
+ActiveRecord::Schema.define(version: 20141120182020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,5 +216,23 @@ ActiveRecord::Schema.define(version: 20141114172355) do
     t.boolean  "sold"
     t.date     "sold_date"
   end
+
+  create_table "weekly_reports", force: true do |t|
+    t.boolean  "appearance"
+    t.boolean  "tires"
+    t.boolean  "lights"
+    t.boolean  "mechanical"
+    t.boolean  "electrical"
+    t.boolean  "fluid_levels"
+    t.integer  "mileage"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vehicle_id"
+    t.integer  "user_id"
+  end
+
+  add_index "weekly_reports", ["user_id"], name: "index_weekly_reports_on_user_id", using: :btree
+  add_index "weekly_reports", ["vehicle_id"], name: "index_weekly_reports_on_vehicle_id", using: :btree
 
 end

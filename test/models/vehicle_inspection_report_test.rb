@@ -53,13 +53,17 @@
 #  emergency_brake_adjustment_comment :string(255)
 #  user_id                            :string(255)
 #  mileage                            :integer
-#  engine_oil                         :boolean
-#  engine_oil_comments                :string(255)
-#  transmission_fluid                 :boolean
-#  transmission_fluid_comments        :string(255)
-#  brake_hydraulic_system             :boolean
-#  brake_hydraulic_system_comments    :string(255)
 #  vehicle_service_record_id          :integer
+#  oil_change                         :boolean
+#  oil_change_comments                :string(255)
+#  transmission_service               :boolean
+#  brake_service                      :boolean
+#  brake_service_comments             :string(255)
+#  transmission_service_comments      :string(255)
+#  battery                            :boolean
+#  battery_comment                    :string(255)
+#  tires_rotated                      :boolean
+#  tires_rotated_comment              :string(255)
 #
 
 require 'test_helper'

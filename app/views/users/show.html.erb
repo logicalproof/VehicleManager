@@ -7,11 +7,10 @@
   	<% @vehicles.each do |x| %>
   		<li>
         <div class="vehicle_with_report">
-          <%= form_tag new_checklist_path, method: :get, :class => "form-inline" do %>
+          <%= form_tag new_weekly_report_path, method: :get, :class => "form-inline" do %>
             <%= link_to "Vehicle #{x.number}", vehicle_path(x) %>
-            <%= select_tag :checklist_type_id, options_from_collection_for_select(ChecklistType.all, :id, :name), {class: 'btn btn-default dropdown-toggle'} %>
             <%= hidden_field_tag :vehicle_id, x.id %>
-            <%= submit_tag "New Report", name: nil, :class => "btn btn-primary" %>
+            <%= submit_tag "New Weekly Report", name: nil, :class => "btn btn-primary" %>
           <% end %>
         </div>
   		</li>

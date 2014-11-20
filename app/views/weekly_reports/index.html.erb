@@ -1,0 +1,43 @@
+<h1>Listing weekly_reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Appearance</th>
+      <th>Tires</th>
+      <th>Lights</th>
+      <th>Mechanical</th>
+      <th>Electrical</th>
+      <th>Fluid levels</th>
+      <th>Mileage</th>
+      <th>User</th>
+      <th>Vehicle</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weekly_reports.each do |weekly_report| %>
+      <tr>
+        <td><%= weekly_report.appearance %></td>
+        <td><%= weekly_report.tires %></td>
+        <td><%= weekly_report.lights %></td>
+        <td><%= weekly_report.mechanical %></td>
+        <td><%= weekly_report.electrical %></td>
+        <td><%= weekly_report.fluid_levels %></td>
+        <td><%= weekly_report.mileage %></td>
+        <td><%= weekly_report.user_id %></td>
+        <td><%= weekly_report.vehicle_id %></td>
+        <td><%= weekly_report.comments %></td>
+        <td><%= link_to 'Show', weekly_report %></td>
+        <td><%= link_to 'Edit', edit_weekly_report_path(weekly_report) %></td>
+        <td><%= link_to 'Destroy', weekly_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weekly report', new_weekly_report_path %>

@@ -24,6 +24,7 @@ class Vehicle < ActiveRecord::Base
 	has_many :mileages
   has_one :vehicle_service_record, dependent: :destroy
   has_many :vehicle_inspection_reports, through: :vehicle_service_record
+  has_many :weekly_reports
   attr_accessor :user_id #to pass the current user into make_mileage_record
 
 	validates :number, presence: true, uniqueness: true
