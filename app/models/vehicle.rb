@@ -16,11 +16,8 @@
 #
 
 class Vehicle < ActiveRecord::Base
-	has_one :service_record, dependent: :destroy
-	has_many :vehicle_services, :through => :service_record
 	has_one :vehicle_assignment
 	has_one :user, :through => :vehicle_assignment
-	has_many :checklists
 	has_many :mileages
   has_one :vehicle_service_record, dependent: :destroy
   has_many :vehicle_inspection_reports, through: :vehicle_service_record
@@ -31,7 +28,6 @@ class Vehicle < ActiveRecord::Base
 	validates :current_mileage, presence: true
 	validates :purchase_date, presence: true
 
-	after_create :make_service_record
   after_create :make_vehicle_service_record
 	after_create :make_mileage_record
 	after_update :make_mileage_record
@@ -44,9 +40,6 @@ class Vehicle < ActiveRecord::Base
 
 	protected
 
-	def make_service_record
-		create_service_record(attributes = { :vehicle_id => self.id })
-	end
 
   def make_vehicle_service_record
     create_vehicle_service_record(attributes = { :vehicle_id => self.id })

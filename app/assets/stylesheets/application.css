@@ -42,3 +42,14 @@ body { padding-top: 70px; }
 .field_with_errors {
 	display: block;
 }
+.list_view {
+  padding-bottom: 10px;
+}
+form.form-inline.list_view a { 
+    display: inline-block;
+    width: 80px;
+  }
+ form.form-inline.list_view input.btn.btn-primary {
+    display: inline-block;
+    width: 290px;
+  }
