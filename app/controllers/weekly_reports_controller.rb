@@ -16,10 +16,13 @@ class WeeklyReportsController < ApplicationController
   def new
     @weekly_report = WeeklyReport.new
     @vehicle = Vehicle.find(params[:vehicle_id])
+    @user = current_user
   end
 
   # GET /weekly_reports/1/edit
   def edit
+    @vehicle = Vehicle.find(@weekly_report.vehicle_id)
+    @user = User.find(@weekly_report.user_id)
   end
 
   # POST /weekly_reports
@@ -29,10 +32,10 @@ class WeeklyReportsController < ApplicationController
 
     respond_to do |format|
       if @weekly_report.save
-        format.html { redirect_to @weekly_report, notice: 'Weekly report was successfully created.' }
+        format.html { redirect_to current_user, notice: "Weekly report was successfully created for Vehicle ##{@weekly_report.vehicle.number} with #{@weekly_report.vehicle.current_mileage} miles." }
         format.json { render :show, status: :created, location: @weekly_report }
       else
-        format.html { render :new }
+        format.html { redirect_to current_user, notice: "ERROR: Weekly Vehicle Report was NOT created!!"  }
         format.json { render json: @weekly_report.errors, status: :unprocessable_entity }
       end
     end

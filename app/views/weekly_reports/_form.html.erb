@@ -1,15 +1,4 @@
 <%= bootstrap_form_for(@weekly_report) do |f| %>
-  <% if @weekly_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@weekly_report.errors.count, "error") %> prohibited this weekly_report from being saved:</h2>
-
-      <ul>
-      <% @weekly_report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="col-xs-12">
     <%= f.check_box :appearance, label: "Appearance Checked" %>
@@ -19,9 +8,9 @@
     <%= f.check_box :electrical, label: "Electrical Components Checked" %>
     <%= f.check_box :fluid_levels, label: "Fluid Levels Checked" %>
     <%= f.number_field :mileage, help: "Cannot be lower than #{@vehicle.current_mileage}" %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :vehicle_id, value: params[:vehicle_id] %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :vehicle_id, value: @vehicle.id %>
     <%= f.text_area :comments %>
-    <%= f.submit class: "btn btn-default"%>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>

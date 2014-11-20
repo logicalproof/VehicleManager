@@ -84,7 +84,7 @@ class VehicleServiceRecord < ActiveRecord::Base
         mileage = 0 + service_parameters(check)[:mileage]
         date = self.created_at
       end
-      puts "Vehicle #{vehicle.number} mileage: #{mileage}"
+      puts "Vehicle #{vehicle.number} #{check.to_s } due mileage: #{mileage}, Current Mileage: #{vehicle.current_mileage}"
       if vehicle.current_mileage > mileage
          upcoming_service[check] = {:due_mileage => mileage, :due_date => date, :vehicle => vehicle}
       end

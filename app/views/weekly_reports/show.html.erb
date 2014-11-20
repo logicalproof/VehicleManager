@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Appearance:</strong>
   <%= @weekly_report.appearance %>
@@ -37,12 +35,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @weekly_report.user_id %>
+  <%= @weekly_report.user.email %>
 </p>
 
 <p>
   <strong>Vehicle:</strong>
-  <%= @weekly_report.vehicle_id %>
+  <%= @weekly_report.vehicle.number%>
 </p>
 
 <p>
@@ -50,5 +48,3 @@
   <%= @weekly_report.comments %>
 </p>
 
-<%= link_to 'Edit', edit_weekly_report_path(@weekly_report) %> |
-<%= link_to 'Back', weekly_reports_path %>

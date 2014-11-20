@@ -69,8 +69,9 @@
 class VehicleInspectionReport < ActiveRecord::Base
   belongs_to :vehicle_service_record
   belongs_to :user
-  after_create :update_mileage_from_service
   after_create :update_service_record
+  after_create :update_mileage_from_service
+  
 
   def update_mileage_from_service
     vehicle = self.vehicle_service_record.vehicle
