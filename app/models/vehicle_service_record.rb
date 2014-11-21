@@ -99,10 +99,10 @@ class VehicleServiceRecord < ActiveRecord::Base
     SERVICES.each do |check|
       if self.method("#{check.to_s}_mileage".to_sym).call
         mileage = self.method("#{check.to_s}_mileage".to_sym).call + service_parameters(check)[:mileage]
-        date = self.method(check).call + service_parameters(check)[:interval].months
+        date = (self.method(check).call + service_parameters(check)[:interval].months).strftime("%b %d, %Y")
       else
         mileage = 0 + service_parameters(check)[:mileage]
-        date = self.created_at.strftime("%B %d, %Y")
+        date = self.created_at.strftime("%b %d, %Y")
       end
       stats[check] = {:due_mileage => mileage, :due_date => date}
     end

@@ -1,0 +1,42 @@
+<h1>Vehicle Inspection Record for Vehicle #<%= @vehicle.number %></h1>
+
+<table class="table table-bordered inspection-table">
+  <thead>
+    <tr>
+      <th>Report Date</th>
+      <th>Mileage</th>
+      <th>Oil Change</th>
+      <th>Oil Filter</th>
+      <th>Tire Rotation</th>
+      <th>Transmission Service</th>
+      <th>Brake Hydraulic System</th>
+      <th>Battery</th>
+      <th>Air Filter</th>
+      <th>Mechanic</th>
+    </tr>
+  </thead>
+  <% if @vehicle_inspection_reports.empty? %>
+    <tbody>
+      <tr>
+        <td colspan=10>No Vehicle Report on File</td>
+      </tr>
+    </tbody>
+  <% else %>
+    <tbody>
+      <% @vehicle_inspection_reports.each do |vir| %>
+        <tr>
+          <td><%= link_to vir.created_at.strftime("%b %d, %B"), vir %></td>
+          <td><%= vir.mileage %></td>
+          <td><%= serviced? vir.oil_change %></td>
+          <td><%= serviced? vir.oil_filter %></td>
+          <td><%= serviced? vir.tires_rotated %></td>
+          <td><%= serviced? vir.transmission_service %></td>
+          <td><%= serviced? vir.brake_service %></td>
+          <td><%= serviced? vir.battery %></td>
+          <td><%= serviced? vir.air_filter %></td>
+          <td><%= vir.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

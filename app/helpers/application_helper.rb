@@ -36,4 +36,25 @@ module ApplicationHelper
       "No #{method.to_s}"
     end
   end
+
+  def translate_service(service)
+    case service
+    when :oil_change
+      return "Oil Change"
+    when :oil_filter
+      return "Oil Filter"
+    when :transmission_service
+      return "Transmission Service"
+    when :air_filter
+      return "Air Filter"
+    when :brake_service
+      return "Brake Service"
+    when :battery
+      return "Battery"
+    when :tires_rotated
+      return "Tires Rotated"
+    else
+      return "N/A"
+    end
+  end
 end

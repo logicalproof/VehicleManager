@@ -61,6 +61,11 @@ class VehicleInspectionReportsController < ApplicationController
     end
   end
 
+  def past_inspections
+    @vehicle_inspection_reports = VehicleInspectionReport.where("vehicle_service_record_id = ?", Vehicle.find(params[:vehicle]).vehicle_service_record.id)
+    @vehicle = Vehicle.find(params[:vehicle])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle_inspection_report

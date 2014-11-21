@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered service-table">
 <% vsr = @vehicle.vehicle_service_record%>
   <tr>
     <th>Type</th>
@@ -8,52 +8,52 @@
     <th>Due Date</th>
   </tr>
   <tr>
-    <th>Engine Oil</th>
-    <th><%= vsr.oil_change || "N/A" %></th>
-    <th><%= vsr.oil_change_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:oil_change][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:oil_change][:due_date] %></th>
+    <td>Engine Oil</td>
+    <td><%= vsr.oil_change || "N/A" %></td>
+    <td><%= vsr.oil_change_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:oil_change][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:oil_change][:due_date] %></td>
   </tr>
   <tr>
-    <th>Brake Hydraulic System</th>
-    <th><%= vsr.brake_service || "N/A" %></th>
-    <th><%= vsr.brake_service_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:brake_service][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:brake_service][:due_date] %></th>
+    <td>Brake Hydraulic System</td>
+    <td><%= vsr.brake_service || "N/A" %></td>
+    <td><%= vsr.brake_service_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:brake_service][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:brake_service][:due_date] %></td>
   </tr>
   <tr>
-    <th>Transmission Fluid</th>
-    <th><%= vsr.transmission_service || "N/A" %></th>
-    <th><%= vsr.transmission_service_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:transmission_service][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:transmission_service][:due_date] %></th>
+    <td>Transmission Fluid</td>
+    <td><%= vsr.transmission_service || "N/A" %></td>
+    <td><%= vsr.transmission_service_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:transmission_service][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:transmission_service][:due_date] %></td>
   </tr>
   <tr>
-    <th>Oil Filter</th>
-    <th><%= vsr.oil_filter || "N/A" %></th>
-    <th><%= vsr.oil_filter_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:oil_filter][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:oil_filter][:due_date] %></th>
+    <td>Oil Filter</td>
+    <td><%= vsr.oil_filter || "N/A" %></td>
+    <td><%= vsr.oil_filter_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:oil_filter][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:oil_filter][:due_date] %></td>
   </tr>
   <tr>
-    <th>Air Filter</th>
-    <th><%= vsr.air_filter || "N/A" %></th>
-    <th><%= vsr.air_filter_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:air_filter][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:air_filter][:due_date] %></th>
+    <td>Air Filter</td>
+    <td><%= vsr.air_filter || "N/A" %></td>
+    <td><%= vsr.air_filter_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:air_filter][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:air_filter][:due_date] %></td>
   </tr>
   <tr>
-    <th>Battery</th>
-    <th><%= vsr.battery || "N/A" %></th>
-    <th><%= vsr.battery_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:battery][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:battery][:due_date] %></th>
+    <td>Battery</td>
+    <td><%= vsr.battery || "N/A" %></td>
+    <td><%= vsr.battery_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:battery][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:battery][:due_date] %></td>
   </tr>
   <tr>
-    <th>Tires Rotated</th>
-    <th><%= vsr.tires_rotated || "N/A" %></th>
-    <th><%= vsr.tires_rotated_mileage || "N/A" %></th>
-    <th><%= @vehicle_stats[:tires_rotated][:due_mileage] %></th>
-    <th><%= @vehicle_stats[:tires_rotated][:due_date] %></th>
+    <td>Tires Rotated</td>
+    <td><%= vsr.tires_rotated || "N/A" %></td>
+    <td><%= vsr.tires_rotated_mileage || "N/A" %></td>
+    <td><%= @vehicle_stats[:tires_rotated][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:tires_rotated][:due_date] %></td>
   </tr>
 </table>

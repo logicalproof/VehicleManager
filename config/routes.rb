@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
   resources :weekly_reports
-
+  get 'vehicle_inspection_reports/past_inspections'
   resources :vehicle_inspection_reports
 
   resources :checklists
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   get 'vehicles/overdue_services'
+
 
   devise_scope :user do
     get "/users/sign_up",  :to => "devise/sessions#new"

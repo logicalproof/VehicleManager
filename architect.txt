@@ -2,24 +2,12 @@ Supercedes:
   Clean and format all vehicle inspection item names (create a helper that removes the underscores)
   Format Vehicle Weekly checklist for mobile
 
-
-
-
-
-
+ FIXED - UI BUG - User view page buttons shift if multiple vehicles are assigned with different length vehicle numbers (i.e. 24 & 120)
 
 TODO - Email
-  complete - Upcoming Email
-  complete - Overdue Service Email
   Overdue Report Email
 
 TODO - Formating
-  Format of checklists
-  Format of checklist fields
-  remove - back/edit links from most show methods
-
-TODO - Failing Checklist Items
-  Email to Mechanic
 
 TODO - partials for roles
   Define Supervisor and Driver role access

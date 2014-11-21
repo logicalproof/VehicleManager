@@ -2,7 +2,7 @@
   <% service_list.each_key do |overdue_service| %>
     <tr>
       <% if service_list[overdue_service][:due_mileage] > 0 %>
-        <td><%= overdue_service.to_s %></td>
+        <td><%= translate_service(overdue_service) %></td>
         <td><%= link_to service_list[overdue_service][:vehicle].number, vehicle_path(service_list[overdue_service][:vehicle]) %></td>
         <td><%= service_list[overdue_service][:vehicle].current_mileage %></td>
         <td><%= service_list[overdue_service][:due_mileage] %></td>
