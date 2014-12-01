@@ -26,6 +26,7 @@
         <td><%= number_with_delimiter(vehicle.current_mileage) %></td>
         <td><%= assigned_driver(vehicle) %></td>
         <td><%= link_to "Past inspections", vehicle_inspection_reports_past_inspections_path(vehicle: vehicle) %></td>
+        <td><%= link_to "Weekly Vehicle Reports", weekly_reports_past_reports_path(vehicle: vehicle) %></td>
       </tr>
     <% end %>
   </tbody>

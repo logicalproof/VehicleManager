@@ -1,0 +1,40 @@
+<h1>Weekly Vehicle Report Record for Vehicle #<%= @vehicle.number %></h1>
+
+<table class="table table-bordered inspection-table">
+  <thead>
+    <tr>
+      <th>Report Date</th>
+      <th>Mileage</th>
+      <th>Mechanical Components</th>
+      <th>Electrical Components</th>
+      <th>Fluid Levels</th>
+      <th>Tire Wear and Pressure</th>
+      <th>Vehicle Appearance</th>
+      <th>Lights</th>
+      <th>Driver</th>
+    </tr>
+  </thead>
+  <% if @weekly_reports.empty? %>
+    <tbody>
+      <tr>
+        <td colspan=9>No Weekly Report's on File</td>
+      </tr>
+    </tbody>
+  <% else %>
+    <tbody>
+      <% @weekly_reports.each do |wr| %>
+        <tr>
+          <td><%= link_to wr.created_at.strftime("%b %d, %B"), wr %></td>
+          <td><%= wr.mileage %></td>
+          <td><%= wr.mechanical %></td>
+          <td><%= wr.electrical %></td>
+          <td><%= wr.fluid_levels %></td>
+          <td><%= wr.tires %></td>
+          <td><%= wr.appearance %></td>
+          <td><%= wr.lights %></td>
+          <td><%= wr.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

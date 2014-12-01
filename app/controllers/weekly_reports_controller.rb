@@ -65,6 +65,11 @@ class WeeklyReportsController < ApplicationController
     end
   end
 
+  def past_reports
+    @weekly_reports = WeeklyReport.where("vehicle_id = ?", params[:vehicle])
+    @vehicle = Vehicle.find(params[:vehicle])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_weekly_report

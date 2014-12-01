@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-
+  get 'weekly_reports/past_reports'
   resources :weekly_reports
   get 'vehicle_inspection_reports/past_inspections'
   resources :vehicle_inspection_reports
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'vehicles/overdue_services'
 
+  
 
   devise_scope :user do
     get "/users/sign_up",  :to => "devise/sessions#new"

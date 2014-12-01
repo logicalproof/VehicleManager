@@ -57,3 +57,5 @@
     <td><%= @vehicle_stats[:tires_rotated][:due_date] %></td>
   </tr>
 </table>
+<%= link_to "List Past Inspections", vehicle_inspection_reports_past_inspections_path(vehicle: @vehicle) %>
+<%= link_to "List Weekly Vehicle Reports", weekly_reports_past_reports_path(vehicle: @vehicle) %>
