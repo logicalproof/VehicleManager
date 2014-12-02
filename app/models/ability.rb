@@ -8,7 +8,7 @@ class Ability
       if user.admin?
         can :manage, :all
       elsif user.supervisor?
-        can :manage, [Vehicle, VehicleAssignment, VehicleService, WeeklyReport]
+        can :manage, [Vehicle, VehicleAssignment, VehicleInspectionReport, WeeklyReport]
         can :manage, User, :id => user.id
         can :read, User
         cannot :destroy, WeeklyReport
