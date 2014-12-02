@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Mileage:</strong>
   <%= @vehicle_inspection_report.mileage %>
@@ -17,264 +16,145 @@
   <%= @vehicle_inspection_report.created_at %>
 </p>
 
-<p>
-  <strong>Engine Oil:</strong>
-  <%= @vehicle_inspection_report.oil_change %>
-</p>
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th class="col-md-3">Service Item</th>
+    <th class="col-md-2">Serviced?</th>
+    <th class="col-md-7">Comment</th>
+  </tr>
+  <tr>
+    <th>Oil Change</th>
+    <td><%= @vehicle_inspection_report.oil_change %></td>
+    <td><%= @vehicle_inspection_report.oil_change_comments %></td>
+  </tr>
+  <tr>
+    <th>Exhaust System</th>
+    <td><%= @vehicle_inspection_report.exhaust %></td>
+    <td><%= @vehicle_inspection_report.exhaust_comment %></td>
+  </tr>
+  <tr>
+    <th>Transmission Service</th>
+    <td><%= @vehicle_inspection_report.transmission_service %></td>
+    <td><%= @vehicle_inspection_report.transmission_service_comments %></td>
+  </tr>
+  <tr>
+    <th>Brake Service</th>
+    <td><%= @vehicle_inspection_report.brake_service %></td>
+    <td><%= @vehicle_inspection_report.brake_service_comments %></td>
+  </tr>
+  <tr>
+    <th>Tire Wear</th>
+    <td><%= @vehicle_inspection_report.tire_wear %></td>
+    <td><%= @vehicle_inspection_report.tire_wear_comment %></td>
+  </tr>
+  <tr>
+    <th>Emergency Brake Adjustment</th>
+    <td><%= @vehicle_inspection_report.emergency_brake_adjustment %></td>
+    <td><%= @vehicle_inspection_report.emergency_brake_adjustment_comment %></td>
+  </tr>
+  <tr>
+    <th>Drive Belts</th>
+    <td><%= @vehicle_inspection_report.drive_belts %></td>
+    <td><%= @vehicle_inspection_report.drive_belts_comment %></td>
+  </tr>
+  <tr>
+    <th>Radiator Coolant</th>
+    <td><%= @vehicle_inspection_report.radiator_coolant %></td>
+    <td><%= @vehicle_inspection_report.radiator_coolant_comment %></td>
+  </tr>
+  <tr>
+    <th>Radiator Hoses</th>
+    <td><%= @vehicle_inspection_report.radiator_hoses %></td>
+    <td><%= @vehicle_inspection_report.radiator_hoses_comment %></td>
+  </tr>
+  <tr>
+    <th>Heater Hoses</th>
+    <td><%= @vehicle_inspection_report.heater_hoses %></td>
+    <td><%= @vehicle_inspection_report.heater_hoses_comment %></td>
+  </tr>
+  <tr>
+    <th>Battery Cables</th>
+    <td><%= @vehicle_inspection_report.battery_cables %></td>
+    <td><%= @vehicle_inspection_report.battery_cables_comment %></td>
+  </tr>
+  <tr>
+    <th>Spark Plug Wires</th>
+    <td><%= @vehicle_inspection_report.spark_plug_wires %></td>
+    <td><%= @vehicle_inspection_report.spark_plug_wires_comment %></td>
+  </tr>
+  <tr>
+    <th>Oil Filter</th>
+    <td><%= @vehicle_inspection_report.oil_filter %></td>
+    <td><%= @vehicle_inspection_report.oil_filter_comment %></td>
+  </tr>
+  <tr>
+    <th>Air Filter</th>
+    <td><%= @vehicle_inspection_report.air_filter %></td>
+    <td><%= @vehicle_inspection_report.air_filter_comment %></td>
+  </tr>
+  <tr>
+    <th>Fuel Filter</th>
+    <td><%= @vehicle_inspection_report.fuel_filter %></td>
+    <td><%= @vehicle_inspection_report.fuel_filter_comment %></td>
+  </tr>
+  <tr>
+    <th>Wiper Blades</th>
+    <td><%= @vehicle_inspection_report.wiper_blades %></td>
+    <td><%= @vehicle_inspection_report.wiper_blades_comment %></td>
+  </tr>
+  <tr>
+    <th>Headlights</th>
+    <td><%= @vehicle_inspection_report.headlights %></td>
+    <td><%= @vehicle_inspection_report.headlights_comment %></td>
+  </tr>
+  <tr>
+    <th>Brake Lights</th>
+    <td><%= @vehicle_inspection_report.brake_lights %></td>
+    <td><%= @vehicle_inspection_report.brake_lights_comment %></td>
+  </tr>
+  <tr>
+    <th>Tail Lights</th>
+    <td><%= @vehicle_inspection_report.tail_lights %></td>
+    <td><%= @vehicle_inspection_report.tail_lights_comment %></td>
+  </tr>
+  <tr>
+    <th>Turn Signals</th>
+    <td><%= @vehicle_inspection_report.turn_signals %></td>
+    <td><%= @vehicle_inspection_report.turn_signals_comment %></td>
+  </tr>
+  <tr>
+    <th>Air Conditioner</th>
+    <td><%= @vehicle_inspection_report.air_conditioner %></td>
+    <td><%= @vehicle_inspection_report.air_conditioner_comment %></td>
+  </tr>
+  <tr>
+    <th>Mirrors</th>
+    <td><%= @vehicle_inspection_report.mirrors %></td>
+    <td><%= @vehicle_inspection_report.mirrors_comment %></td>
+  </tr>
+  <tr>
+    <th>Seatbelts</th>
+    <td><%= @vehicle_inspection_report.seatbelts %></td>
+    <td><%= @vehicle_inspection_report.seatbelts_comment %></td>
+  </tr>
+  <tr>
+    <th>Windshield</th>
+    <td><%= @vehicle_inspection_report.windshield %></td>
+    <td><%= @vehicle_inspection_report.windshield_comment %></td>
+  </tr>
+  <tr>
+    <th>Side Windows</th>
+    <td><%= @vehicle_inspection_report.side_windows %></td>
+    <td><%= @vehicle_inspection_report.side_windows_comment %></td>
+  </tr>
+  <tr>
+    <th>Rear Window</th>
+    <td><%= @vehicle_inspection_report.rear_window %></td>
+    <td><%= @vehicle_inspection_report.rear_window_comment %></td>
+  </tr>
 
-<p>
-  <strong>Engine Oil comment:</strong>
-  <%= @vehicle_inspection_report.oil_change_comments %>
-</p>
-<p>
-  <strong>Transmission Fluid:</strong>
-  <%= @vehicle_inspection_report.transmission_service %>
-</p>
+</table>
 
-<p>
-  <strong>Transmission Fluid comment:</strong>
-  <%= @vehicle_inspection_report.transmission_service_comments %>
-</p>
-<p>
-  <strong>Brake Hydraulic System:</strong>
-  <%= @vehicle_inspection_report.brake_service %>
-</p>
-
-<p>
-  <strong>Brake Hydraulic System comment:</strong>
-  <%= @vehicle_inspection_report.brake_service_comments %>
-</p>
-
-
-<p>
-  <strong>Tire wear:</strong>
-  <%= @vehicle_inspection_report.tire_wear %>
-</p>
-
-<p>
-  <strong>Tire wear comment:</strong>
-  <%= @vehicle_inspection_report.tire_wear_comment %>
-</p>
-
-<p>
-  <strong>Emergency brake adjustment:</strong>
-  <%= @vehicle_inspection_report.emergency_brake_adjustment %>
-</p>
-
-<p>
-  <strong>Emergency brake adjustment comment:</strong>
-  <%= @vehicle_inspection_report.emergency_brake_adjustment_comment %>
-</p>
-
-<p>
-  <strong>Exhaust:</strong>
-  <%= @vehicle_inspection_report.exhaust %>
-</p>
-
-<p>
-  <strong>Drive belts:</strong>
-  <%= @vehicle_inspection_report.drive_belts %>
-</p>
-
-<p>
-  <strong>Radiator coolant:</strong>
-  <%= @vehicle_inspection_report.radiator_coolant %>
-</p>
-
-<p>
-  <strong>Radiator hoses:</strong>
-  <%= @vehicle_inspection_report.radiator_hoses %>
-</p>
-
-<p>
-  <strong>Heater hoses:</strong>
-  <%= @vehicle_inspection_report.heater_hoses %>
-</p>
-
-<p>
-  <strong>Battery cables:</strong>
-  <%= @vehicle_inspection_report.battery_cables %>
-</p>
-
-<p>
-  <strong>Spark plug wires:</strong>
-  <%= @vehicle_inspection_report.spark_plug_wires %>
-</p>
-
-<p>
-  <strong>Oil filter:</strong>
-  <%= @vehicle_inspection_report.oil_filter %>
-</p>
-
-<p>
-  <strong>Air filter:</strong>
-  <%= @vehicle_inspection_report.air_filter %>
-</p>
-
-<p>
-  <strong>Fuel filter:</strong>
-  <%= @vehicle_inspection_report.fuel_filter %>
-</p>
-
-<p>
-  <strong>Wiper blades:</strong>
-  <%= @vehicle_inspection_report.wiper_blades %>
-</p>
-
-<p>
-  <strong>Headlights:</strong>
-  <%= @vehicle_inspection_report.headlights %>
-</p>
-
-<p>
-  <strong>Brake lights:</strong>
-  <%= @vehicle_inspection_report.brake_lights %>
-</p>
-
-<p>
-  <strong>Tail lights:</strong>
-  <%= @vehicle_inspection_report.tail_lights %>
-</p>
-
-<p>
-  <strong>Turn signals:</strong>
-  <%= @vehicle_inspection_report.turn_signals %>
-</p>
-
-<p>
-  <strong>Air conditioner:</strong>
-  <%= @vehicle_inspection_report.air_conditioner %>
-</p>
-
-<p>
-  <strong>Seatbelts:</strong>
-  <%= @vehicle_inspection_report.seatbelts %>
-</p>
-
-<p>
-  <strong>Mirrors:</strong>
-  <%= @vehicle_inspection_report.mirrors %>
-</p>
-
-<p>
-  <strong>Windshield:</strong>
-  <%= @vehicle_inspection_report.windshield %>
-</p>
-
-<p>
-  <strong>Rear window:</strong>
-  <%= @vehicle_inspection_report.rear_window %>
-</p>
-
-<p>
-  <strong>Side windows:</strong>
-  <%= @vehicle_inspection_report.side_windows %>
-</p>
-
-<p>
-  <strong>Exhaust comment:</strong>
-  <%= @vehicle_inspection_report.exhaust_comment %>
-</p>
-
-<p>
-  <strong>Drive belts comment:</strong>
-  <%= @vehicle_inspection_report.drive_belts_comment %>
-</p>
-
-<p>
-  <strong>Radiator coolant comment:</strong>
-  <%= @vehicle_inspection_report.radiator_coolant_comment %>
-</p>
-
-<p>
-  <strong>Radiator hoses comment:</strong>
-  <%= @vehicle_inspection_report.radiator_hoses_comment %>
-</p>
-
-<p>
-  <strong>Heater hoses comment:</strong>
-  <%= @vehicle_inspection_report.heater_hoses_comment %>
-</p>
-
-<p>
-  <strong>Battery cables comment:</strong>
-  <%= @vehicle_inspection_report.battery_cables_comment %>
-</p>
-
-<p>
-  <strong>Spark plug wires comment:</strong>
-  <%= @vehicle_inspection_report.spark_plug_wires_comment %>
-</p>
-
-<p>
-  <strong>Oil filter comment:</strong>
-  <%= @vehicle_inspection_report.oil_filter_comment %>
-</p>
-
-<p>
-  <strong>Air filter comment:</strong>
-  <%= @vehicle_inspection_report.air_filter_comment %>
-</p>
-
-<p>
-  <strong>Fuel filter comment:</strong>
-  <%= @vehicle_inspection_report.fuel_filter_comment %>
-</p>
-
-<p>
-  <strong>Wiper blades comment:</strong>
-  <%= @vehicle_inspection_report.wiper_blades_comment %>
-</p>
-
-<p>
-  <strong>Headlights comment:</strong>
-  <%= @vehicle_inspection_report.headlights_comment %>
-</p>
-
-<p>
-  <strong>Brake lights comment:</strong>
-  <%= @vehicle_inspection_report.brake_lights_comment %>
-</p>
-
-<p>
-  <strong>Tail lights comment:</strong>
-  <%= @vehicle_inspection_report.tail_lights_comment %>
-</p>
-
-<p>
-  <strong>Turn signals comment:</strong>
-  <%= @vehicle_inspection_report.turn_signals_comment %>
-</p>
-
-<p>
-  <strong>Air conditioner comment:</strong>
-  <%= @vehicle_inspection_report.air_conditioner_comment %>
-</p>
-
-<p>
-  <strong>Seatbelts comment:</strong>
-  <%= @vehicle_inspection_report.seatbelts_comment %>
-</p>
-
-<p>
-  <strong>Mirrors comment:</strong>
-  <%= @vehicle_inspection_report.mirrors_comment %>
-</p>
-
-<p>
-  <strong>Windshield comment:</strong>
-  <%= @vehicle_inspection_report.windshield_comment %>
-</p>
-
-<p>
-  <strong>Rear window comment:</strong>
-  <%= @vehicle_inspection_report.rear_window_comment %>
-</p>
-
-<p>
-  <strong>Side windows comment:</strong>
-  <%= @vehicle_inspection_report.side_windows_comment %>
-</p>
 
 <%= link_to 'Edit', edit_vehicle_inspection_report_path(@vehicle_inspection_report) %> |
 <%= link_to 'Back', vehicle_inspection_reports_path %>

@@ -25,7 +25,7 @@
     <tbody>
       <% @vehicle_inspection_reports.each do |vir| %>
         <tr>
-          <td><%= link_to vir.created_at.strftime("%b %d, %B"), vir %></td>
+          <td><%= link_to vir.created_at.strftime("%b %d, %Y"), vir %></td>
           <td><%= vir.mileage %></td>
           <td><%= serviced? vir.oil_change %></td>
           <td><%= serviced? vir.oil_filter %></td>
