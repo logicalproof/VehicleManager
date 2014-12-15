@@ -49,4 +49,5 @@ gem 'devise'
 gem 'cancancan', '~> 1.9' 
 gem 'annotate', '~> 2.6.5'
 gem 'bootstrap_form'
+gem 'will_paginate'
 

@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all.order("id asc")
+    @vehicles = Vehicle.all.order("id asc").paginate(:per_page => 15, :page => params[:page])
   end
 
   # GET /vehicles/1

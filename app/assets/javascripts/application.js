@@ -24,8 +24,17 @@ $(document).ready(function() {
 	}, function() {
 	    $(this).find('div').hide();
 	});
-});
 
+  if ($("#alert-info-well").text() === "ERROR: Weekly Vehicle Report was NOT created!!") {
+    console.log($("#alert-info-well").text());
+    $("#alert-info-well").removeClass("alert-info");
+    $("#alert-info-well").addClass("alert-danger");
+  } else {
+    
+  };
+  
+
+});
 
 
 

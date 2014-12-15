@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
 	def index
-		@users = User.all
+		@users = User.all.order(:first_name).paginate(:per_page => 15, :page => params[:page])
 	end
 
 	def show
@@ -24,6 +24,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :role)
+      params.require(:user).permit(:email, :role, :first_name, :last_name, :phone_number)
     end
 end

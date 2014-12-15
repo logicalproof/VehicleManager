@@ -16,6 +16,9 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role                   :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  phone_number           :string(255)
 #
 
 require 'test_helper'

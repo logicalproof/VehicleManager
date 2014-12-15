@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202194932) do
+ActiveRecord::Schema.define(version: 20141202203822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20141202194932) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -114,7 +117,7 @@ ActiveRecord::Schema.define(version: 20141202194932) do
     t.boolean  "emergency_brake_adjustment"
     t.string   "emergency_brake_adjustment_comment"
     t.string   "user_id"
-    t.integer  "mileage"
+    t.integer  "mileage",                            default: 0
     t.integer  "vehicle_service_record_id"
     t.boolean  "oil_change"
     t.string   "oil_change_comments"

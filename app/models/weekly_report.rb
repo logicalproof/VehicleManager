@@ -20,6 +20,7 @@
 class WeeklyReport < ActiveRecord::Base
   belongs_to :user
   belongs_to :vehicle
+  validates :mileage, :numericality => { :greater_than_or_equal_to => 0 }
   after_create :update_mileage_from_service
   after_create :check_for_failures
 

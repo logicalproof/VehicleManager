@@ -6,20 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-def user_creation(email_suffix, password, user_names)
-  suffix = email_suffix
-  pword = password
-  user_names.each do |u|
-	  User.create(email: (u+suffix), password: pword, password_confirmation: pword, role: 'driver')
-  end
-  User.create(email: "nicks@americanfire.com", password: pword, password_confirmation: pword, role: 'admin')
-end
 
-
-
-
-user_names = ["damons", "tonyb", "ericf", "joef"]
-user_creation("@americanfire.com", "afe12345", user_names)
 
 
 
@@ -129,4 +116,158 @@ vehicles_array = [[19, "C2500", "1998"],
   vehicles_array.each do |vehicle|
   	vehicles << vehicle_creation(vehicle)
   end
+
+  # This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+technicians = %w(Anderson,Jeffery,602-695-4702
+Banwart,Larry,602-695-0034
+Berry,Jonathen,602-694-6442
+Bratcher,Jeff,602-653-0466
+Brennan,Joe,602-694-8598
+Brown,Michael,602-694-9020
+Bustos,Lorenzo,602-292-9329
+Butler,Robert,602-882-3781
+Campbell,Don,602-695-2037
+Castellani,Shayne,602-663-7910
+Chavez,Fernando,602-679-6444
+Clark,Ryan,602-695-1699
+Clermont,Charles,602-695-0032
+Clutter,Beau,602-292-4355
+Coffman,Jason,602-290-2215
+Crocker,James,602-695-1838
+Cushway,Derek,602-451-3584
+Davis,Jeff,602-695-0033
+Dew,Danny,602-448-4465
+Diaz,Joseph,602-291-0833
+Dobberphul,Andrew,602-541-9578
+Doucette,Tom,602-292-4562
+Dufty,Lyndon,602-292-1608
+Ellsworth,Willis,602-695-5087
+Estes,Matt,435-720-2618
+Ewell,Charles,602-695-0010
+Fain,Leighton,602-695-2022
+Farra,Joseph,602-695-8150
+Fischbeck,Eric,602-695-2531
+Fisher,Joe,602-350-4830
+Flis,Michael,602-228-1893
+Formway,Gary,602-292-3255
+French,Bradley,602-320-7663
+Gamboa,Michael,602-663-3843
+Garcia,Marcos,602-694-5451
+Gazlay,Chris,602-695-0012
+Gilbert,John,602-292-2845
+Goon,Ron,602-695-0038
+Guyton,Jim,602-695-3170
+Halcomb,Tad,602-695-3963
+Hamilton,Justin,602-695-0040
+Hooiman,Eric,775-434-3848
+Horvath,Bill,602-695-1748
+Hossleton,Dan,602-370-2696
+Hoy,Ronnie,602-695-0041
+Huffman,Marcus,602-695-3675
+Hunt,Rusty,602-290-3573
+James,Rick,602-826-7392
+Johnson,Jim,602-695-2039
+Johnson,Beau,602-695-0808
+Jones,Lennie,602-695-0027
+Jones,Robert,602-695-5103
+Jones,Rhys,602-292-9576
+Karlosak,Steven,602-695-0019
+Keller,CJ,602-695-0036
+Kelsey,Bill,602-695-3489
+Kimes,Jimmy,602-679-6406
+Klein,Steven,602-292-1962
+Knoll,Kyle,602-695-3693
+Krauss,Russell,602-309-8483
+LaFaver,Ray,775-276-7096
+Lake,Russ,602-320-9256
+Lawler,Will,602-695-0011
+Lopez,Eduardo,602-694-0214
+Lyon,Mike,602-695-4040
+Lyon,Timothy,928-322-5474
+Martin,Mike,602-625-1968
+Marvin,Joe,602-694-3408
+Meiner,Dustin,602-291-0711
+Mendez,Fernando,602-291-1246
+Moya,Joshua,602-695-0023
+Munoz,Juan,602-695-0026
+Neufeld,Robert,602-292-4173
+Neylon,Tim,602-309-6448
+Nino,Travis,602-679-6314
+Ousley,Kris,602-695-5550
+Papuga,Zachary,602-695-3478
+Perez,Angel,602-882-0185
+Petty,Zach,602-292-7126
+Phipps,Kyle,520-307-3188
+Pitzer,Beach,602-695-0114
+Pizzuto,John,602-695-0016
+Prieto,Robert,602-292-3993
+Rasgo,Warren,602-309-0267
+Ridgway,Adam,602-695-0035
+Rivers,Loren,602-695-0015
+Rodgers,Edwin,602-695-3078
+Salazar,Rafael,602-695-5531
+Salazar,Rafael,602-695-0022
+Sandberg,Nick,602-292-9331
+Schilling,Jonathan,602-694-3734
+Schrey,Mike,602-695-3450
+Schue,Dennis,602-999-7149
+Smith,Damon,602-370-4147
+Solis,Johnathon,602-499-9692
+Stark,Bob,623-225-9564
+Steele,Pete,602-695-0043
+Stinton,Justin,602-309-6329
+Stone,Zachary,602-695-8146
+Stringer,Lee,602-370-5981
+Swain,Robert,928-215-0245
+Tanner,Lindsay,602-361-7563
+Tanner,Kale,928-660-9367
+Templin,Rickey,602-695-0017
+Thompson,Larry,602-290-7460
+Thompson,Bill,602-695-5062
+Tolbert,Jeff,602-695-0039
+Trauthwein,Michael,602-309-0206
+Triassi,Anthony,602-695-0268
+Unger,Phil,602-292-9240
+Valencia,Jesus,602-639-0982
+VanClay,Dave,602-292-1664
+Vandervort,Michael,602-695-0014
+Villaverde,Chane,602-292-5410
+Workman,Bryceon,602-695-4726
+Yates,Scott,928-699-0563
+Zahller,Kevin,602-695-0020)
+
+
+techs = []
+technicians.each do |x|
+  arry = x.split(",", 0)
+  techs << {first_name: arry[1], last_name: arry[0], phone_number: arry[2]}
+end
+
+
+def first_letters(string, num)
+  string[0, num]
+end
+
+
+def user_creation(tech)
+  pword = "afe12345"
+  User.create(first_name: tech[:first_name], last_name: tech[:last_name], email: "#{tech[:first_name].downcase + first_letters(tech[:last_name], 1).downcase}@americanfire.com", phone_number: tech[:phone_number], password: pword, password_confirmation: pword, role: 'driver')
+end
+
+techs.each do |technician|
+  user_creation(technician)
+end
+
+
+
+
 

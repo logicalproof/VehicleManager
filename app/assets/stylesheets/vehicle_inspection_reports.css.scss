@@ -8,15 +8,29 @@
 
 .comments_header {
   width: 65%;
+  font-weight: lighter;
 }
 .inspection_title {
   width: 25%;
+  font-weight: lighter;
 }
-.inspection_completed {
+.inspection_complete {
   size: 10%;
+  font-weight: lighter;
 }
 .inspection-table {
   font-size: 10px;
   font-weight: lighter;
   text-align: center;
+}
+.centered {
+  text-align: center;
+}
+h3 {
+  font-size: 20px;
+  margin: 0px;
+  background-color: lightgray;
+}
+.right {
+  text-align: right;;
 }

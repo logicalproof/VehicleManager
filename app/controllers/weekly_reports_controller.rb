@@ -1,10 +1,13 @@
 class WeeklyReportsController < ApplicationController
   before_action :set_weekly_report, only: [:show, :edit, :update, :destroy]
+  # scope :vehicle, -> (vehicle) { where vehicle: vehicle }
+  # scope :driver, -> (driver) { where driver: driver }
+  
 
   # GET /weekly_reports
   # GET /weekly_reports.json
   def index
-    @weekly_reports = WeeklyReport.all
+    @weekly_reports = WeeklyReport.all.paginate(:per_page => 15, :page => params[:page])
   end
 
   # GET /weekly_reports/1
@@ -33,10 +36,10 @@ class WeeklyReportsController < ApplicationController
     respond_to do |format|
       if @weekly_report.save
         format.html { redirect_to current_user, notice: "Weekly report was successfully created for Vehicle ##{@weekly_report.vehicle.number} with #{@weekly_report.vehicle.current_mileage} miles." }
-        format.json { render :show, status: :created, location: @weekly_report }
+        format.json { render :show, vehicle: :created, location: @weekly_report }
       else
         format.html { redirect_to current_user, notice: "ERROR: Weekly Vehicle Report was NOT created!!"  }
-        format.json { render json: @weekly_report.errors, status: :unprocessable_entity }
+        format.json { render json: @weekly_report.errors, vehicle: :unprocessable_entity }
       end
     end
   end
@@ -47,10 +50,10 @@ class WeeklyReportsController < ApplicationController
     respond_to do |format|
       if @weekly_report.update(weekly_report_params)
         format.html { redirect_to @weekly_report, notice: 'Weekly report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @weekly_report }
+        format.json { render :show, vehicle: :ok, location: @weekly_report }
       else
         format.html { render :edit }
-        format.json { render json: @weekly_report.errors, status: :unprocessable_entity }
+        format.json { render json: @weekly_report.errors, vehicle: :unprocessable_entity }
       end
     end
   end

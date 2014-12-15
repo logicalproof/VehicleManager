@@ -9,11 +9,11 @@
 </p>
 <p>
   <strong>Technician:</strong>
-  <%= @vehicle_inspection_report.user.email %>
+  <%= @vehicle_inspection_report.user.full_name %>
 </p>
 <p>
   <strong>Date:</strong>
-  <%= @vehicle_inspection_report.created_at %>
+  <%= @vehicle_inspection_report.created_at.strftime("%B %d, %Y") %>
 </p>
 
 <table class="table table-bordered table-condensed">
@@ -27,10 +27,10 @@
     <td><%= @vehicle_inspection_report.oil_change %></td>
     <td><%= @vehicle_inspection_report.oil_change_comments %></td>
   </tr>
-  <tr>
-    <th>Exhaust System</th>
-    <td><%= @vehicle_inspection_report.exhaust %></td>
-    <td><%= @vehicle_inspection_report.exhaust_comment %></td>
+   <tr>
+    <th>Oil Filter</th>
+    <td><%= @vehicle_inspection_report.oil_filter %></td>
+    <td><%= @vehicle_inspection_report.oil_filter_comment %></td>
   </tr>
   <tr>
     <th>Transmission Service</th>
@@ -43,19 +43,34 @@
     <td><%= @vehicle_inspection_report.brake_service_comments %></td>
   </tr>
   <tr>
-    <th>Tire Wear</th>
-    <td><%= @vehicle_inspection_report.tire_wear %></td>
-    <td><%= @vehicle_inspection_report.tire_wear_comment %></td>
-  </tr>
-  <tr>
     <th>Emergency Brake Adjustment</th>
     <td><%= @vehicle_inspection_report.emergency_brake_adjustment %></td>
     <td><%= @vehicle_inspection_report.emergency_brake_adjustment_comment %></td>
   </tr>
   <tr>
-    <th>Drive Belts</th>
-    <td><%= @vehicle_inspection_report.drive_belts %></td>
-    <td><%= @vehicle_inspection_report.drive_belts_comment %></td>
+    <th>Tire Wear</th>
+    <td><%= @vehicle_inspection_report.tire_wear %></td>
+    <td><%= @vehicle_inspection_report.tire_wear_comment %></td>
+  </tr>
+  <tr>
+    <th>Tires Rotated</th>
+    <td><%= @vehicle_inspection_report.tires_rotated %></td>
+    <td><%= @vehicle_inspection_report.tires_rotated_comment %></td>
+  </tr>
+  <tr>
+    <th>Battery</th>
+    <td><%= @vehicle_inspection_report.battery %></td>
+    <td><%= @vehicle_inspection_report.battery_comment %></td>
+  </tr>
+  <tr>
+    <th>Battery Cables</th>
+    <td><%= @vehicle_inspection_report.battery_cables %></td>
+    <td><%= @vehicle_inspection_report.battery_cables_comment %></td>
+  </tr>
+  <tr>
+    <th>Spark Plug Wires</th>
+    <td><%= @vehicle_inspection_report.spark_plug_wires %></td>
+    <td><%= @vehicle_inspection_report.spark_plug_wires_comment %></td>
   </tr>
   <tr>
     <th>Radiator Coolant</th>
@@ -73,19 +88,9 @@
     <td><%= @vehicle_inspection_report.heater_hoses_comment %></td>
   </tr>
   <tr>
-    <th>Battery Cables</th>
-    <td><%= @vehicle_inspection_report.battery_cables %></td>
-    <td><%= @vehicle_inspection_report.battery_cables_comment %></td>
-  </tr>
-  <tr>
-    <th>Spark Plug Wires</th>
-    <td><%= @vehicle_inspection_report.spark_plug_wires %></td>
-    <td><%= @vehicle_inspection_report.spark_plug_wires_comment %></td>
-  </tr>
-  <tr>
-    <th>Oil Filter</th>
-    <td><%= @vehicle_inspection_report.oil_filter %></td>
-    <td><%= @vehicle_inspection_report.oil_filter_comment %></td>
+    <th>Air Conditioner</th>
+    <td><%= @vehicle_inspection_report.air_conditioner %></td>
+    <td><%= @vehicle_inspection_report.air_conditioner_comment %></td>
   </tr>
   <tr>
     <th>Air Filter</th>
@@ -97,10 +102,15 @@
     <td><%= @vehicle_inspection_report.fuel_filter %></td>
     <td><%= @vehicle_inspection_report.fuel_filter_comment %></td>
   </tr>
+    <tr>
+    <th>Exhaust System</th>
+    <td><%= @vehicle_inspection_report.exhaust %></td>
+    <td><%= @vehicle_inspection_report.exhaust_comment %></td>
+  </tr>
   <tr>
-    <th>Wiper Blades</th>
-    <td><%= @vehicle_inspection_report.wiper_blades %></td>
-    <td><%= @vehicle_inspection_report.wiper_blades_comment %></td>
+    <th>Drive Belts</th>
+    <td><%= @vehicle_inspection_report.drive_belts %></td>
+    <td><%= @vehicle_inspection_report.drive_belts_comment %></td>
   </tr>
   <tr>
     <th>Headlights</th>
@@ -123,19 +133,9 @@
     <td><%= @vehicle_inspection_report.turn_signals_comment %></td>
   </tr>
   <tr>
-    <th>Air Conditioner</th>
-    <td><%= @vehicle_inspection_report.air_conditioner %></td>
-    <td><%= @vehicle_inspection_report.air_conditioner_comment %></td>
-  </tr>
-  <tr>
-    <th>Mirrors</th>
-    <td><%= @vehicle_inspection_report.mirrors %></td>
-    <td><%= @vehicle_inspection_report.mirrors_comment %></td>
-  </tr>
-  <tr>
-    <th>Seatbelts</th>
-    <td><%= @vehicle_inspection_report.seatbelts %></td>
-    <td><%= @vehicle_inspection_report.seatbelts_comment %></td>
+    <th>Wiper Blades</th>
+    <td><%= @vehicle_inspection_report.wiper_blades %></td>
+    <td><%= @vehicle_inspection_report.wiper_blades_comment %></td>
   </tr>
   <tr>
     <th>Windshield</th>
@@ -152,9 +152,16 @@
     <td><%= @vehicle_inspection_report.rear_window %></td>
     <td><%= @vehicle_inspection_report.rear_window_comment %></td>
   </tr>
-
+  <tr>
+    <th>Mirrors</th>
+    <td><%= @vehicle_inspection_report.mirrors %></td>
+    <td><%= @vehicle_inspection_report.mirrors_comment %></td>
+  </tr>
+  <tr>
+    <th>Seatbelts</th>
+    <td><%= @vehicle_inspection_report.seatbelts %></td>
+    <td><%= @vehicle_inspection_report.seatbelts_comment %></td>
+  </tr>
 </table>
 
-
-<%= link_to 'Edit', edit_vehicle_inspection_report_path(@vehicle_inspection_report) %> |
 <%= link_to 'Back', vehicle_inspection_reports_path %>

@@ -16,7 +16,7 @@
 #
 
 class Vehicle < ActiveRecord::Base
-	has_one :vehicle_assignment
+	has_one :vehicle_assignment, dependent: :destroy
 	has_one :user, :through => :vehicle_assignment
 	has_many :mileages
   has_one :vehicle_service_record, dependent: :destroy
@@ -34,7 +34,11 @@ class Vehicle < ActiveRecord::Base
 
 
   def driver
-  	self.vehicle_assignment.user.email
+    if self.vehicle_assignment
+  	  return self.user.email
+    else
+      return "N/A"
+    end
   end
 
 

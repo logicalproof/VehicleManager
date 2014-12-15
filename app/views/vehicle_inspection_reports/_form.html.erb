@@ -17,150 +17,175 @@
   <%= f.hidden_field :vehicle_service_record_id, :value => params[:vehicle_service_record_id] %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <table class="table table-bordered">
+  <table class="table table-condensed table-hover">
     <tr>
-      <th class="inspection_title">Inspection</th>
-      <th class="inspection_complete">Inspection complete?</th>
-      <th class="comments_header">Comments</th>
+      <th colspan=3 class="centered"><h3>Engine Oil<h3></td>
+    </tr>
+    <tr>
+      <th class="inspection_title centered">Inspection Item</th>
+      <th class="inspection_complete centered">Completed?</th>
+      <th class="comments_header centered">Comments</th>
     </tr>
     <tr>
       <td><%= f.label :oil_change %></td>
-      <td><%= f.check_box :oil_change %></td>
+      <td class="centered"><%= f.check_box :oil_change %></td>
       <td class="comments"><%= f.text_field :oil_change_comments %></td>
     </tr>
     <tr>
+      <td><%= f.label :oil_filter %></td>
+      <td class="centered"><%= f.check_box :oil_filter %></td>
+      <td class="comments"><%= f.text_field :oil_filter_comment %></td>
+    </tr>
+    <tr>
+      <th colspan=3 class="centered"><h3>Transmission Service</h3></td>
+    </tr>
+    <tr>
       <td><%= f.label :transmission_service %></td>
-      <td><%= f.check_box :transmission_service %></td>
+      <td class="centered"><%= f.check_box :transmission_service %></td>
       <td class="comments"><%= f.text_field :transmission_service_comments %></td>
-    </tr><tr>
+    </tr>
+    <tr>
+      <th colspan=3 class="centered"><h3>Tires & Brakes</h3></td>
+    </tr>
+    <tr>
       <td><%= f.label :brake_service %></td>
-      <td><%= f.check_box :brake_service %></td>
+      <td class="centered"><%= f.check_box :brake_service %></td>
       <td class="comments"><%= f.text_field :brake_service_comments %></td>
     </tr>
     <tr>
-      <td><%= f.label :tires_rotated %></td>
-      <td><%= f.check_box :tires_rotated %></td>
-      <td class="comments"><%= f.text_field :tires_rotated_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :battery %></td>
-      <td><%= f.check_box :battery %></td>
-      <td class="comments"><%= f.text_field :battery_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :air_filter %></td>
-      <td><%= f.check_box :air_filter %></td>
-      <td class="comments"><%= f.text_field :air_filter_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :fuel_filter %></td>
-      <td><%= f.check_box :fuel_filter %></td>
-      <td class="comments"><%= f.text_field :fuel_filter_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :tire_wear %></td>
-      <td><%= f.check_box :tire_wear %></td>
-      <td class="comments"><%= f.text_field :tire_wear_comment %></td>
-    </tr>
-    <tr>
       <td><%= f.label :emergency_brake_adjustment %></td>
-      <td><%= f.check_box :emergency_brake_adjustment %></td>
+      <td class="centered"><%= f.check_box :emergency_brake_adjustment %></td>
       <td class="comments"><%= f.text_field :emergency_brake_adjustment_comment %></td>
     </tr>
     <tr>
-      <td><%= f.label :exhaust %></td>
-      <td><%= f.check_box :exhaust %></td>
-      <td class="comments"><%= f.text_field :exhaust_comment %></td>
+      <td><%= f.label :tires_rotated %></td>
+      <td class="centered"><%= f.check_box :tires_rotated %></td>
+      <td class="comments"><%= f.text_field :tires_rotated_comment %></td>
     </tr>
     <tr>
-      <td><%= f.label :drive_belts %></td>
-      <td><%= f.check_box :drive_belts %></td>
-      <td class="comments"><%= f.text_field :drive_belts_comment %></td>
+      <td><%= f.label :tire_wear %></td>
+      <td class="centered"><%= f.check_box :tire_wear %></td>
+      <td class="comments"><%= f.text_field :tire_wear_comment %></td>
     </tr>
     <tr>
-      <td><%= f.label :radiator_coolant %></td>
-      <td><%= f.check_box :radiator_coolant %></td>
-      <td class="comments"><%= f.text_field :radiator_coolant_comment %></td>
+      <th colspan=3 class="centered"><h3>Electrical Components</h3></td>
     </tr>
     <tr>
-      <td><%= f.label :radiator_hoses %></td>
-      <td><%= f.check_box :radiator_hoses %></td>
-      <td class="comments"><%= f.text_field :radiator_hoses_comment %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :heater_hoses %></td>
-      <td><%= f.check_box :heater_hoses %></td>
-      <td class="comments"><%= f.text_field :heater_hoses_comment %></td>
+      <td><%= f.label :battery %></td>
+      <td class="centered"><%= f.check_box :battery %></td>
+      <td class="comments"><%= f.text_field :battery_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :battery_cables %></td>
-      <td><%= f.check_box :battery_cables %></td>
+      <td class="centered"><%= f.check_box :battery_cables %></td>
       <td class="comments"><%= f.text_field :battery_cables_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :spark_plug_wires %></td>
-      <td><%= f.check_box :spark_plug_wires %></td>
+      <td class="centered"><%= f.check_box :spark_plug_wires %></td>
       <td class="comments"><%= f.text_field :spark_plug_wires_comment %></td>
     </tr>
     <tr>
-      <td><%= f.label :oil_filter %></td>
-      <td><%= f.check_box :oil_filter %></td>
-      <td class="comments"><%= f.text_field :oil_filter_comment %></td>
+      <th colspan=3 class="centered"><h3>Radiator & AC</h3></td>
     </tr>
     <tr>
-      <td><%= f.label :wiper_blades %></td>
-      <td><%= f.check_box :wiper_blades %></td>
-      <td class="comments"><%= f.text_field :wiper_blades_comment %></td>
+      <td><%= f.label :radiator_coolant %></td>
+      <td class="centered"><%= f.check_box :radiator_coolant %></td>
+      <td class="comments"><%= f.text_field :radiator_coolant_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :radiator_hoses %></td>
+      <td class="centered"><%= f.check_box :radiator_hoses %></td>
+      <td class="comments"><%= f.text_field :radiator_hoses_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :heater_hoses %></td>
+      <td class="centered"><%= f.check_box :heater_hoses %></td>
+      <td class="comments"><%= f.text_field :heater_hoses_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :air_conditioner %></td>
+      <td class="centered"><%= f.check_box :air_conditioner %></td>
+      <td class="comments"><%= f.text_field :air_conditioner_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :air_filter %></td>
+      <td class="centered"><%= f.check_box :air_filter %></td>
+      <td class="comments"><%= f.text_field :air_filter_comment %></td>
+    </tr>
+    <tr>
+      <th colspan=3 class="centered"><h3>Mechanical Components</h3></td>
+    </tr>
+    <tr>
+      <td><%= f.label :fuel_filter %></td>
+      <td class="centered"><%= f.check_box :fuel_filter %></td>
+      <td class="comments"><%= f.text_field :fuel_filter_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :exhaust %></td>
+      <td class="centered"><%= f.check_box :exhaust %></td>
+      <td class="comments"><%= f.text_field :exhaust_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :drive_belts %></td>
+      <td class="centered"><%= f.check_box :drive_belts %></td>
+      <td class="comments"><%= f.text_field :drive_belts_comment %></td>
+    </tr>
+    <tr>
+      <th colspan=3 class="centered"><h3>Lights</h3></td>
     </tr>
     <tr>
       <td><%= f.label :headlights %></td>
-      <td><%= f.check_box :headlights %></td>
+      <td class="centered"><%= f.check_box :headlights %></td>
       <td class="comments"><%= f.text_field :headlights_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :brake_lights %></td>
-      <td><%= f.check_box :brake_lights %></td>
+      <td class="centered"><%= f.check_box :brake_lights %></td>
       <td class="comments"><%= f.text_field :brake_lights_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :tail_lights %></td>
-      <td><%= f.check_box :tail_lights %></td>
+      <td class="centered"><%= f.check_box :tail_lights %></td>
       <td class="comments"><%= f.text_field :tail_lights_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :turn_signals %></td>
-      <td><%= f.check_box :turn_signals %></td>
+      <td class="centered"><%= f.check_box :turn_signals %></td>
       <td class="comments"><%= f.text_field :turn_signals_comment %></td>
     </tr>
     <tr>
-      <td><%= f.label :air_conditioner %></td>
-      <td><%= f.check_box :air_conditioner %></td>
-      <td class="comments"><%= f.text_field :air_conditioner_comment %></td>
+      <th colspan=3 class="centered"><h3>Miscellaneous</h3></td>
     </tr>
     <tr>
-      <td><%= f.label :seatbelts %></td>
-      <td><%= f.check_box :seatbelts %></td>
-      <td class="comments"><%= f.text_field :seatbelts_comment %></td>
-    </tr>
+      <td><%= f.label :wiper_blades %></td>
+      <td class="centered"><%= f.check_box :wiper_blades %></td>
+      <td class="comments"><%= f.text_field :wiper_blades_comment %></td>
+    </tr>  
     <tr>
       <td><%= f.label :mirrors %></td>
-      <td><%= f.check_box :mirrors %></td>
+      <td class="centered"><%= f.check_box :mirrors %></td>
       <td class="comments"><%= f.text_field :mirrors_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :windshield %></td>
-      <td><%= f.check_box :windshield %></td>
+      <td class="centered"><%= f.check_box :windshield %></td>
       <td class="comments"><%= f.text_field :windshield_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :rear_window %></td>
-      <td><%= f.check_box :rear_window %></td>
+      <td class="centered"><%= f.check_box :rear_window %></td>
       <td class="comments"><%= f.text_field :rear_window_comment %></td>
     </tr>
     <tr>
       <td><%= f.label :side_windows %></td>
-      <td><%= f.check_box :side_windows %></td>
+      <td class="centered"><%= f.check_box :side_windows %></td>
       <td class="comments"><%= f.text_field :side_windows_comment %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :seatbelts %></td>
+      <td class="centered"><%= f.check_box :seatbelts %></td>
+      <td class="comments"><%= f.text_field :seatbelts_comment %></td>
     </tr>
   </table>
 

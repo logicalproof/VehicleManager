@@ -1,18 +1,23 @@
+<h1>List of Employees</h1>
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Email</th>
+      <th>Phone Number</th>
       <th>Assigned Vehicles</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.full_name %></td>
         <td><%= user.email %></td>
+        <td><%= user.phone_number %></td>
 		<td><%= assigned_vehicles(user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @users, :class => "apple_pagination" %> 
   

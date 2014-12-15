@@ -16,6 +16,9 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role                   :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  phone_number           :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -24,7 +27,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :vehicle_assignments
+  has_many :vehicle_assignments, dependent: :destroy
   has_many :vehicles, :through => :vehicle_assignments
   has_many :checklists
   has_many :mileage_entries, class_name: "Mileage"
@@ -43,6 +46,10 @@ class User < ActiveRecord::Base
 
   def driver?
   	self.role == "driver"
+  end
+
+  def full_name
+    return (first_name + " " + last_name)
   end
 
 end

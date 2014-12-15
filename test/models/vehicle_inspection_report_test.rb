@@ -52,7 +52,7 @@
 #  emergency_brake_adjustment         :boolean
 #  emergency_brake_adjustment_comment :string(255)
 #  user_id                            :string(255)
-#  mileage                            :integer
+#  mileage                            :integer          default(0)
 #  vehicle_service_record_id          :integer
 #  oil_change                         :boolean
 #  oil_change_comments                :string(255)
