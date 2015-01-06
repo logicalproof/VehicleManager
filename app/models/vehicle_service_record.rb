@@ -27,7 +27,7 @@ class VehicleServiceRecord < ActiveRecord::Base
   belongs_to :vehicle
   has_many :vehicle_inspection_reports
   
-  SERVICES = [:oil_change, :transmission_service, :brake_service, :tires_rotated, :oil_filter, :air_filter, :battery]
+  SERVICES = [:oil_change, :transmission_service, :brake_service, :tires_rotated, :air_filter, :battery]
 
   def check_for_inspection_data(report)
     SERVICES.each do |check|
@@ -57,16 +57,14 @@ class VehicleServiceRecord < ActiveRecord::Base
     case type
     when :oil_change
       return {:interval => 3, :mileage => 3000}
-    when :oil_filter
-      return {:interval => 12, :mileage => 6000}
     when :transmission_service
-      return {:interval => 12, :mileage => 25000}
+      return {:interval => 36, :mileage => 45000}
     when :air_filter
-      return {:interval => 12, :mileage => 12000}
+      return {:interval => 12, :mileage => 20000}
     when :brake_service
-      return {:interval => 12, :mileage => 12000}
+      return {:interval => 36, :mileage => 50000}
     when :battery
-      return {:interval => 24, :mileage => 36000}
+      return {:interval => 36, :mileage => 100000}
     when :tires_rotated
       return {:interval => 6, :mileage => 6000}
     else

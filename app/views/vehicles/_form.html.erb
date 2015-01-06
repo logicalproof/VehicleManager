@@ -30,14 +30,14 @@
   <div class="field">
     <%= f.label :year %><br>
     <%= select_year @vehicle.year.to_i, { :prompt => "Year", 
-                                            :start_year => Time.zone.now.year - 10, 
+                                            :start_year => Time.zone.now.year - 20, 
                                             :end_year => Time.zone.now.year + 1, 
                                             :field_name => :year, 
                                             :prefix => :vehicle }, {class: 'btn btn-default dropdown-toggle'} %>
   </div>
   <div class="field">
     <%= f.label :purchase_date %><br>
-    <%= f.date_select :purchase_date, {}, {class: 'btn btn-default dropdown-toggle'} %>
+    <%= f.date_select :purchase_date, {:start_year => Date.today.year - 20, :end_year => Date.today.year + 1}, {class: 'btn btn-default dropdown-toggle'} %>
   </div>
   <div class="actions">
     <%= f.submit 'Create Vehicle', class: 'btn btn-primary' %>

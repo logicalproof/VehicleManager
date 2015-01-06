@@ -6,7 +6,8 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all.order("id asc").paginate(:per_page => 15, :page => params[:page])
+    @vehicles = Vehicle.all.order("cast(number as int) asc").paginate(:per_page => 15, :page => params[:page]) 
+    #vehicle number is cast from string to int so that number is the sort field
   end
 
   # GET /vehicles/1

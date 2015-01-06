@@ -6,7 +6,6 @@
       <th>Report Date</th>
       <th>Mileage</th>
       <th>Oil Change</th>
-      <th>Oil Filter</th>
       <th>Tire Rotation</th>
       <th>Transmission Service</th>
       <th>Brake Hydraulic System</th>
@@ -28,7 +27,6 @@
           <td><%= link_to vir.created_at.strftime("%b %d, %Y"), vir %></td>
           <td><%= vir.mileage %></td>
           <td><%= serviced? vir.oil_change %></td>
-          <td><%= serviced? vir.oil_filter %></td>
           <td><%= serviced? vir.tires_rotated %></td>
           <td><%= serviced? vir.transmission_service %></td>
           <td><%= serviced? vir.brake_service %></td>
