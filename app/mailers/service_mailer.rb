@@ -34,7 +34,6 @@ class ServiceMailer < ActionMailer::Base
     @vehicle = vehicle
     @user = user
     @greeting = "Hi"
-    p @overdue_service
     mail to: user
   end
 end

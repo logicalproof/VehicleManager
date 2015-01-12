@@ -69,8 +69,11 @@
 class VehicleInspectionReport < ActiveRecord::Base
   belongs_to :vehicle_service_record
   belongs_to :user
+  validates :mileage, :numericality => { :greater_than_or_equal_to => 1 }
+  validates :mileage, :numericality => { :less_than_or_equal_to => 6000 }
   after_create :update_service_record
   after_create :update_mileage_from_service
+ 
   
 
   def update_mileage_from_service

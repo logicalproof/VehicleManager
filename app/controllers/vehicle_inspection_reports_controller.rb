@@ -25,13 +25,14 @@ class VehicleInspectionReportsController < ApplicationController
   # POST /vehicle_inspection_reports.json
   def create
     @vehicle_inspection_report = VehicleInspectionReport.new(vehicle_inspection_report_params)
+    p @vehicle_inspection_report
 
     respond_to do |format|
       if @vehicle_inspection_report.save
         format.html { redirect_to @vehicle_inspection_report, notice: 'Vehicle inspection report was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_inspection_report }
       else
-        format.html { render :new }
+        format.html { redirect_to new_vehicle_inspection_report_path(:vehicle_service_record_id => @vehicle_inspection_report.vehicle_service_record.id), :notice => @vehicle_inspection_report.errors.full_messages.join(', ') }
         format.json { render json: @vehicle_inspection_report.errors, status: :unprocessable_entity }
       end
     end
@@ -74,6 +75,6 @@ class VehicleInspectionReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_inspection_report_params
-      params.require(:vehicle_inspection_report).permit(:tire_wear, :tire_wear_comment, :emergency_brake_adjustment, :emergency_brake_adjustment_comment, :exhaust, :drive_belts, :radiator_coolant, :radiator_hoses, :heater_hoses, :battery_cables, :spark_plug_wires, :oil_filter, :air_filter, :fuel_filter, :wiper_blades, :headlights, :brake_lights, :tail_lights, :turn_signals, :air_conditioner, :seatbelts, :mirrors, :windshield, :rear_window, :side_windows, :exhaust_comment, :drive_belts_comment, :radiator_coolant_comment, :radiator_hoses_comment, :heater_hoses_comment, :battery_cables_comment, :spark_plug_wires_comment, :oil_filter_comment, :air_filter_comment, :fuel_filter_comment, :wiper_blades_comment, :headlights_comment, :brake_lights_comment, :tail_lights_comment, :turn_signals_comment, :air_conditioner_comment, :seatbelts_comment, :mirrors_comment, :windshield_comment, :rear_window_comment, :side_windows_comment, :mileage, :user_id, :vehicle_service_record_id, :oil_change, :oil_change_comments, :transmission_service, :transmission_service_comments, :brake_service, :brake_service_comments, :tires_rotated, :tires_rotated_comments, :battery, :battery_comments)
+      params.require(:vehicle_inspection_report).permit(:tire_wear, :tire_wear_comment, :emergency_brake_adjustment, :emergency_brake_adjustment_comment, :exhaust, :drive_belts, :radiator_coolant, :radiator_hoses, :heater_hoses, :battery_cables, :spark_plug_wires, :oil_filter, :air_filter, :fuel_filter, :wiper_blades, :headlights, :brake_lights, :tail_lights, :turn_signals, :air_conditioner, :seatbelts, :mirrors, :windshield, :rear_window, :side_windows, :exhaust_comment, :drive_belts_comment, :radiator_coolant_comment, :radiator_hoses_comment, :heater_hoses_comment, :battery_cables_comment, :spark_plug_wires_comment, :oil_filter_comment, :air_filter_comment, :fuel_filter_comment, :wiper_blades_comment, :headlights_comment, :brake_lights_comment, :tail_lights_comment, :turn_signals_comment, :air_conditioner_comment, :seatbelts_comment, :mirrors_comment, :windshield_comment, :rear_window_comment, :side_windows_comment, :mileage, :user_id, :vehicle_service_record_id, :oil_change, :oil_change_comments, :transmission_service, :transmission_service_comments, :brake_service, :brake_service_comments, :tires_rotated, :tires_rotated_comment, :battery, :battery_comment)
     end
 end

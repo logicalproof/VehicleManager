@@ -36,7 +36,7 @@ class Mileage < ActiveRecord::Base
       end
       
       check_for_upcoming_service.each do |service|
-        p service
+
         mileage_due = service[1][:due_mileage]
         due_date = service[1][:due_date]
         
