@@ -1,0 +1,40 @@
+<%= form_for(@vehicle_service_record) do |f| %>
+  <% if @vehicle_service_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle_service_record.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% @vehicle_service_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class="table table-bordered">
+    <tr>
+      <th>Service Type</th><th>Mileage</th><th>Date</th>
+    </tr>
+    <tr>
+      <td><%= f.label :oil_change %><br></td><td><%= f.number_field :oil_change_mileage %></td><td><%= f.text_field :oil_change %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :transmission_service %><br></td><td><%= f.number_field :transmission_service_mileage %></td><td><%= f.text_field :transmission_service %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :brake_service %><br></td><td><%= f.number_field :brake_service_mileage %></td><td><%= f.text_field :brake_service %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :tires_rotated %><br></td><td><%= f.number_field :tires_rotated_mileage %></td><td><%= f.text_field :tires_rotated %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :air_filter %><br></td><td><%= f.number_field :air_filter_mileage %></td><td><%= f.text_field :air_filter %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :battery %><br></td><td><%= f.number_field :battery_mileage %></td><td><%= f.text_field :battery %></td>
+    </tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'Create Vehicle', class: 'btn btn-primary' %>
+  </div>
+<% end %>

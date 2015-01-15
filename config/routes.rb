@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+
+  resources :vehicle_service_record, only: [:show, :edit, :update]
+
   get 'weekly_reports/past_reports'
   resources :weekly_reports
   get 'vehicle_inspection_reports/past_inspections'
