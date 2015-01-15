@@ -69,8 +69,6 @@
 class VehicleInspectionReport < ActiveRecord::Base
   belongs_to :vehicle_service_record
   belongs_to :user
-  validates :mileage, :numericality => { :greater_than_or_equal_to => 1 }
-  validates :mileage, :numericality => { :less_than_or_equal_to => 6000 }
   after_create :update_service_record
   after_create :update_mileage_from_service
  
@@ -79,9 +77,13 @@ class VehicleInspectionReport < ActiveRecord::Base
   def update_mileage_from_service
     vehicle = self.vehicle_service_record.vehicle
     if vehicle.current_mileage < self.mileage
-      vehicle.current_mileage = self.mileage
-      vehicle.user_id = self.user_id
-      vehicle.save
+      if (vehicle.current_mileage + 9999) < self.mileage
+        vehicle.current_mileage = self.mileage
+        vehicle.user_id = self.user_id
+        vehicle.save
+      else
+        errors.add :current_mileage, "inputed cannot be 9999 more than previous mileage."
+    end
     else
       errors.add :current_mileage, "inputed cannot be less than previous mileage."
     end

@@ -130,6 +130,7 @@ vehicles_array = [[19, "C2500", "1998"],
 technicians = %w(Anderson,Jeffery,602-695-4702
 Banwart,Larry,602-695-0034
 Berry,Jonathen,602-694-6442
+Bevilacqua,Tony,602-679-4618
 Bratcher,Jeff,602-653-0466
 Brennan,Joe,602-694-8598
 Brown,Michael,602-694-9020
