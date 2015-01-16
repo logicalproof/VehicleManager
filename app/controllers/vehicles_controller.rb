@@ -70,8 +70,13 @@ class VehiclesController < ApplicationController
 
   def overdue_services
     @overdue_services = []
+    @vehicles = []
     Vehicle.all.each do |vehicle|
       @overdue_services << vehicle.mileages.last.check_for_upcoming_service
+      unless vehicle.vehicle_service_record.check_for_upcoming_service.empty?
+        @vehicles << vehicle
+      else
+      end
     end
   end
 
