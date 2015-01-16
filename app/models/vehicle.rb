@@ -41,6 +41,10 @@ class Vehicle < ActiveRecord::Base
     end
   end
 
+  def self.search(query)
+    where("number like ?", "%#{query}%") 
+  end
+
 
 	protected
 

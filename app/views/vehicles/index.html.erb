@@ -1,11 +1,19 @@
-<div>
-  <h1>
+<div class=".col-md-12">
+  <h1 class="col-md-8">
     Vehicles
     <%= link_to new_vehicle_path, :class => "btn btn-default hoverable" do %>
       <%= 'New Vehicle' %>
       <div class='popup'>Add a new vehicle to the database!</div>
     <% end %>
   </h1>
+    <div class=".col-md-4">
+    
+    <%= form_tag(vehicles_path, :method => "get", id: "search-form", :class => "form-inline pull-right") do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Search for Vehicles", :class => "form-control .col-md-1" %>
+      <%= submit_tag "Find Vehicle", :name => nil, :class => "btn btn-default", :style => "display: none;" %>
+    <% end %>
+    </div>
+    
 </div>
 
 <table class="table table-bordered">
