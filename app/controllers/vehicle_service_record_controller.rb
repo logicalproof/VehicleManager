@@ -12,7 +12,7 @@ class VehicleServiceRecordController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle_service_record.update(vehicle_service_record_params)
-        format.html { redirect_to @vehicle_service_record, notice: 'Vehicle Service Record was successfully updated.' }
+        format.html { redirect_to @vehicle_service_record.vehicle, notice: 'Vehicle Service Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_service_record }
       else
         format.html { render :edit }

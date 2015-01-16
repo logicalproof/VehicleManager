@@ -10,31 +10,35 @@
       </ul>
     </div>
   <% end %>
+  <% options_hash = {:use_month_numbers => true, 
+        :use_two_digit_numbers => true,
+        :end_year => Date.today.year,
+        :include_blank => true} %>
   <table class="table table-bordered">
     <tr>
       <th>Service Type</th><th>Mileage</th><th>Date</th>
     </tr>
     <tr>
-      <td><%= f.label :oil_change %><br></td><td><%= f.number_field :oil_change_mileage %></td><td><%= f.text_field :oil_change %></td>
+      <td><%= f.label :oil_change %><br></td><td><%= f.number_field :oil_change_mileage %></td><td><%= f.date_select(:oil_change, options_hash) %></td>
     </tr>
     <tr>
-      <td><%= f.label :transmission_service %><br></td><td><%= f.number_field :transmission_service_mileage %></td><td><%= f.text_field :transmission_service %></td>
+      <td><%= f.label :transmission_service %><br></td><td><%= f.number_field :transmission_service_mileage %></td><td><%= f.date_select(:transmission_service, options_hash) %></td>
     </tr>
     <tr>
-      <td><%= f.label :brake_service %><br></td><td><%= f.number_field :brake_service_mileage %></td><td><%= f.text_field :brake_service %></td>
+      <td><%= f.label :brake_service %><br></td><td><%= f.number_field :brake_service_mileage %></td><td><%= f.date_select(:brake_service, options_hash) %></td>
     </tr>
     <tr>
-      <td><%= f.label :tires_rotated %><br></td><td><%= f.number_field :tires_rotated_mileage %></td><td><%= f.text_field :tires_rotated %></td>
+      <td><%= f.label :tires_rotated %><br></td><td><%= f.number_field :tires_rotated_mileage %></td><td><%= f.date_select(:tires_rotated, options_hash) %></td>
     </tr>
     <tr>
-      <td><%= f.label :air_filter %><br></td><td><%= f.number_field :air_filter_mileage %></td><td><%= f.text_field :air_filter %></td>
+      <td><%= f.label :air_filter %><br></td><td><%= f.number_field :air_filter_mileage %></td><td><%= f.date_select(:air_filter, options_hash) %></td>
     </tr>
     <tr>
-      <td><%= f.label :battery %><br></td><td><%= f.number_field :battery_mileage %></td><td><%= f.text_field :battery %></td>
+      <td><%= f.label :battery %><br></td><td><%= f.number_field :battery_mileage %></td><td><%= f.date_select(:battery, options_hash) %></td>
     </tr>
   </table>
 
   <div class="actions">
-    <%= f.submit 'Create Vehicle', class: 'btn btn-primary' %>
+    <%= f.submit 'Create Vehicle Service Record', class: 'btn btn-primary' %>
   </div>
 <% end %>

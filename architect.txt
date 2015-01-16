@@ -1,3 +1,6 @@
+NEED TO ADD VALIDATIONS TO SERVICE RECORD
+
+
 Supercedes:
   Clean and format all vehicle inspection item names (create a helper that removes the underscores)
   Format Vehicle Weekly checklist for mobile
