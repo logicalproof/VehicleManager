@@ -38,7 +38,7 @@ class WeeklyReportsController < ApplicationController
         format.html { redirect_to current_user, notice: "Weekly report was successfully created for Vehicle ##{@weekly_report.vehicle.number} with #{@weekly_report.vehicle.current_mileage} miles." }
         format.json { render :show, vehicle: :created, location: @weekly_report }
       else
-        format.html { redirect_to current_user, notice: "ERROR: Weekly Vehicle Report was NOT created!!"  }
+        format.html { redirect_to current_user, notice: "ERROR: Weekly Vehicle Report was NOT created!!\n #{@weekly_report.errors.full_messages[0] if @weekly_report.errors}"  }
         format.json { render json: @weekly_report.errors, vehicle: :unprocessable_entity }
       end
     end

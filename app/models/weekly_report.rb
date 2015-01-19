@@ -18,14 +18,18 @@
 #
 
 class WeeklyReport < ActiveRecord::Base
+
   belongs_to :user
   belongs_to :vehicle
+  validates :mileage, presence: true
   validates :mileage, :numericality => { :greater_than_or_equal_to => 0 }
-  validates :mileage, :numericality => { :less_than_or_equal_to => 3000 }
+  validate :check_for_mileage_errors
   after_create :update_mileage_from_service
   after_create :check_for_failures
+  
 
-  validates :mileage, presence: true
+
+  
   def update_mileage_from_service
     vehicle = self.vehicle
     if vehicle.current_mileage < self.mileage
@@ -68,7 +72,15 @@ class WeeklyReport < ActiveRecord::Base
         return "Problem Unspecified please see report and contact technician"
       end
     end
-
+  
+  private
+    def check_for_mileage_errors
+      vehicle = self.vehicle
+      if vehicle.current_mileage < self.mileage
+      else
+        errors.add :current_mileage, "inputed cannot be less than previous mileage."
+      end
+    end
   
 
 end
