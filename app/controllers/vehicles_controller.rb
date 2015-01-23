@@ -9,7 +9,8 @@ class VehiclesController < ApplicationController
     if params[:search]
       @vehicles = Vehicle.search(params[:search]).order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
     else
-      @vehicles = Vehicle.all.order("cast(number as int) asc").paginate(:per_page => 15, :page => params[:page]) 
+      @vehicles = Vehicle.all.order("reated_at DESC").paginate(:per_page => 15, :page => params[:page]) 
+      # @vehicles = Vehicle.all.order("cast(number as int) asc").paginate(:per_page => 15, :page => params[:page]) 
       #vehicle number is cast from string to int so that number is the sort field
     end
   end
