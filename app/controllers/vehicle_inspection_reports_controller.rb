@@ -25,14 +25,15 @@ class VehicleInspectionReportsController < ApplicationController
   # POST /vehicle_inspection_reports.json
   def create
     @vehicle_inspection_report = VehicleInspectionReport.new(vehicle_inspection_report_params)
-    p @vehicle_inspection_report
+    @inspection_record_id = @vehicle_inspection_report.vehicle_service_record.id
 
     respond_to do |format|
       if @vehicle_inspection_report.save
         format.html { redirect_to @vehicle_inspection_report, notice: 'Vehicle inspection report was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_inspection_report }
       else
-        format.html { redirect_to new_vehicle_inspection_report_path(:vehicle_service_record_id => @vehicle_inspection_report.vehicle_service_record.id), :notice => @vehicle_inspection_report.errors.full_messages.join(', ') }
+        format.html { render :action => "new", vehicle_service_record_id: @vehicle_inspection_report.vehicle_service_record.id, :notice => @vehicle_inspection_report.errors.full_messages.join(', ')}
+        # format.html { redirect_to new_vehicle_inspection_report_path(:vehicle_service_record_id => @vehicle_inspection_report.vehicle_service_record.id), :notice => @vehicle_inspection_report.errors.full_messages.join(', ') }
         format.json { render json: @vehicle_inspection_report.errors, status: :unprocessable_entity }
       end
     end

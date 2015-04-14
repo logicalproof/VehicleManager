@@ -1,4 +1,4 @@
-<h1>Vehicle Inspection Report for Vehicle #<%= VehicleServiceRecord.find(params[:vehicle_service_record_id]).vehicle.number %></h1>
+<h1>Vehicle Inspection Report for Vehicle #<%= VehicleServiceRecord.find(params[:vehicle_service_record_id] || @inspection_record_id).vehicle.number %></h1>
 
 <%= render 'form' %>
 

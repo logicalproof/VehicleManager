@@ -80,6 +80,9 @@ class WeeklyReport < ActiveRecord::Base
       else
         errors.add :current_mileage, "inputed cannot be less than previous mileage."
       end
+      if (self.mileage - vehicle.current_mileage) > 20000
+        errors.add :current_mileage, "inputed cannot be more than 20,000 miles please contact an administrator."
+      end
     end
   
 

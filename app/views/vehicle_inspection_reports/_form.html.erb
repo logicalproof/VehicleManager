@@ -14,7 +14,7 @@
       <%= f.label :mileage %>
       <%= f.number_field :mileage %>
   </div>
-  <%= f.hidden_field :vehicle_service_record_id, :value => params[:vehicle_service_record_id] %>
+  <%= f.hidden_field :vehicle_service_record_id, :value => @inspection_record_id || params[:vehicle_service_record_id] %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <table class="table table-condensed table-hover">

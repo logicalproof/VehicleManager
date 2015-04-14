@@ -71,26 +71,35 @@ class VehicleInspectionReport < ActiveRecord::Base
   belongs_to :user
   after_create :update_service_record
   after_create :update_mileage_from_service
+  validate :check_for_mileage_errors
  
   
 
   def update_mileage_from_service
     vehicle = self.vehicle_service_record.vehicle
     if vehicle.current_mileage < self.mileage
-      if (vehicle.current_mileage + 9999) < self.mileage
-        vehicle.current_mileage = self.mileage
-        vehicle.user_id = self.user_id
-        vehicle.save
-      else
-        errors.add :current_mileage, "inputed cannot be 9999 more than previous mileage."
-    end
-    else
-      errors.add :current_mileage, "inputed cannot be less than previous mileage."
+      vehicle.current_mileage = self.mileage
+      vehicle.user_id = self.user_id
+      vehicle.save
     end
   end
 
   def update_service_record
     self.vehicle_service_record.check_for_inspection_data(self)
+  end
+  
+  private 
+
+  def check_for_mileage_errors
+    vehicle = self.vehicle_service_record.vehicle
+    if vehicle.current_mileage < self.mileage
+    else
+      errors.add :current_mileage, "inputed cannot be less than previous mileage."
+    end
+    # This will need to be enabled later to ensure there is no fat fingering
+    # if (self.mileage - vehicle.current_mileage) > 20000
+    #   errors.add :current_mileage, "inputed cannot be more than 20,000 miles please contact an administrator."
+    # end
   end
 
 

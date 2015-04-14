@@ -3,10 +3,10 @@ new_data = [["Veh #", "Vehicle", "VIN #", "Plate #", "Gross Veh.Wt."], ["19", "1
 new_data.each do |data|
   if Vehicle.find_by_number(data[0])
     vehicle = Vehicle.find_by_number(data[0])
-    vehicle.vin = data[2]
-    vehicle.plate = data[3]
+    vehicle.vin_number = data[2]
+    vehicle.plate_number = data[3]
     vehicle.model = data[1]
-    vehicle.gross = data[4]
+    vehicle.gross_weight = data[4]
     vehicle.save
   end
 end
