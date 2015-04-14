@@ -53,25 +53,42 @@ class VehicleServiceRecord < ActiveRecord::Base
     self.save
   end
 
-  def service_parameters(type)
-    case type
-    when :oil_change
-      return {:interval => 3, :mileage => 3000}
-    when :transmission_service
-      return {:interval => 36, :mileage => 45000}
-    when :air_filter
-      return {:interval => 12, :mileage => 20000}
-    when :brake_service
-      return {:interval => 36, :mileage => 50000}
-    when :battery
-      return {:interval => 36, :mileage => 100000}
-    when :tires_rotated
-      return {:interval => 6, :mileage => 6000}
-    else
-      puts "You just making it up!"
+  # def service_parameters(type)
+  #   case type
+  #   when :oil_change
+  #     return {:interval => 3, :mileage => 3000}
+  #   when :transmission_service
+  #     return {:interval => 36, :mileage => 45000}
+  #   when :air_filter
+  #     return {:interval => 12, :mileage => 20000}
+  #   when :brake_service
+  #     return {:interval => 36, :mileage => 50000}
+  #   when :battery
+  #     return {:interval => 36, :mileage => 100000}
+  #   when :tires_rotated
+  #     return {:interval => 6, :mileage => 6000}
+  #   else
+  #     puts "You just making it up!"
+  #   end
+  # end
+    def service_parameters(type)
+      case type
+      when :oil_change
+        return {:interval => 6, :mileage => 3000}
+      when :transmission_service
+        return {:interval => 24, :mileage => 45000}
+      when :air_filter
+        return {:interval => 12, :mileage => 20000}
+      when :brake_service
+        return {:interval => 48, :mileage => 100000}
+      when :battery
+        return {:interval => 36, :mileage => 100000}
+      when :tires_rotated
+        return {:interval => 12, :mileage => 12000}
+      else
+        puts "You just making it up!"
+      end
     end
-  end
-
   def check_for_upcoming_service
     upcoming_service = {}
     SERVICES.each do |check|
