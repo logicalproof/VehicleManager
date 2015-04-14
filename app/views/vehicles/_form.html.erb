@@ -40,6 +40,10 @@
     <%= f.text_field :gross_weight %>
   </div>
   <div class="field">
+    <%= f.label :gas_card %><br>
+    <%= f.text_field :gas_card %>
+  </div>
+  <div class="field">
     <%= f.label :year %><br>
     <%= select_year @vehicle.year.to_i, { :prompt => "Year", 
                                             :start_year => Time.zone.now.year - 20, 

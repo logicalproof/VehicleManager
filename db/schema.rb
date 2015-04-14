@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413185116) do
+ActiveRecord::Schema.define(version: 20150414172651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150413185116) do
     t.string   "plate_number"
     t.string   "gross_weight"
     t.string   "vin_number"
+    t.string   "gas_card"
   end
 
   create_table "weekly_reports", force: true do |t|

@@ -102,6 +102,7 @@ class VehiclesController < ApplicationController
                                       :sold_date,
                                       :plate_number,
                                       :vin_number,
-                                      :gross_weight)
+                                      :gross_weight,
+                                      :gas_card)
     end
 end
