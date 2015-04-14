@@ -28,6 +28,18 @@
     <%= f.text_field :model %>
   </div>
   <div class="field">
+    <%= f.label :plate_number %><br>
+    <%= f.text_field :plate_number %>
+  </div>
+  <div class="field">
+    <%= f.label :vin_number %><br>
+    <%= f.text_field :vin_number %>
+  </div>
+  <div class="field">
+    <%= f.label :gross_weight %><br>
+    <%= f.text_field :gross_weight %>
+  </div>
+  <div class="field">
     <%= f.label :year %><br>
     <%= select_year @vehicle.year.to_i, { :prompt => "Year", 
                                             :start_year => Time.zone.now.year - 20, 

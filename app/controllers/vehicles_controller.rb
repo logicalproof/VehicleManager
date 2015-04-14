@@ -99,6 +99,9 @@ class VehiclesController < ApplicationController
                                       :year, 
                                       :purchase_date,
                                       :sold,
-                                      :sold_date)
+                                      :sold_date,
+                                      :plate_number,
+                                      :vin_number,
+                                      :gross_weight)
     end
 end

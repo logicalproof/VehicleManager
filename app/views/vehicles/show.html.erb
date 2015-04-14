@@ -16,6 +16,15 @@
           <strong>Model: </strong><%= @vehicle.model %>
         </li>
         <li>
+          <strong>Gross Weight: </strong><%= @vehicle.gross_weight || "N/A" %>
+        </li>
+        <li>
+          <strong>VIN#: </strong><%= @vehicle.vin_number || "N/A" %>
+        </li>
+        <li>
+          <strong>License Plate: </strong><%= @vehicle.plate_number || "N/A" %>
+        </li>
+        <li>
           <strong>Year: </strong><%= @vehicle.year %>
         </li>
         <li>
