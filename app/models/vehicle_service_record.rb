@@ -31,21 +31,14 @@ class VehicleServiceRecord < ActiveRecord::Base
 
   def check_for_inspection_data(report)
     SERVICES.each do |check|
-      puts check.to_s + ": " + "#{report[check]}"
       if report[check] == true
         if self.method(check).call != nil
-          p report.created_at
           if self.method("#{check.to_s}".to_sym).call < report.created_at
-            p self.method("#{check.to_s}_mileage".to_sym).call
             self.method("#{check.to_s}_mileage=".to_sym).call report.mileage
-            p self.method("#{check.to_s}_mileage".to_sym).call
             self.method("#{check.to_s}=".to_sym).call report.created_at
           end
         else
-          p report.created_at
-          p self.method("#{check.to_s}_mileage".to_sym).call
           self.method("#{check.to_s}_mileage=".to_sym).call report.mileage
-          p self.method("#{check.to_s}_mileage".to_sym).call
           self.method("#{check.to_s}=".to_sym).call report.created_at
         end
       end
@@ -74,7 +67,11 @@ class VehicleServiceRecord < ActiveRecord::Base
     def service_parameters(type)
       case type
       when :oil_change
-        return {:interval => 6, :mileage => 3000}
+        if self.vehicle.synthetic?
+          return {:interval => 6, :mileage => 6000}
+        else
+          return {:interval => 6, :mileage => 3000}
+        end
       when :transmission_service
         return {:interval => 24, :mileage => 45000}
       when :air_filter

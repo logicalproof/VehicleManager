@@ -11,7 +11,7 @@
     <td>Engine Oil</td>
     <td><%= vsr.oil_change || "N/A" %></td>
     <td><%= vsr.oil_change_mileage || "N/A" %></td>
-    <td><%= @vehicle_stats[:oil_change][:due_mileage] %></td>
+    <td><%= @vehicle_stats[:oil_change][:due_mileage].to_s + (@vehicle.synthetic ? " (Synthetic Oil)" : "" )%></td>
     <td><%= @vehicle_stats[:oil_change][:due_date] %></td>
   </tr>
   <tr>

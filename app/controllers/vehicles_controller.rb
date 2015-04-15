@@ -103,6 +103,7 @@ class VehiclesController < ApplicationController
                                       :plate_number,
                                       :vin_number,
                                       :gross_weight,
-                                      :gas_card)
+                                      :gas_card,
+                                      :synthetic)
     end
 end

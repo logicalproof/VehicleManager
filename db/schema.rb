@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414172651) do
+ActiveRecord::Schema.define(version: 20150415162738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,21 +135,21 @@ ActiveRecord::Schema.define(version: 20150414172651) do
   add_index "vehicle_inspection_reports", ["vehicle_service_record_id"], name: "index_vehicle_inspection_reports_on_vehicle_service_record_id", using: :btree
 
   create_table "vehicle_service_records", force: true do |t|
-    t.integer  "oil_change_mileage",           default: 0
-    t.integer  "brake_service_mileage",        default: 0
-    t.integer  "transmission_service_mileage", default: 0
-    t.integer  "oil_filter_mileage",           default: 0
-    t.integer  "air_filter_mileage",           default: 0
-    t.integer  "battery_mileage",              default: 0
-    t.integer  "tires_rotated_mileage",        default: 0
-    t.date     "oil_change",                   default: '2015-04-13'
-    t.date     "brake_service",                default: '2015-04-13'
-    t.date     "transmission_service",         default: '2015-04-13'
-    t.date     "oil_filter",                   default: '2015-04-13'
-    t.date     "air_filter",                   default: '2015-04-13'
-    t.date     "battery",                      default: '2015-04-13'
-    t.date     "tires_rotated",                default: '2015-04-13'
-    t.date     "last_inspection_date",         default: '2015-04-13'
+    t.integer  "oil_change_mileage"
+    t.integer  "brake_service_mileage"
+    t.integer  "transmission_service_mileage"
+    t.integer  "oil_filter_mileage"
+    t.integer  "air_filter_mileage"
+    t.integer  "battery_mileage"
+    t.integer  "tires_rotated_mileage"
+    t.date     "oil_change"
+    t.date     "brake_service"
+    t.date     "transmission_service"
+    t.date     "oil_filter"
+    t.date     "air_filter"
+    t.date     "battery"
+    t.date     "tires_rotated"
+    t.date     "last_inspection_date"
     t.integer  "vehicle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(version: 20150414172651) do
     t.string   "gross_weight"
     t.string   "vin_number"
     t.string   "gas_card"
+    t.boolean  "synthetic",       default: false
   end
 
   create_table "weekly_reports", force: true do |t|

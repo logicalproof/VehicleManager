@@ -1,12 +1,12 @@
 <%= bootstrap_form_for(@weekly_report) do |f| %>
 
   <div class="col-xs-12">
-    <%= f.check_box :appearance, label: "Appearance Checked" %>
-    <%= f.check_box :tires, label: "Tire Wear & Pressure Checked" %>
-    <%= f.check_box :lights, label: "Lights Checked" %>
-    <%= f.check_box :mechanical, label: "Mechanical Components Checked" %>
-    <%= f.check_box :electrical, label: "Electrical Components Checked" %>
-    <%= f.check_box :fluid_levels, label: "Fluid Levels Checked" %>
+    <%= f.check_box :appearance, label: "Appearance Passed Check" %>
+    <%= f.check_box :tires, label: "Tire Wear & Pressure Passed Check" %>
+    <%= f.check_box :lights, label: "Lights Passed Check" %>
+    <%= f.check_box :mechanical, label: "Mechanical Components Passed Check" %>
+    <%= f.check_box :electrical, label: "Electrical Components Passed Check" %>
+    <%= f.check_box :fluid_levels, label: "Fluid Levels Passed Check" %>
     <%= f.number_field :mileage, help: "Cannot be lower than #{@vehicle.current_mileage}" %>
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :vehicle_id, value: @vehicle.id %>
