@@ -4,7 +4,7 @@ class VehicleInspectionReportsController < ApplicationController
   # GET /vehicle_inspection_reports
   # GET /vehicle_inspection_reports.json
   def index
-    @vehicle_inspection_reports = VehicleInspectionReport.all.paginate(:per_page => 15, :page => params[:page])
+    @vehicle_inspection_reports = VehicleInspectionReport.all.includes(:vehicle_service_record, :user).paginate(:per_page => 15, :page => params[:page])
   end
 
   # GET /vehicle_inspection_reports/1

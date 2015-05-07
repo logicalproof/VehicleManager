@@ -7,7 +7,7 @@ class WeeklyReportsController < ApplicationController
   # GET /weekly_reports
   # GET /weekly_reports.json
   def index
-    @weekly_reports = WeeklyReport.all.paginate(:per_page => 15, :page => params[:page])
+    @weekly_reports = WeeklyReport.all.includes(:user, :vehicle).paginate(:per_page => 15, :page => params[:page])
   end
 
   # GET /weekly_reports/1

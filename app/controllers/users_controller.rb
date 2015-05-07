@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
 	def index
-		@users = User.all.order(:first_name).paginate(:per_page => 15, :page => params[:page])
+		@users = User.all.includes(:vehicles).order(:first_name).paginate(:per_page => 15, :page => params[:page])
 	end
 
 	def show

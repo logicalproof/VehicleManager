@@ -9,7 +9,7 @@ class VehiclesController < ApplicationController
     if params[:search]
       @vehicles = Vehicle.search(params[:search]).order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
     else
-      @vehicles = Vehicle.all.order("created_at DESC").paginate(:per_page => 15, :page => params[:page]) 
+      @vehicles = Vehicle.all.order("created_at DESC").includes(:user).paginate(:per_page => 15, :page => params[:page]) 
       # @vehicles = Vehicle.all.order("cast(number as int) asc").paginate(:per_page => 15, :page => params[:page]) 
       #vehicle number is cast from string to int so that number is the sort field
     end
@@ -72,7 +72,7 @@ class VehiclesController < ApplicationController
   def overdue_services
     @overdue_services = []
     @vehicles = []
-    Vehicle.all.each do |vehicle|
+    Vehicle.all.includes(:user, :mileages, :vehicle_inspection_reports).each do |vehicle|
       @overdue_services << vehicle.mileages.last.check_for_upcoming_service
       unless vehicle.vehicle_service_record.check_for_upcoming_service.empty?
         @vehicles << vehicle
